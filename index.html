@@ -781,7 +781,7 @@
     .hide-toggle:hover { border-color: var(--v); color: var(--v); }
     .hide-toggle.active { background: var(--v); color: #fff; border-color: var(--v); }
 
-    #vocabulary.hide-en tbody td:nth-child(2) {
+    #vocabulary.hide-en .en-table tbody td:nth-child(2) {
       color: transparent;
       background: var(--border-lt);
       border-radius: 4px;
@@ -789,7 +789,7 @@
       user-select: none;
       transition: color 0.2s, background 0.2s;
     }
-    #vocabulary.hide-en tbody tr.peeked td:nth-child(2) {
+    #vocabulary.hide-en .en-table tbody tr.peeked td:nth-child(2) {
       color: var(--text) !important;
       background: var(--v-bg);
     }
@@ -2655,6 +2655,14 @@ if (window.speechSynthesis) {
     firstTd.appendChild(btn);
   });
 }
+
+// Mark only tables whose 2nd header is actually "English"
+document.querySelectorAll('#vocabulary table').forEach(table => {
+  const th2 = table.querySelector('thead th:nth-child(2)');
+  if (th2 && th2.textContent.trim().toLowerCase().includes('english')) {
+    table.classList.add('en-table');
+  }
+});
 
 // ── Feature 3: Hide English translations (vocabulary) ──
 const hideToggle = document.getElementById('hide-toggle');
