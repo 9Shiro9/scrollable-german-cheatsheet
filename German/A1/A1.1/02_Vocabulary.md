@@ -1,80 +1,368 @@
-# German A1.1 — Vocabulary (Vokabular)
-
-> All nouns are listed with their article: **der** (masculine), **die** (feminine), **das** (neuter), and plural form.
+# Vocabulary by Topic — A1.1
 
 ---
 
-## 1. Greetings & Farewells (Begrüßungen & Abschiede)
-
-| German | English | Notes |
-|--------|---------|-------|
-| Hallo | Hello | Informal, any time |
-| Guten Morgen | Good morning | Until ~11:00 |
-| Guten Tag | Good day | ~11:00–18:00 |
-| Guten Abend | Good evening | After ~18:00 |
-| Gute Nacht | Good night | Before sleep |
-| Tschüss / Tschau | Bye | Informal |
-| Auf Wiedersehen | Goodbye | Formal |
-| Bis bald | See you soon | |
-| Bis morgen | See you tomorrow | |
-| Bis später | See you later | |
-
-**Asking and responding how you are:**
+## Lektion 1 — Greetings & Introductions
 
 | German | English |
 |--------|---------|
-| Wie geht es Ihnen? | How are you? (formal) |
-| Wie geht es dir? / Wie geht's? | How are you? (informal) |
-| Mir geht es gut. | I am doing well. |
-| Mir geht es sehr gut. | I am doing very well. |
-| Mir geht es nicht so gut. | I am not doing so well. |
-| Danke, und Ihnen? | Thank you, and you? (formal) |
-| Danke, und dir? | Thank you, and you? (informal) |
-
----
-
-## 2. Introductions (Vorstellung)
-
-| German | English |
-|--------|---------|
-| Ich heiße ... | My name is ... |
-| Ich bin ... | I am ... |
-| Mein Name ist ... | My name is ... |
-| Ich komme aus ... | I come from ... |
-| Ich wohne in ... | I live in ... |
-| Ich bin ... Jahre alt. | I am ... years old. |
-| Ich bin Student/Studentin. | I am a student. (m/f) |
-| Was ist Ihr Name? | What is your name? (formal) |
+| Hallo / Hi | Hello / Hi |
+| Guten Morgen | Good morning |
+| Guten Tag | Good day / Hello |
+| Guten Abend | Good evening |
+| Gute Nacht | Good night |
+| Auf Wiedersehen | Goodbye (formal) |
+| Tschüss / Tschau | Bye (informal) |
+| Wie heißen Sie? | What is your name? (formal) |
 | Wie heißt du? | What is your name? (informal) |
-| Woher kommen Sie? | Where are you from? (formal) |
-| Woher kommst du? | Where are you from? (informal) |
-| Freut mich! | Nice to meet you! |
-| Sehr angenehm. | Very pleased to meet you. |
+| Ich heiße ... | My name is ... |
+| Wie geht es Ihnen? | How are you? (formal) |
+| Wie geht's? | How are you? (informal) |
+| Danke, gut. | Fine, thanks. |
+| Und Ihnen/dir? | And you? |
+| Bitte | Please / You're welcome |
+| Danke (schön) | Thank you (very much) |
+| Entschuldigung | Excuse me / Sorry |
 
 ---
 
-## 3. Numbers (Zahlen)
+## Lektion 2 — Personal Information
 
-### Cardinal Numbers (Grundzahlen)
+### Countries & Nationalities
 
-| Number | German | Number | German |
-|--------|--------|--------|--------|
-| 0 | null | 11 | elf |
-| 1 | eins | 12 | zwölf |
-| 2 | zwei | 13 | dreizehn |
-| 3 | drei | 14 | vierzehn |
-| 4 | vier | 15 | fünfzehn |
-| 5 | fünf | 16 | sechzehn |
-| 6 | sechs | 17 | siebzehn |
-| 7 | sieben | 18 | achtzehn |
-| 8 | acht | 19 | neunzehn |
-| 9 | neun | 20 | zwanzig |
-| 10 | zehn | 30 | dreißig |
+| Land (Country) | Nationalität (m/f) | Sprache |
+|---------------|-------------------|---------|
+| Deutschland | Deutscher / Deutsche | Deutsch |
+| Österreich | Österreicher / Österreicherin | Deutsch |
+| die Schweiz | Schweizer / Schweizerin | Deutsch |
+| Frankreich | Franzose / Französin | Französisch |
+| Italien | Italiener / Italienerin | Italienisch |
+| Spanien | Spanier / Spanierin | Spanisch |
+| England / Großbritannien | Engländer / Engländerin | Englisch |
+| die USA | Amerikaner / Amerikanerin | Englisch |
+| Japan | Japaner / Japanerin | Japanisch |
+| China | Chinese / Chinesin | Chinesisch |
+| Myanmar | Myanmare / Myanmarerin | Burmesisch |
 
-| Number | German |
-|--------|--------|
+### Professions
+
+| German | English | Gender (m/f) |
+|--------|---------|--------------|
+| der Arzt / die Ärztin | doctor | m/f |
+| der Lehrer / die Lehrerin | teacher | m/f |
+| der Student / die Studentin | student (university) | m/f |
+| der Schüler / die Schülerin | student (school) | m/f |
+| der Ingenieur / die Ingenieurin | engineer | m/f |
+| der Informatiker / die Informatikerin | IT specialist | m/f |
+| der Kaufmann / die Kauffrau | businessman/woman | m/f |
+| der Koch / die Köchin | cook/chef | m/f |
+| der Kellner / die Kellnerin | waiter/waitress | m/f |
+| der Sekretär / die Sekretärin | secretary | m/f |
+| der Rentner / die Rentnerin | retiree/pensioner | m/f |
+| arbeitslos | unemployed | — |
+
+### Key Phrases
+| German | English |
+|--------|---------|
+| Woher kommen Sie / kommst du? | Where are you from? |
+| Ich komme aus ... | I come from ... |
+| Wo wohnen Sie / wohnst du? | Where do you live? |
+| Ich wohne in ... | I live in ... |
+| Was sind Sie von Beruf? | What is your profession? |
+| Ich bin ... (von Beruf). | I am a ... (by profession). |
+| Welche Sprachen sprechen Sie? | What languages do you speak? |
+| Ich spreche ... | I speak ... |
+
+---
+
+## Lektion 3 — Family
+
+| German | English |
+|--------|---------|
+| die Familie | family |
+| der Mann | husband / man |
+| die Frau | wife / woman |
+| der Vater (Papa) | father (dad) |
+| die Mutter (Mama) | mother (mum) |
+| der Sohn | son |
+| die Tochter | daughter |
+| der Bruder | brother |
+| die Schwester | sister |
+| der Großvater (Opa) | grandfather (grandpa) |
+| die Großmutter (Oma) | grandmother (grandma) |
+| der Onkel | uncle |
+| die Tante | aunt |
+| der Cousin | cousin (male) |
+| die Cousine | cousin (female) |
+| das Kind / die Kinder | child / children |
+| das Baby | baby |
+| ledig | single |
+| verheiratet | married |
+| geschieden | divorced |
+| verwitwet | widowed |
+
+---
+
+## Lektion 4 — Food & Drinks
+
+### Food
+
+| German | English | Artikel |
+|--------|---------|---------|
+| das Brot | bread | das |
+| die Brötchen (pl.) | bread rolls | die |
+| die Butter | butter | die |
+| der Käse | cheese | der |
+| der Schinken | ham | der |
+| das Ei / die Eier | egg / eggs | das |
+| die Wurst | sausage | die |
+| der Joghurt | yoghurt | der |
+| die Milch | milk | die |
+| der Kaffee | coffee | der |
+| der Tee | tea | der |
+| der Saft | juice | der |
+| das Wasser | water | das |
+| das Bier | beer | das |
+| der Wein | wine | der |
+| der Apfel | apple | der |
+| die Banane | banana | die |
+| die Tomate | tomato | die |
+| die Kartoffel | potato | die |
+| das Fleisch | meat | das |
+| der Fisch | fish | der |
+| die Nudeln (pl.) | pasta/noodles | die |
+| der Reis | rice | der |
+| das Gemüse | vegetables | das |
+| das Obst | fruit | das |
+| die Suppe | soup | die |
+| der Kuchen | cake | der |
+
+### At the Shop / Restaurant
+
+| German | English |
+|--------|---------|
+| Was kostet ...? | How much does ... cost? |
+| Das kostet ... Euro. | That costs ... euros. |
+| Ich nehme ... | I'll take / have ... |
+| Ich möchte ... | I would like ... |
+| Haben Sie ...? | Do you have ...? |
+| Alles zusammen? | All together (bill)? |
+| der Supermarkt | supermarket |
+| das Geschäft | shop |
+| der Markt | market |
+| die Kasse | checkout / cash register |
+
+---
+
+## Lektion 5 — Home & Furniture
+
+### Rooms
+
+| German | English | Artikel |
+|--------|---------|---------|
+| die Wohnung | apartment/flat | die |
+| das Haus | house | das |
+| das Zimmer | room | das |
+| das Wohnzimmer | living room | das |
+| das Schlafzimmer | bedroom | das |
+| das Kinderzimmer | children's room | das |
+| das Arbeitszimmer | study/office | das |
+| die Küche | kitchen | die |
+| das Badezimmer / das Bad | bathroom | das |
+| die Toilette / das WC | toilet | die/das |
+| der Flur | hallway | der |
+| der Balkon | balcony | der |
+| der Keller | cellar/basement | der |
+| der Garten | garden | der |
+
+### Furniture & Objects
+
+| German | English | Artikel |
+|--------|---------|---------|
+| das Sofa / die Couch | sofa/couch | das/die |
+| der Sessel | armchair | der |
+| der Tisch | table | der |
+| der Stuhl | chair | der |
+| das Bett | bed | das |
+| der Schrank | wardrobe/cabinet | der |
+| das Regal | shelf | das |
+| die Lampe | lamp | die |
+| der Fernseher | television | der |
+| der Computer | computer | der |
+| das Fenster | window | das |
+| die Tür | door | die |
+| die Wand | wall | die |
+| der Boden | floor | der |
+| die Decke | ceiling | die |
+
+### Colors
+
+| German | English |
+|--------|---------|
+| rot | red |
+| blau | blue |
+| grün | green |
+| gelb | yellow |
+| schwarz | black |
+| weiß | white |
+| grau | grey |
+| braun | brown |
+| orange | orange |
+| rosa / pink | pink |
+| lila / violett | purple/violet |
+| hell- | light- (hellblau = light blue) |
+| dunkel- | dark- (dunkelgrün = dark green) |
+
+---
+
+## Lektion 6 — Daily Routine & Time
+
+### Time Expressions
+
+| German | English |
+|--------|---------|
+| Wie viel Uhr ist es? | What time is it? |
+| Es ist ... Uhr. | It is ... o'clock. |
+| Viertel nach ... | quarter past ... |
+| halb ... | half past (the previous hour) |
+| Viertel vor ... | quarter to ... |
+| morgens | in the morning |
+| mittags | at noon |
+| nachmittags | in the afternoon |
+| abends | in the evening |
+| nachts | at night |
+| heute | today |
+| morgen | tomorrow |
+| gestern | yesterday |
+| jeden Tag | every day |
+| manchmal | sometimes |
+| oft | often |
+| immer | always |
+| nie | never |
+
+### Days of the Week
+
+| German | English |
+|--------|---------|
+| Montag | Monday |
+| Dienstag | Tuesday |
+| Mittwoch | Wednesday |
+| Donnerstag | Thursday |
+| Freitag | Friday |
+| Samstag / Sonnabend | Saturday |
+| Sonntag | Sunday |
+| am Montag | on Monday |
+| am Wochenende | at the weekend |
+
+### Months (Monate)
+
+| German | English |
+|--------|---------|
+| Januar | January |
+| Februar | February |
+| März | March |
+| April | April |
+| Mai | May |
+| Juni | June |
+| Juli | July |
+| August | August |
+| September | September |
+| Oktober | October |
+| November | November |
+| Dezember | December |
+| im Januar | in January |
+| Welcher Monat ist es? | What month is it? |
+
+### Seasons (Jahreszeiten)
+
+| German | English |
+|--------|---------|
+| der Frühling | spring |
+| der Sommer | summer |
+| der Herbst | autumn / fall |
+| der Winter | winter |
+| im Frühling | in spring |
+| im Sommer | in summer |
+| im Herbst | in autumn |
+| im Winter | in winter |
+
+### Daily Activities
+
+| German | English |
+|--------|---------|
+| aufstehen | to get up |
+| aufwachen | to wake up |
+| sich duschen / duschen | to shower |
+| frühstücken | to have breakfast |
+| zur Arbeit gehen / fahren | to go to work |
+| anfangen | to start / begin |
+| zu Mittag essen | to have lunch |
+| nach Hause kommen | to come home |
+| Abendessen kochen | to cook dinner |
+| fernsehen | to watch TV |
+| schlafen gehen | to go to sleep |
+| einschlafen | to fall asleep |
+
+---
+
+## Lektion 7 — Hobbies & Free Time
+
+| German | English |
+|--------|---------|
+| das Hobby / die Hobbys | hobby / hobbies |
+| die Freizeit | free time |
+| Sport machen / treiben | to do sports |
+| Fußball spielen | to play football |
+| Tennis spielen | to play tennis |
+| schwimmen | to swim |
+| Rad fahren | to cycle |
+| laufen / joggen | to run / jog |
+| tanzen | to dance |
+| singen | to sing |
+| Musik hören | to listen to music |
+| ein Instrument spielen | to play an instrument |
+| lesen | to read |
+| schreiben | to write |
+| malen / zeichnen | to paint / draw |
+| fotografieren | to take photos |
+| kochen | to cook |
+| reisen | to travel |
+| ins Kino gehen | to go to the cinema |
+| ins Theater gehen | to go to the theatre |
+| ins Museum gehen | to go to the museum |
+| in die Disco gehen | to go to the disco |
+| Freunde treffen | to meet friends |
+| spazieren gehen | to go for a walk |
+
+---
+
+## Numbers
+
+| Zahl | Deutsch |
+|------|---------|
+| 0 | null |
+| 1 | eins |
+| 2 | zwei |
+| 3 | drei |
+| 4 | vier |
+| 5 | fünf |
+| 6 | sechs |
+| 7 | sieben |
+| 8 | acht |
+| 9 | neun |
+| 10 | zehn |
+| 11 | elf |
+| 12 | zwölf |
+| 13 | dreizehn |
+| 14 | vierzehn |
+| 15 | fünfzehn |
+| 16 | sechzehn |
+| 17 | siebzehn |
+| 18 | achtzehn |
+| 19 | neunzehn |
+| 20 | zwanzig |
 | 21 | einundzwanzig |
-| 35 | fünfunddreißig |
+| 30 | dreißig |
 | 40 | vierzig |
 | 50 | fünfzig |
 | 60 | sechzig |
@@ -83,339 +371,342 @@
 | 90 | neunzig |
 | 100 | hundert |
 | 1000 | tausend |
+| 1.000.000 | eine Million |
 
-> **Pattern for 21–99:** ones + "und" + tens → `drei` + `und` + `zwanzig` = `dreiundzwanzig` (23)
-
-### Ordinal Numbers (Ordinalzahlen) — A1 basics
+### Ordinal Numbers (Ordinalzahlen)
 
 | German | English |
 |--------|---------|
-| der erste | the first |
-| der zweite | the second |
-| der dritte | the third |
-| der vierte | the fourth |
-| der fünfte | the fifth |
-| der zehnte | the tenth |
-| der zwanzigste | the twentieth |
+| erste(r/s) | first |
+| zweite(r/s) | second |
+| dritte(r/s) | third |
+| vierte(r/s) | fourth |
+| fünfte(r/s) | fifth |
+| sechste(r/s) | sixth |
+| siebte(r/s) | seventh |
+| achte(r/s) | eighth |
+| neunte(r/s) | ninth |
+| zehnte(r/s) | tenth |
+| zwanzigste(r/s) | twentieth |
+| hundertste(r/s) | hundredth |
+
+> Used for dates: *am ersten Januar* = on the 1st of January. Ask: *Der Wievielte ist heute?* — What is today's date?
 
 ---
 
-## 4. Days, Months & Time (Tage, Monate & Zeit)
+## Lektion 8 — Weather (Das Wetter)
 
-### Days of the Week (Wochentage)
+### Weather conditions
 
-| German | English | Abbreviation |
-|--------|---------|-------------|
-| der Montag | Monday | Mo |
-| der Dienstag | Tuesday | Di |
-| der Mittwoch | Wednesday | Mi |
-| der Donnerstag | Thursday | Do |
-| der Freitag | Friday | Fr |
-| der Samstag / der Sonnabend | Saturday | Sa |
-| der Sonntag | Sunday | So |
-
-**Usage:** `am Montag` (on Monday), `am Wochenende` (on the weekend)
-
-### Months of the Year (Monate)
-
-| German | English |
-|--------|---------|
-| der Januar | January |
-| der Februar | February |
-| der März | March |
-| der April | April |
-| der Mai | May |
-| der Juni | June |
-| der Juli | July |
-| der August | August |
-| der September | September |
-| der Oktober | October |
-| der November | November |
-| der Dezember | December |
-
-**Usage:** `im Januar` (in January), `im Sommer` (in summer)
-
-### Seasons (Jahreszeiten)
-
-| German | English |
-|--------|---------|
-| der Frühling | spring |
-| der Sommer | summer |
-| der Herbst | autumn |
-| der Winter | winter |
-
-### Time Expressions (Zeitausdrücke)
-
-| German | English |
-|--------|---------|
-| heute | today |
-| morgen | tomorrow |
-| gestern | yesterday |
-| jetzt | now |
-| bald | soon |
-| später | later |
-| immer | always |
-| manchmal | sometimes |
-| nie | never |
-| oft | often |
-| jeden Tag | every day |
-| morgens | in the morning |
-| mittags | at noon |
-| abends | in the evening |
-| nachts | at night |
-
-### Telling Time (Uhrzeit)
-
-| German | English |
-|--------|---------|
-| Wie viel Uhr ist es? | What time is it? |
-| Es ist ein Uhr. | It is 1 o'clock. |
-| Es ist halb drei. | It is half past two. (2:30) |
-| Es ist Viertel nach vier. | It is quarter past four. (4:15) |
-| Es ist Viertel vor fünf. | It is quarter to five. (4:45) |
-| Es ist zehn nach sechs. | It is ten past six. (6:10) |
-| Es ist zwanzig vor acht. | It is twenty to eight. (7:40) |
-
----
-
-## 5. Family (Familie)
-
-| German | English | Article |
+| German | English | Artikel |
 |--------|---------|---------|
-| die Mutter (Mütter) | mother | die |
-| der Vater (Väter) | father | der |
-| die Eltern | parents | die (plural only) |
-| der Bruder (Brüder) | brother | der |
-| die Schwester (Schwestern) | sister | die |
-| die Geschwister | siblings | die (plural only) |
-| der Sohn (Söhne) | son | der |
-| die Tochter (Töchter) | daughter | die |
-| die Kinder | children | die (plural only) |
-| das Kind (Kinder) | child | das |
-| der Großvater / Opa | grandfather | der |
-| die Großmutter / Oma | grandmother | die |
-| die Großeltern | grandparents | die (plural only) |
-| der Onkel | uncle | der |
-| die Tante | aunt | die |
-| der Cousin | male cousin | der |
-| die Cousine | female cousin | die |
-| der Mann (Männer) | husband / man | der |
-| die Frau (Frauen) | wife / woman | die |
-| der Freund | boyfriend / male friend | der |
-| die Freundin | girlfriend / female friend | die |
+| das Wetter | weather | das |
+| die Sonne | sun | die |
+| der Regen | rain | der |
+| der Schnee | snow | der |
+| der Wind | wind | der |
+| der Nebel | fog | der |
+| die Wolke / die Wolken | cloud / clouds | die |
+| das Gewitter | thunderstorm | das |
+| der Sturm | storm | der |
+| das Eis | ice | das |
 
-**Example sentences:**
-- `Das ist meine Mutter. Sie heißt Petra.` → This is my mother. Her name is Petra.
-- `Ich habe einen Bruder und zwei Schwestern.` → I have one brother and two sisters.
-- `Mein Opa ist 75 Jahre alt.` → My grandfather is 75 years old.
+### Weather descriptions
 
----
+| German | English |
+|--------|---------|
+| sonnig | sunny |
+| regnerisch | rainy |
+| bewölkt | cloudy |
+| windig | windy |
+| neblig | foggy |
+| warm | warm |
+| heiß | hot |
+| kalt | cold |
+| kühl | cool |
+| trocken | dry |
+| nass / feucht | wet / damp |
 
-## 6. Colors (Farben)
+### Weather phrases
 
-| German | English | Example |
-|--------|---------|---------|
-| rot | red | `Das Auto ist rot.` |
-| blau | blue | `Der Himmel ist blau.` |
-| gelb | yellow | `Die Banane ist gelb.` |
-| grün | green | `Das Gras ist grün.` |
-| weiß | white | `Der Schnee ist weiß.` |
-| schwarz | black | `Die Nacht ist schwarz.` |
-| grau | gray | `Die Maus ist grau.` |
-| braun | brown | `Der Tisch ist braun.` |
-| orange | orange | `Die Orange ist orange.` |
-| rosa | pink | `Das Kleid ist rosa.` |
-| lila / violett | purple/violet | `Die Blume ist lila.` |
+| German | English |
+|--------|---------|
+| Wie ist das Wetter heute? | What is the weather like today? |
+| Es ist sonnig. | It is sunny. |
+| Es regnet. | It is raining. |
+| Es schneit. | It is snowing. |
+| Es ist heiß / kalt / warm. | It is hot / cold / warm. |
+| Es ist bewölkt. | It is cloudy. |
+| Wie viel Grad hat es? | How many degrees is it? |
+| Es hat 20 Grad. | It is 20 degrees. |
 
 ---
 
-## 7. Body Parts (Körperteile)
+## Lektion 9 — Body & Health (Körper & Gesundheit)
 
-| German | English | Article |
+### Body parts (Körperteile)
+
+| German | English | Artikel |
 |--------|---------|---------|
 | der Kopf | head | der |
 | das Gesicht | face | das |
-| das Auge (Augen) | eye | das |
+| das Auge / die Augen | eye / eyes | das |
 | die Nase | nose | die |
 | der Mund | mouth | der |
-| der Zahn (Zähne) | tooth | der |
-| das Ohr (Ohren) | ear | das |
-| der Hals | neck/throat | der |
-| die Schulter (Schultern) | shoulder | die |
-| der Arm (Arme) | arm | der |
-| die Hand (Hände) | hand | die |
+| das Ohr / die Ohren | ear / ears | das |
+| der Zahn / die Zähne | tooth / teeth | der |
+| das Haar / die Haare | hair | das |
+| der Hals | neck / throat | der |
+| die Schulter / die Schultern | shoulder / shoulders | die |
+| der Arm / die Arme | arm / arms | der |
+| die Hand / die Hände | hand / hands | die |
 | der Finger | finger | der |
+| der Bauch | stomach / belly | der |
 | der Rücken | back | der |
-| der Bauch | stomach/belly | der |
-| das Bein (Beine) | leg | das |
-| das Knie | knee | das |
-| der Fuß (Füße) | foot | der |
+| das Bein / die Beine | leg / legs | das |
+| der Fuß / die Füße | foot / feet | der |
 | das Herz | heart | das |
 
-**Example sentences:**
-- `Mein Kopf tut weh.` → My head hurts.
-- `Ich habe blaue Augen.` → I have blue eyes.
-- `Sie hat lange Beine.` → She has long legs.
+### Health & Illness
+
+| German | English | Artikel |
+|--------|---------|---------|
+| krank | ill / sick | — |
+| gesund | healthy | — |
+| die Erkältung | cold (illness) | die |
+| das Fieber | fever | das |
+| die Kopfschmerzen (pl.) | headache | die |
+| die Bauchschmerzen (pl.) | stomachache | die |
+| die Halsschmerzen (pl.) | sore throat | die |
+| der Zahnarzt / die Zahnärztin | dentist | der/die |
+| das Krankenhaus | hospital | das |
+| die Apotheke | pharmacy | die |
+| das Medikament | medicine | das |
+| die Tablette | tablet / pill | die |
+
+### Health phrases
+
+| German | English |
+|--------|---------|
+| Ich bin krank. | I am sick. |
+| Ich fühle mich nicht gut. | I don't feel well. |
+| Was fehlt Ihnen? / Was hast du? | What's wrong with you? |
+| Ich habe Kopfschmerzen. | I have a headache. |
+| Ich habe Fieber. | I have a fever. |
+| Ich habe eine Erkältung. | I have a cold. |
+| Ich brauche einen Arzt. | I need a doctor. |
+| Gute Besserung! | Get well soon! |
 
 ---
 
-## 8. Clothing (Kleidung)
+## Lektion 10 — Clothing & Shopping (Kleidung & Einkaufen)
 
-| German | English | Article |
+### Clothing (Kleidung)
+
+| German | English | Artikel |
 |--------|---------|---------|
-| das Hemd (Hemden) | shirt | das |
-| die Bluse (Blusen) | blouse | die |
+| das Hemd | shirt | das |
+| die Bluse | blouse | die |
+| die Hose | trousers / pants | die |
+| der Rock | skirt | der |
+| das Kleid | dress | das |
+| die Jacke | jacket | die |
+| der Mantel | coat | der |
+| der Pullover | sweater / jumper | der |
 | das T-Shirt | T-shirt | das |
-| die Hose (Hosen) | trousers/pants | die |
-| der Rock (Röcke) | skirt | der |
-| das Kleid (Kleider) | dress | das |
-| die Jacke (Jacken) | jacket | die |
-| der Mantel (Mäntel) | coat | der |
-| der Pullover / Pulli | sweater | der |
-| der Schuh (Schuhe) | shoe | der |
-| die Socke (Socken) | sock | die |
-| die Mütze (Mützen) | hat/cap | die |
+| die Jeans | jeans | die |
+| der Schuh / die Schuhe | shoe / shoes | der |
+| die Socke / die Socken | sock / socks | die |
+| die Mütze | hat / beanie | die |
+| der Hut | hat (formal) | der |
 | der Schal | scarf | der |
-| die Handschuhe | gloves | die (plural) |
+| die Handschuhe (pl.) | gloves | die |
 | die Unterwäsche | underwear | die |
 
-**Example sentences:**
-- `Ich trage heute eine blaue Jacke.` → I'm wearing a blue jacket today.
-- `Die Schuhe sind zu groß.` → The shoes are too big.
-- `Welches Kleid gefällt dir?` → Which dress do you like?
+### Shopping phrases
+
+| German | English |
+|--------|---------|
+| Was kostet das? | How much does this cost? |
+| Das ist (zu) teuer. | That is (too) expensive. |
+| Das ist günstig / billig. | That is affordable / cheap. |
+| Haben Sie das in Größe ...? | Do you have this in size ...? |
+| Kann ich das anprobieren? | Can I try this on? |
+| Wo ist die Umkleidekabine? | Where is the fitting room? |
+| Ich nehme das. | I'll take it. |
+| Ich bezahle mit Karte / bar. | I'll pay by card / cash. |
+| die Quittung / der Kassenbon | receipt |
+| das Sonderangebot | special offer |
+| der Rabatt | discount |
 
 ---
 
-## 9. Food & Drink (Essen & Getränke)
+## Lektion 11 — Transport & Travel (Verkehr & Reisen)
 
-### Fruits & Vegetables (Obst & Gemüse)
+### Modes of transport (Verkehrsmittel)
 
-| German | English | Article |
+| German | English | Artikel |
 |--------|---------|---------|
-| der Apfel (Äpfel) | apple | der |
-| die Banane | banana | die |
-| die Orange | orange | die |
-| die Traube (Trauben) | grape | die |
-| die Kirsche (Kirschen) | cherry | die |
-| die Erdbeere (Erdbeeren) | strawberry | die |
-| die Tomate (Tomaten) | tomato | die |
-| die Kartoffel (Kartoffeln) | potato | die |
-| die Karotte (Karotten) | carrot | die |
-| der Salat | salad/lettuce | der |
-| die Zwiebel (Zwiebeln) | onion | die |
-| der Pilz (Pilze) | mushroom | der |
+| das Auto / der Wagen | car | das/der |
+| der Bus | bus | der |
+| der Zug | train | der |
+| die U-Bahn | subway / underground | die |
+| die S-Bahn | city train | die |
+| die Straßenbahn | tram | die |
+| das Fahrrad | bicycle | das |
+| das Motorrad | motorcycle | das |
+| das Flugzeug | airplane | das |
+| das Schiff | ship | das |
+| das Taxi | taxi | das |
 
-### Staples & Dairy (Grundnahrungsmittel & Milchprodukte)
+### Travel vocabulary
 
-| German | English | Article |
+| German | English | Artikel |
 |--------|---------|---------|
-| das Brot (Brote) | bread | das |
-| die Brötchen | bread roll | das |
-| die Butter | butter | die |
-| der Käse | cheese | der |
-| die Milch | milk | die |
-| das Ei (Eier) | egg | das |
-| das Fleisch | meat | das |
-| der Fisch | fish | der |
-| der Joghurt | yogurt | der |
-| der Reis | rice | der |
-| die Nudeln | pasta/noodles | die (plural) |
+| der Bahnhof | train station | der |
+| der Flughafen | airport | der |
+| die Bushaltestelle | bus stop | die |
+| die U-Bahn-Station | subway station | die |
+| die Fahrkarte / das Ticket | ticket | die/das |
+| der Fahrplan | timetable / schedule | der |
+| die Abfahrt | departure | die |
+| die Ankunft | arrival | die |
+| die Verspätung | delay | die |
+| das Gleis | platform / track | das |
+| der Ausgang | exit | der |
+| der Eingang | entrance | der |
+| das Hotel | hotel | das |
+| die Reservierung | reservation | die |
+| der Koffer | suitcase | der |
+| der Rucksack | backpack | der |
+| der Reisepass / der Pass | passport | der |
 
-### Drinks (Getränke)
+### Travel phrases
 
-| German | English | Article |
-|--------|---------|---------|
-| das Wasser | water | das |
-| der Saft (Säfte) | juice | der |
-| der Kaffee | coffee | der |
-| der Tee | tea | der |
-| die Milch | milk | die |
-| das Bier | beer | das |
-| der Wein | wine | der |
-| die Limonade | lemonade/soda | die |
-
-**Example sentences:**
-- `Ich trinke morgens immer Kaffee.` → I always drink coffee in the morning.
-- `Möchtest du einen Apfelsaft?` → Would you like an apple juice?
-- `Das Brot ist sehr frisch.` → The bread is very fresh.
+| German | English |
+|--------|---------|
+| Wie komme ich zum/zur ...? | How do I get to ...? |
+| Wo ist der Bahnhof? | Where is the train station? |
+| Wann fährt der Zug ab? | When does the train depart? |
+| Eine Fahrkarte nach ..., bitte. | One ticket to ..., please. |
+| Einmal hin und zurück. | One return ticket. |
+| Einmal einfach. | One single ticket. |
+| Von welchem Gleis? | From which platform? |
+| Ist der Zug pünktlich? | Is the train on time? |
+| umsteigen | to change (trains/buses) |
 
 ---
 
-## 10. Home & Rooms (Zuhause & Zimmer)
+## Lektion 12 — Places in the City (Orte in der Stadt)
 
-| German | English | Article |
+### Places (Orte)
+
+| German | English | Artikel |
 |--------|---------|---------|
-| das Haus (Häuser) | house | das |
-| die Wohnung (Wohnungen) | apartment | die |
-| das Zimmer (Zimmer) | room | das |
-| das Schlafzimmer | bedroom | das |
-| das Wohnzimmer | living room | das |
-| die Küche (Küchen) | kitchen | die |
-| das Badezimmer / Bad | bathroom | das |
-| das Arbeitszimmer | study/office | das |
-| der Keller | cellar/basement | der |
-| der Garten (Gärten) | garden | der |
-| der Balkon | balcony | der |
-| die Tür (Türen) | door | die |
-| das Fenster | window | das |
-| der Tisch (Tische) | table | der |
-| der Stuhl (Stühle) | chair | der |
-| das Bett (Betten) | bed | das |
-| das Sofa | sofa/couch | das |
-| der Schrank (Schränke) | wardrobe/cabinet | der |
-| der Kühlschrank | refrigerator | der |
-| der Herd | stove | der |
+| die Stadt | city / town | die |
+| das Dorf | village | das |
+| die Straße | street | die |
+| der Platz | square / place | der |
+| die Brücke | bridge | die |
+| der Park | park | der |
+| der Supermarkt | supermarket | der |
+| das Geschäft / der Laden | shop / store | das/der |
+| die Apotheke | pharmacy | die |
+| die Bank | bank | die |
+| das Krankenhaus | hospital | das |
+| die Schule | school | die |
+| die Universität | university | die |
+| das Restaurant | restaurant | das |
+| das Café | café | das |
+| die Bäckerei | bakery | die |
+| die Post | post office | die |
+| das Rathaus | city hall | das |
+| die Kirche | church | die |
+| das Museum | museum | das |
+| das Kino | cinema | das |
+| das Theater | theatre | das |
+| die Bibliothek | library | die |
+| der Markt | market | der |
+| das Schwimmbad | swimming pool | das |
+| die Arztpraxis | doctor's surgery | die |
 
-**Example sentences:**
-- `Ich wohne in einer kleinen Wohnung.` → I live in a small apartment.
-- `Das Sofa steht im Wohnzimmer.` → The sofa is in the living room.
-- `Die Küche ist sehr modern.` → The kitchen is very modern.
+### Asking for & giving directions
 
----
-
-## 11. Common Adjectives (Häufige Adjektive)
-
-| German | English | Opposite | German |
-|--------|---------|---------|--------|
-| groß | big/tall | klein | small/short |
-| alt | old | jung / neu | young / new |
-| gut | good | schlecht | bad |
-| schön | beautiful | hässlich | ugly |
-| teuer | expensive | billig / günstig | cheap |
-| schnell | fast | langsam | slow |
-| leicht | easy/light | schwer/schwierig | hard/heavy |
-| heiß | hot | kalt | cold |
-| warm | warm | kühl | cool |
-| lang | long | kurz | short |
-| laut | loud | leise | quiet |
-| sauber | clean | schmutzig | dirty |
-| müde | tired | munter / wach | awake |
-| hungrig | hungry | satt | full |
-
-**Example sentences:**
-- `Das Essen ist sehr gut.` → The food is very good.
-- `Der Film ist langweilig.` → The film is boring.
-- `Mein Zimmer ist klein aber gemütlich.` → My room is small but cozy.
+| German | English |
+|--------|---------|
+| Wo ist ...? | Where is ...? |
+| Wie komme ich zu ...? | How do I get to ...? |
+| Gehen Sie geradeaus. | Go straight ahead. |
+| Biegen Sie links ab. | Turn left. |
+| Biegen Sie rechts ab. | Turn right. |
+| Die erste Straße links. | The first street on the left. |
+| Die zweite Straße rechts. | The second street on the right. |
+| an der Kreuzung | at the crossroads |
+| an der Ampel | at the traffic lights |
+| gegenüber | opposite |
+| neben | next to |
+| zwischen | between |
+| Es ist weit / nah. | It is far / near. |
 
 ---
 
-## 12. Common Prepositions (Häufige Präpositionen)
+## Core Verbs (Grundverben)
 
-| German | English | Case | Example |
-|--------|---------|------|---------|
-| in | in, into | Dative/Accusative | `Ich bin in der Küche.` |
-| auf | on, onto | Dative/Accusative | `Das Buch liegt auf dem Tisch.` |
-| unter | under | Dative/Accusative | `Die Katze ist unter dem Bett.` |
-| über | above/over | Dative/Accusative | `Das Bild hängt über dem Sofa.` |
-| vor | in front of | Dative/Accusative | `Ich warte vor dem Haus.` |
-| hinter | behind | Dative/Accusative | `Der Hund sitzt hinter dem Stuhl.` |
-| neben | next to | Dative/Accusative | `Das Café ist neben dem Bahnhof.` |
-| zwischen | between | Dative/Accusative | `Der Park ist zwischen den Gebäuden.` |
-| mit | with | Dative | `Ich fahre mit dem Bus.` |
-| ohne | without | Accusative | `Ich trinke Kaffee ohne Milch.` |
-| für | for | Accusative | `Das Geschenk ist für dich.` |
-| aus | from/out of | Dative | `Ich komme aus Deutschland.` |
-| nach | to/after | Dative | `Ich fahre nach Berlin.` |
-| bei | at/near | Dative | `Ich bin bei meiner Mutter.` |
-| von | from/of | Dative | `Das ist ein Brief von Anna.` |
-| zu | to | Dative | `Ich gehe zum Arzt.` |
+### Regular verbs (Regelmäßige Verben)
+
+| German | English | Example |
+|--------|---------|---------|
+| machen | to do / make | Ich mache Hausaufgaben. |
+| kaufen | to buy | Er kauft Brot. |
+| kochen | to cook | Sie kocht Suppe. |
+| lernen | to learn | Wir lernen Deutsch. |
+| wohnen | to live / reside | Ich wohne in Berlin. |
+| arbeiten | to work | Er arbeitet viel. |
+| spielen | to play | Das Kind spielt. |
+| hören | to hear / listen | Sie hört Musik. |
+| fragen | to ask | Ich frage den Lehrer. |
+| antworten | to answer | Er antwortet nicht. |
+| tanzen | to dance | Wir tanzen gern. |
+| kosten | to cost | Das kostet 5 Euro. |
+| bezahlen | to pay | Ich bezahle mit Karte. |
+| brauchen | to need | Ich brauche Hilfe. |
+| suchen | to look for | Sie sucht ihre Schlüssel. |
+| zeigen | to show | Er zeigt mir den Weg. |
+| reisen | to travel | Wir reisen nach Berlin. |
+| fotografieren | to take photos | Sie fotografiert gern. |
+| warten | to wait | Ich warte auf den Bus. |
+| öffnen | to open | Er öffnet die Tür. |
+| schließen | to close | Sie schließt das Fenster. |
+
+### Irregular verbs (Unregelmäßige Verben)
+
+| German | English | ich / er·sie·es |
+|--------|---------|-----------------|
+| sein | to be | bin / ist |
+| haben | to have | habe / hat |
+| werden | to become | werde / wird |
+| gehen | to go | gehe / geht |
+| kommen | to come | komme / kommt |
+| fahren | to drive / travel | fahre / **fährt** |
+| laufen | to run / walk | laufe / **läuft** |
+| sprechen | to speak | spreche / **spricht** |
+| essen | to eat | esse / **isst** |
+| trinken | to drink | trinke / trinkt |
+| lesen | to read | lese / **liest** |
+| schreiben | to write | schreibe / schreibt |
+| sehen | to see | sehe / **sieht** |
+| nehmen | to take | nehme / **nimmt** |
+| geben | to give | gebe / **gibt** |
+| schlafen | to sleep | schlafe / **schläft** |
+| treffen | to meet | treffe / **trifft** |
+| finden | to find | finde / findet |
+| helfen | to help | helfe / **hilft** |
+| wissen | to know (a fact) | **weiß** / **weiß** |
+| kennen | to know (person/place) | kenne / kennt |
+| bleiben | to stay / remain | bleibe / bleibt |
+
+> **Vowel change pattern:** many irregular verbs change e → i/ie or a → ä in the *du* and *er/sie/es* forms.
+
+
+---
+

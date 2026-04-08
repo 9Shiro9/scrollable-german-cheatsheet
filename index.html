@@ -2,1398 +2,2559 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <title>Grammatik · A1.1</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Deutsch A1.1 — Interactive learning guide covering Grammar, Vocabulary, and Glossary for beginner German learners.">
+  <title>Deutsch A1.1 — Lernhilfe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:         #F2F2F7;
-      --surface:    #FFFFFF;
-      --surface-2:  #F2F2F7;
-      --primary:    #1C1C1E;
-      --secondary:  #3C3C43;
-      --tertiary:   #8E8E93;
-      --border:     rgba(60,60,67,0.12);
-      --accent:     #007AFF;
-      --code-bg:    #F2F2F7;
-      --shadow:     0 1px 2px rgba(0,0,0,0.06), 0 4px 14px rgba(0,0,0,0.05);
-      --radius:     16px;
-      --radius-sm:  10px;
-      --font:       -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', system-ui, sans-serif;
-      --mono:       'SF Mono', ui-monospace, 'Fira Code', 'Courier New', monospace;
+      --bg:          #F6F2EA;
+      --surface:     #FFFEFA;
+      --text:        #1C1B1E;
+      --text-2:      #5A5966;
+      --text-3:      #9A98A8;
+      --border:      #E2DDD4;
+      --border-lt:   #ECEAE3;
+
+      --g:           #B84909;
+      --g-bg:        #FEF0EA;
+      --g-bd:        #F5BFA0;
+
+      --v:           #077A4C;
+      --v-bg:        #E9F6EF;
+      --v-bd:        #96D8B9;
+
+      --gl:          #1A3C8A;
+      --gl-bg:       #EBF0FC;
+      --gl-bd:       #A8BCEE;
+
+      --note:        #7040B0;
+      --note-bg:     #F4EDFF;
+      --note-bd:     #CAA8F0;
+
+      --nav-h:       54px;
+      --sub-h:       42px;
+      --max-w:       740px;
+      --r:           12px;
+      --rs:          7px;
     }
 
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg:        #000000;
-        --surface:   #1C1C1E;
-        --surface-2: #2C2C2E;
-        --primary:   #FFFFFF;
-        --secondary: rgba(235,235,245,0.75);
-        --tertiary:  rgba(235,235,245,0.38);
-        --border:    rgba(255,255,255,0.1);
-        --code-bg:   #2C2C2E;
-        --shadow:    0 1px 3px rgba(0,0,0,0.4), 0 4px 16px rgba(0,0,0,0.25);
-      }
-    }
-
-    html {
-      font-size: 16px;
-      -webkit-text-size-adjust: 100%;
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; font-size: 16px; }
 
     body {
-      font-family: var(--font);
+      font-family: 'Outfit', sans-serif;
       background: var(--bg);
-      color: var(--primary);
+      color: var(--text);
+      line-height: 1.65;
       min-height: 100vh;
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
     }
 
-    /* ── TOP BAR ── */
-    .top-bar {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      background: rgba(242,242,247,0.9);
-      -webkit-backdrop-filter: blur(24px) saturate(180%);
-      backdrop-filter: blur(24px) saturate(180%);
-      border-bottom: 1px solid var(--border);
-      padding-top: env(safe-area-inset-top, 0px);
-    }
-
-    @media (prefers-color-scheme: dark) {
-      .top-bar { background: rgba(0,0,0,0.9); }
-    }
-
-    .progress-track {
-      height: 2px;
-      background: transparent;
-    }
-
-    .progress-fill {
-      height: 100%;
-      background: linear-gradient(90deg, var(--accent) 0%, #5AC8FA 100%);
-      width: 0%;
+    /* ─── PROGRESS BAR ─── */
+    #progress-bar {
+      position: fixed; top: 0; left: 0;
+      width: 0%; height: 3px;
+      background: linear-gradient(90deg, var(--g), var(--v));
+      z-index: 1000;
       transition: width 0.08s linear;
     }
 
-    .top-bar-inner {
+    /* ─── HEADER ─── */
+    .site-header {
+      position: sticky; top: 0; z-index: 200;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .header-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 16px;
+      height: var(--nav-h);
       display: flex;
       align-items: center;
-      gap: 10px;
-      padding: 12px 16px 13px;
+      justify-content: space-between;
+      gap: 12px;
     }
-
-    .badge-level {
-      font-size: 11px;
+    .site-title {
+      font-family: 'Fraunces', serif;
+      font-size: 1.05rem;
       font-weight: 700;
-      letter-spacing: 0.06em;
-      color: var(--accent);
-      background: rgba(0,122,255,0.1);
-      padding: 3px 9px;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+      white-space: nowrap;
+    }
+    .level-pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 2px 9px;
+      background: var(--text);
+      color: var(--surface);
       border-radius: 20px;
-      flex-shrink: 0;
-      white-space: nowrap;
-    }
-
-    .header-title {
-      font-size: 15px;
-      font-weight: 600;
-      color: var(--primary);
-      flex: 1;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      transition: opacity 0.2s;
-    }
-
-    .menu-btn {
-      width: 32px; height: 32px;
-      border-radius: 50%;
-      background: var(--surface-2);
-      border: none;
-      cursor: pointer;
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-      color: var(--accent);
-      -webkit-tap-highlight-color: transparent;
-      transition: transform 0.15s;
-    }
-
-    .menu-btn:active { transform: scale(0.9); }
-
-    /* ── CONTENT ── */
-    .content {
-      padding-top: calc(env(safe-area-inset-top, 0px) + 60px);
-      padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 96px);
-    }
-
-    .topic-card {
-      scroll-margin-top: 72px;
-    }
-
-    /* ── HERO ── */
-    .hero {
-      padding: 24px 16px 8px;
-    }
-
-    .hero-tag {
-      font-size: 12px;
-      font-weight: 600;
+      font-size: 0.65rem;
+      font-weight: 700;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: var(--tertiary);
-      margin-bottom: 6px;
+      margin-left: 7px;
+      vertical-align: middle;
     }
-
-    .hero-title {
-      font-size: 32px;
-      font-weight: 800;
-      letter-spacing: -0.6px;
-      line-height: 1.15;
-      margin-bottom: 8px;
+    .search-trigger {
+      display: flex; align-items: center; gap: 6px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--rs);
+      padding: 6px 12px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.82rem;
+      color: var(--text-2);
+      cursor: pointer;
+      transition: border-color 0.15s, color 0.15s;
     }
+    .search-trigger:hover { border-color: var(--text); color: var(--text); }
 
-    .hero-subtitle {
-      font-size: 15px;
-      color: var(--secondary);
-      line-height: 1.6;
-      max-width: 320px;
-    }
-
-    /* ── SECTION PILLS ── */
-    .pills-row {
-      display: flex;
-      gap: 8px;
-      padding: 16px 16px 12px;
+    /* ─── SECTION NAV (chip row) ─── */
+    .section-nav {
+      position: sticky;
+      top: var(--nav-h);
+      z-index: 199;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border-lt);
       overflow-x: auto;
       scrollbar-width: none;
-      -ms-overflow-style: none;
-      -webkit-overflow-scrolling: touch;
     }
-
-    .pills-row::-webkit-scrollbar { display: none; }
-
-    .pill {
-      flex-shrink: 0;
-      padding: 7px 14px;
-      border-radius: 20px;
-      font-size: 13px;
-      font-weight: 500;
-      border: none;
-      cursor: pointer;
-      -webkit-tap-highlight-color: transparent;
-      background: var(--surface);
-      color: var(--secondary);
-      transition: background 0.2s, color 0.2s, transform 0.1s;
-    }
-
-    .pill:active { transform: scale(0.95); }
-
-    /* ── CARDS ── */
-    .topic-card {
-      margin: 0 12px 14px;
-      background: var(--surface);
-      border-radius: var(--radius);
-      overflow: hidden;
-      box-shadow: var(--shadow);
-    }
-
-    .card-header {
+    .section-nav::-webkit-scrollbar { display: none; }
+    .section-nav-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 7px 16px;
       display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      padding: 16px 16px 0;
+      gap: 6px;
+    }
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 5px 13px;
+      border-radius: 20px;
+      border: 1px solid;
+      font-size: 0.78rem;
+      font-weight: 500;
+      text-decoration: none;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: all 0.18s;
+      flex-shrink: 0;
+    }
+    .chip.g  { color: var(--g);  border-color: var(--g-bd);  background: var(--g-bg); }
+    .chip.v  { color: var(--v);  border-color: var(--v-bd);  background: var(--v-bg); }
+    .chip.gl { color: var(--gl); border-color: var(--gl-bd); background: var(--gl-bg);}
+    .chip.g:hover,  .chip.g.active  { background: var(--g);  color: #fff; border-color: var(--g); }
+    .chip.v:hover,  .chip.v.active  { background: var(--v);  color: #fff; border-color: var(--v); }
+    .chip.gl:hover, .chip.gl.active { background: var(--gl); color: #fff; border-color: var(--gl);}
+
+    /* ─── MAIN ─── */
+    .main-wrap {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 24px 16px 140px;
     }
 
-    .sec-num {
-      width: 34px; height: 34px;
-      border-radius: 10px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 15px;
+    .scroll-target { scroll-margin-top: calc(var(--nav-h) + var(--sub-h) + 16px); }
+
+    /* ─── HERO ─── */
+    .hero {
+      text-align: center;
+      padding: 52px 0 40px;
+    }
+    .hero-eyebrow {
+      font-size: 0.68rem;
       font-weight: 700;
-      color: white;
-      flex-shrink: 0;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-3);
+      margin-bottom: 14px;
+    }
+    .hero-title {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(2rem, 9vw, 3.6rem);
+      font-weight: 700;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      margin-bottom: 14px;
+    }
+    .hero-title em { font-style: italic; color: var(--g); }
+    .hero-sub {
+      font-size: 0.95rem;
+      color: var(--text-2);
+      font-weight: 300;
+      max-width: 360px;
+      margin: 0 auto 36px;
+    }
+    .hero-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    .hero-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      padding: 14px 10px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform 0.18s, box-shadow 0.18s;
+      display: block;
+    }
+    .hero-card:hover { transform: translateY(-3px); box-shadow: 0 6px 24px rgba(0,0,0,0.1); }
+    .hero-card.g  { border-top: 3px solid var(--g); }
+    .hero-card.v  { border-top: 3px solid var(--v); }
+    .hero-card.gl { border-top: 3px solid var(--gl);}
+    .hc-icon { font-size: 1.4rem; margin-bottom: 5px; }
+    .hc-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .hero-card.g  .hc-label { color: var(--g); }
+    .hero-card.v  .hc-label { color: var(--v); }
+    .hero-card.gl .hc-label { color: var(--gl);}
+    .hc-sub { font-size: 0.68rem; color: var(--text-3); margin-top: 2px; }
+
+    /* ─── SECTION HEADER ─── */
+    .sec-head {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin: 56px 0 24px;
+    }
+    .sec-line { flex: 1; height: 1px; background: var(--border); }
+    .sec-head-c { text-align: center; }
+    .sec-eyebrow {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 3px;
+    }
+    .sec-eyebrow.g  { color: var(--g); }
+    .sec-eyebrow.v  { color: var(--v); }
+    .sec-eyebrow.gl { color: var(--gl);}
+    .sec-title {
+      font-family: 'Fraunces', serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+    }
+
+    /* ─── ACCORDION CARD ─── */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      margin-bottom: 10px;
+      overflow: hidden;
+    }
+    .card.g  { border-left: 3px solid var(--g); }
+    .card.v  { border-left: 3px solid var(--v); }
+    .card.gl { border-left: 3px solid var(--gl);}
+
+    .card-hd {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 18px;
+      cursor: pointer;
+      user-select: none;
+      gap: 12px;
+      transition: background 0.15s;
+    }
+    .card-hd:hover { background: rgba(0,0,0,0.018); }
+
+    .card-hd-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .card-num {
+      font-family: 'Fraunces', serif;
+      font-size: 0.7rem;
+      font-weight: 400;
+      color: var(--text-3);
+      min-width: 18px;
+    }
+    .card-title {
+      font-family: 'Fraunces', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+    .card-sub {
+      font-size: 0.74rem;
+      color: var(--text-2);
       margin-top: 1px;
     }
 
-    .card-titles { flex: 1; }
+    .card-chev {
+      flex-shrink: 0;
+      color: var(--text-3);
+      transition: transform 0.25s cubic-bezier(0.4,0,0.2,1);
+    }
+    .card.open .card-chev { transform: rotate(180deg); }
 
-    .card-de {
-      font-size: 18px;
-      font-weight: 700;
-      letter-spacing: -0.3px;
-      line-height: 1.25;
+    .card-bd {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.38s cubic-bezier(0.4,0,0.2,1);
+    }
+    .card.open .card-bd { max-height: 9999px; }
+
+    .card-bd-in {
+      padding: 2px 18px 18px;
+      border-top: 1px solid var(--border-lt);
     }
 
-    .card-en {
-      font-size: 13px;
-      color: var(--tertiary);
-      margin-top: 2px;
+    /* Sub-accordion (patterns) */
+    .sub-card {
+      border: 1px solid var(--border-lt);
+      border-radius: var(--rs);
+      margin: 8px 0;
+      overflow: hidden;
     }
-
-    .card-body {
-      padding: 14px 16px 18px;
-    }
-
-    /* ── TYPOGRAPHY ── */
-    p {
-      font-size: 15px;
-      line-height: 1.65;
-      color: var(--secondary);
-    }
-
-    p + p { margin-top: 10px; }
-
-    strong { color: var(--primary); font-weight: 600; }
-
-    em { font-style: italic; }
-
-    code {
-      font-family: var(--mono);
-      font-size: 13px;
-      background: var(--code-bg);
-      color: var(--primary);
-      padding: 2px 5px;
-      border-radius: 5px;
-    }
-
-    /* ── CODE BLOCK ── */
-    .code-block {
-      background: var(--code-bg);
-      border-radius: var(--radius-sm);
-      padding: 12px 14px;
-      font-family: var(--mono);
-      font-size: 12.5px;
-      color: var(--secondary);
-      overflow-x: auto;
-      margin: 10px 0;
-      white-space: pre;
-      line-height: 1.6;
-    }
-
-    /* ── LABEL ── */
-    .label {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--tertiary);
-      margin-bottom: 8px;
-    }
-
-    .mt-8  { margin-top: 8px; }
-    .mt-12 { margin-top: 12px; }
-    .mt-14 { margin-top: 14px; }
-    .mt-16 { margin-top: 16px; }
-
-    /* ── EXAMPLES ── */
-    .examples {
+    .sub-hd {
       display: flex;
-      flex-direction: column;
-      gap: 7px;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 14px;
+      cursor: pointer;
+      user-select: none;
+      background: var(--bg);
+      gap: 10px;
+      transition: background 0.15s;
     }
-
-    .ex {
-      background: var(--code-bg);
-      border-radius: var(--radius-sm);
-      padding: 11px 13px;
-      border-left: 3px solid var(--sec-color, var(--accent));
+    .sub-hd:hover { background: #eeead8; }
+    .sub-title {
+      font-size: 0.85rem;
+      font-weight: 600;
     }
-
-    .ex-de {
-      font-size: 15px;
-      font-weight: 500;
-      color: var(--primary);
-      font-family: var(--mono);
-      line-height: 1.5;
+    .sub-chev {
+      color: var(--text-3);
+      font-size: 0.7rem;
+      transition: transform 0.2s;
     }
-
-    .ex-en {
-      font-size: 13px;
-      color: var(--tertiary);
-      margin-top: 3px;
-      line-height: 1.4;
+    .sub-card.open .sub-chev { transform: rotate(180deg); }
+    .sub-bd {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s cubic-bezier(0.4,0,0.2,1);
     }
+    .sub-card.open .sub-bd { max-height: 4000px; }
+    .sub-bd-in { padding: 4px 14px 14px; }
 
-    /* ── TABLES ── */
-    .tbl-wrap {
-      overflow-x: auto;
-      border-radius: var(--radius-sm);
+    /* ─── FORMULA DISPLAY ─── */
+    .formula {
+      font-family: 'Fraunces', serif;
+      font-size: 0.92rem;
+      font-weight: 600;
+      background: var(--bg);
       border: 1px solid var(--border);
+      border-radius: var(--rs);
+      padding: 9px 13px;
+      margin: 10px 0 6px;
+      line-height: 1.8;
+      letter-spacing: -0.01em;
+    }
+    .f-s  { color: #1A3C8A; }
+    .f-v  { color: var(--g); }
+    .f-d  { color: #7040B0; }
+    .f-a  { color: #A0295A; }
+    .f-t  { color: #077A4C; }
+
+    /* ─── TABLES ─── */
+    .t-wrap {
+      overflow-x: auto;
       -webkit-overflow-scrolling: touch;
       margin: 10px 0;
+      border-radius: var(--rs);
+      scrollbar-width: thin;
+      scrollbar-color: var(--border) transparent;
     }
-
     table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 13.5px;
-      white-space: nowrap;
+      font-size: 0.845rem;
+      min-width: 260px;
     }
-
-    th {
-      background: var(--code-bg);
-      font-weight: 600;
-      font-size: 11px;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--tertiary);
-      padding: 9px 12px;
+    thead th {
+      background: var(--bg);
       text-align: left;
-      border-bottom: 1px solid var(--border);
-    }
-
-    td {
-      padding: 10px 12px;
-      color: var(--secondary);
-      border-bottom: 1px solid var(--border);
-      vertical-align: middle;
-    }
-
-    tr:last-child td { border-bottom: none; }
-
-    .highlight-cell {
-      font-weight: 700;
-    }
-
-    /* ── BLOCKQUOTE ── */
-    .bq {
-      margin: 10px 0;
-      padding: 12px 13px;
-      background: rgba(0,122,255,0.07);
-      border-radius: var(--radius-sm);
-      border-left: 3px solid var(--accent);
-      font-size: 14px;
-      color: var(--secondary);
-      line-height: 1.6;
-    }
-
-    /* ── RULE BOX ── */
-    .rule-box {
-      margin: 10px 0;
-      padding: 12px 13px;
-      background: rgba(255,159,10,0.08);
-      border-radius: var(--radius-sm);
-      border-left: 3px solid #FF9F0A;
-      font-size: 14px;
-      color: var(--secondary);
-      line-height: 1.6;
-    }
-
-    .rule-label {
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: #FF9F0A;
-      margin-bottom: 4px;
-    }
-
-    /* ── SUBSECTION ── */
-    .sub {
-      margin-top: 18px;
-    }
-
-    .sub-title {
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--primary);
-      margin-bottom: 10px;
-      display: flex;
-      align-items: center;
-      gap: 7px;
-    }
-
-    .sub-dot {
-      width: 6px; height: 6px;
-      border-radius: 50%;
-      flex-shrink: 0;
-    }
-
-    /* ── TEKAMOLO ── */
-    .teka-flow {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      margin: 14px 0;
-    }
-
-    .teka-pill {
-      flex: 1;
-      padding: 10px 4px;
-      border-radius: 12px;
-      text-align: center;
-    }
-
-    .teka-letter {
-      font-size: 20px;
-      font-weight: 800;
-      line-height: 1;
-      letter-spacing: -0.5px;
-    }
-
-    .teka-word {
-      font-size: 9px;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      opacity: 0.7;
-      margin-top: 3px;
-    }
-
-    .teka-q {
-      font-size: 10px;
-      opacity: 0.55;
-      margin-top: 2px;
-    }
-
-    .teka-arr {
-      font-size: 16px;
-      color: var(--tertiary);
-      flex-shrink: 0;
-      font-weight: 300;
-    }
-
-    /* ── CHECKLIST ── */
-    .checklist {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .check-item {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 13px 14px;
-      background: var(--code-bg);
-      border-radius: var(--radius-sm);
-      cursor: pointer;
-      -webkit-tap-highlight-color: transparent;
-      user-select: none;
-      transition: opacity 0.25s;
-    }
-
-    .check-item.done { opacity: 0.45; }
-
-    .check-circle {
-      width: 24px; height: 24px;
-      border-radius: 50%;
-      border: 2px solid var(--border);
-      background: var(--surface);
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-      transition: background 0.2s, border-color 0.2s;
-    }
-
-    .check-item.done .check-circle {
-      background: #30D158;
-      border-color: #30D158;
-    }
-
-    .check-icon {
-      opacity: 0;
-      transition: opacity 0.2s;
-    }
-
-    .check-item.done .check-icon { opacity: 1; }
-
-    .check-text {
-      font-size: 14px;
-      color: var(--secondary);
-      line-height: 1.5;
-      flex: 1;
-      transition: text-decoration 0.2s;
-    }
-
-    .check-item.done .check-text {
-      text-decoration: line-through;
-      color: var(--tertiary);
-    }
-
-    /* ── FAB ── */
-    .fab {
-      position: fixed;
-      bottom: calc(env(safe-area-inset-bottom, 20px) + 20px);
-      right: 16px;
-      z-index: 150;
-      background: var(--accent);
-      color: white;
-      border: none;
-      border-radius: 28px;
-      padding: 13px 18px;
-      font-size: 14px;
-      font-weight: 600;
-      font-family: var(--font);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      box-shadow: 0 4px 20px rgba(0,122,255,0.4);
-      cursor: pointer;
-      -webkit-tap-highlight-color: transparent;
-      transition: transform 0.15s, box-shadow 0.15s;
-    }
-
-    .fab:active {
-      transform: scale(0.94);
-      box-shadow: 0 2px 10px rgba(0,122,255,0.3);
-    }
-
-    /* ── OVERLAY ── */
-    .overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.45);
-      z-index: 200;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.28s;
-    }
-
-    .overlay.open {
-      opacity: 1;
-      pointer-events: all;
-    }
-
-    /* ── BOTTOM SHEET ── */
-    .sheet {
-      position: fixed;
-      bottom: 0; left: 0; right: 0;
-      z-index: 201;
-      background: var(--surface);
-      border-radius: 20px 20px 0 0;
-      padding-bottom: env(safe-area-inset-bottom, 0px);
-      transform: translateY(100%);
-      transition: transform 0.32s cubic-bezier(0.32, 0.72, 0, 1);
-      max-height: 78vh;
-      overflow-y: auto;
-      -webkit-overflow-scrolling: touch;
-    }
-
-    .sheet.open { transform: translateY(0); }
-
-    .sheet-handle {
-      width: 38px; height: 4px;
-      background: var(--border);
-      border-radius: 2px;
-      margin: 10px auto 6px;
-    }
-
-    .sheet-head {
-      font-size: 12px;
+      padding: 7px 11px;
+      font-size: 0.65rem;
       font-weight: 700;
       letter-spacing: 0.07em;
       text-transform: uppercase;
-      color: var(--tertiary);
-      padding: 4px 16px 12px;
+      color: var(--text-2);
+      border-bottom: 2px solid var(--border);
+      white-space: nowrap;
+    }
+    tbody tr {
+      border-bottom: 1px solid var(--border-lt);
+      transition: background 0.1s;
+    }
+    tbody tr:last-child { border-bottom: none; }
+    tbody tr:hover { background: rgba(0,0,0,0.02); }
+    td {
+      padding: 8px 11px;
+      vertical-align: top;
+    }
+    td:first-child { font-weight: 500; }
+
+    /* Article color tags */
+    .art {
+      display: inline-block;
+      padding: 1px 6px;
+      border-radius: 4px;
+      font-size: 0.63rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      margin-right: 3px;
+    }
+    .art.der { color: #1A3C8A; background: var(--gl-bg); border: 1px solid var(--gl-bd); }
+    .art.die { color: #A0295A; background: #FFF0F5; border: 1px solid #F0AACB; }
+    .art.das { color: #077A4C; background: var(--v-bg); border: 1px solid var(--v-bd); }
+
+    /* ─── CALLOUT BOXES ─── */
+    .note {
+      background: var(--note-bg);
+      border: 1px solid var(--note-bd);
+      border-left: 3px solid var(--note);
+      border-radius: var(--rs);
+      padding: 12px 14px;
+      font-size: 0.845rem;
+      margin: 12px 0;
+    }
+    .note strong { color: var(--note); }
+
+    .tip {
+      background: var(--v-bg);
+      border: 1px solid var(--v-bd);
+      border-left: 3px solid var(--v);
+      border-radius: var(--rs);
+      padding: 12px 14px;
+      font-size: 0.845rem;
+      margin: 12px 0;
+    }
+    .tip strong { color: var(--v); }
+
+    .rule {
+      background: var(--g-bg);
+      border: 1px solid var(--g-bd);
+      border-left: 3px solid var(--g);
+      border-radius: var(--rs);
+      padding: 12px 14px;
+      font-size: 0.845rem;
+      margin: 12px 0;
+    }
+    .rule strong { color: var(--g); }
+
+    /* ─── VOCAB INLINE SEARCH ─── */
+    .vsearch-wrap {
+      position: relative;
+      margin-bottom: 16px;
+    }
+    .vsearch-icon {
+      position: absolute;
+      left: 12px; top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-3);
+      font-size: 0.85rem;
+      pointer-events: none;
+    }
+    #vsearch {
+      width: 100%;
+      padding: 9px 12px 9px 34px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--rs);
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.875rem;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.15s;
+    }
+    #vsearch:focus { border-color: var(--v); }
+    #vsearch::placeholder { color: var(--text-3); }
+
+    .search-count {
+      font-size: 0.72rem;
+      color: var(--text-3);
+      text-align: right;
+      margin-top: 4px;
     }
 
-    .sheet-item {
+    tr.v-hidden { display: none !important; }
+
+    /* ─── GLOBAL SEARCH OVERLAY ─── */
+    .overlay-bg {
+      position: fixed; inset: 0;
+      background: rgba(20,18,28,0.65);
+      z-index: 500;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s;
+      backdrop-filter: blur(4px);
+    }
+    .overlay-bg.open { opacity: 1; pointer-events: all; }
+
+    .search-modal {
+      position: fixed;
+      top: 72px; left: 50%;
+      transform: translateX(-50%);
+      width: min(92%, 540px);
+      background: var(--surface);
+      border-radius: 16px;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.28);
+      z-index: 600;
+      overflow: hidden;
+      opacity: 0;
+      transform: translateX(-50%) translateY(-8px);
+      pointer-events: none;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .search-modal.open {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+      pointer-events: all;
+    }
+    .sm-input-row {
       display: flex;
       align-items: center;
-      gap: 13px;
-      padding: 13px 16px;
-      border-top: 1px solid var(--border);
-      cursor: pointer;
-      -webkit-tap-highlight-color: transparent;
-      text-decoration: none;
-      color: inherit;
-      transition: background 0.15s;
+      gap: 10px;
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border-lt);
     }
-
-    .sheet-item:active { background: var(--code-bg); }
-
-    .sheet-num {
-      width: 32px; height: 32px;
-      border-radius: 9px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 14px;
+    .sm-input-row svg { color: var(--text-3); flex-shrink: 0; }
+    #gsearch {
+      flex: 1;
+      border: none;
+      background: none;
+      font-family: 'Outfit', sans-serif;
+      font-size: 1rem;
+      color: var(--text);
+      outline: none;
+    }
+    #gsearch::placeholder { color: var(--text-3); }
+    .sm-close {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 3px 8px;
+      font-size: 0.75rem;
+      color: var(--text-2);
+      cursor: pointer;
+    }
+    .sm-results {
+      max-height: 55vh;
+      overflow-y: auto;
+    }
+    .sm-item {
+      padding: 10px 16px;
+      border-bottom: 1px solid var(--border-lt);
+      cursor: pointer;
+      transition: background 0.12s;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .sm-item:hover { background: var(--bg); }
+    .sm-item-text { flex: 1; }
+    .sm-de { font-weight: 500; font-size: 0.88rem; }
+    .sm-en { font-size: 0.78rem; color: var(--text-2); margin-top: 1px; }
+    .sm-tag {
+      font-size: 0.62rem;
       font-weight: 700;
-      color: white;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 20px;
       flex-shrink: 0;
     }
+    .sm-tag.g  { color: var(--g);  background: var(--g-bg); }
+    .sm-tag.v  { color: var(--v);  background: var(--v-bg); }
+    .sm-tag.gl { color: var(--gl); background: var(--gl-bg);}
+    .sm-empty {
+      padding: 32px;
+      text-align: center;
+      color: var(--text-2);
+      font-size: 0.875rem;
+    }
 
-    .sheet-info { flex: 1; }
-
-    .sheet-de {
-      font-size: 15px;
+    /* ─── FAB (Floating Button) ─── */
+    .fab-wrap {
+      position: fixed;
+      bottom: 24px; left: 50%;
+      transform: translateX(-50%);
+      z-index: 300;
+    }
+    .fab {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--text);
+      color: var(--surface);
+      border: none;
+      border-radius: 50px;
+      padding: 11px 22px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.88rem;
       font-weight: 500;
-      color: var(--primary);
+      cursor: pointer;
+      box-shadow: 0 6px 28px rgba(0,0,0,0.28);
+      transition: transform 0.18s, box-shadow 0.18s;
+    }
+    .fab:hover { transform: translateY(-2px) translateX(-50%); box-shadow: 0 10px 36px rgba(0,0,0,0.32); }
+    .fab:hover { transform: translateY(-2px); }
+    .fab-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--g); }
+
+    /* ─── DRAWER ─── */
+    .drawer-bg {
+      position: fixed; inset: 0;
+      background: rgba(20,18,28,0.55);
+      z-index: 350;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s;
+      backdrop-filter: blur(2px);
+    }
+    .drawer-bg.open { opacity: 1; pointer-events: all; }
+
+    .drawer {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      z-index: 400;
+      background: var(--surface);
+      border-radius: 20px 20px 0 0;
+      padding: 14px 16px calc(28px + env(safe-area-inset-bottom));
+      max-height: 82vh;
+      overflow-y: auto;
+      transform: translateY(100%);
+      transition: transform 0.3s cubic-bezier(0.4,0,0.2,1);
+      box-shadow: 0 -10px 48px rgba(0,0,0,0.18);
+    }
+    .drawer.open { transform: translateY(0); }
+
+    .drawer-handle {
+      width: 36px; height: 4px;
+      border-radius: 2px;
+      background: var(--border);
+      margin: 0 auto 18px;
+    }
+    .drawer-title {
+      font-family: 'Fraunces', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 18px;
+    }
+    .drawer-sec { margin-bottom: 18px; }
+    .drawer-sec-label {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      padding: 0 2px;
+      margin-bottom: 7px;
+      display: block;
+    }
+    .drawer-sec-label.g  { color: var(--g); }
+    .drawer-sec-label.v  { color: var(--v); }
+    .drawer-sec-label.gl { color: var(--gl);}
+    .drawer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .dl {
+      display: inline-block;
+      padding: 6px 13px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      font-size: 0.78rem;
+      font-weight: 400;
+      text-decoration: none;
+      color: var(--text);
+      background: var(--bg);
+      cursor: pointer;
+      transition: all 0.14s;
+    }
+    .dl:hover { background: var(--text); color: var(--surface); border-color: var(--text); }
+
+    /* ─── TYPOGRAPHY ─── */
+    h3 {
+      font-family: 'Fraunces', serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin: 16px 0 7px;
+      letter-spacing: -0.01em;
+    }
+    h3:first-child { margin-top: 12px; }
+    p { font-size: 0.845rem; color: var(--text-2); margin: 6px 0; }
+    strong { font-weight: 600; color: var(--text); }
+    em { font-style: italic; }
+    code {
+      font-family: 'Courier New', monospace;
+      font-size: 0.84em;
+      background: var(--bg);
+      padding: 1px 5px;
+      border-radius: 3px;
+      border: 1px solid var(--border);
     }
 
-    .sheet-en {
-      font-size: 12px;
-      color: var(--tertiary);
-      margin-top: 1px;
+    /* ─── FOOTER ─── */
+    .site-footer {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 24px 16px;
+      text-align: center;
+      color: var(--text-3);
+      font-size: 0.72rem;
+      border-top: 1px solid var(--border-lt);
     }
 
-    .sheet-chev {
-      color: var(--tertiary);
-      font-size: 16px;
-      font-weight: 300;
+    /* ─── REVEAL ANIMATION ─── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
     }
+    .reveal.vis { opacity: 1; transform: translateY(0); }
 
-    /* ── SECTION COLOR TOKENS (set via inline style on card) ── */
-    /* Used by children via var(--sec-color) */
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 480px) {
+      .card-hd { padding: 12px 14px; }
+      .card-bd-in { padding: 2px 14px 14px; }
+      .hero-title { font-size: 2.2rem; }
+    }
   </style>
 </head>
 <body>
 
-<!-- ═══ TOP BAR ═══ -->
-<header class="top-bar">
-  <div class="progress-track">
-    <div class="progress-fill" id="pFill"></div>
-  </div>
-  <div class="top-bar-inner">
-    <span class="badge-level">A1.1</span>
-    <h1 class="header-title" id="hTitle">Grammatik</h1>
-    <button class="menu-btn" id="menuBtn" aria-label="Sections">
-      <svg width="17" height="13" viewBox="0 0 17 13" fill="none">
-        <rect width="17" height="2" rx="1" fill="currentColor"/>
-        <rect y="5.5" width="13" height="2" rx="1" fill="currentColor"/>
-        <rect y="11" width="9" height="2" rx="1" fill="currentColor"/>
-      </svg>
+<!-- Progress Bar -->
+<div id="progress-bar"></div>
+
+<!-- Header -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="#overview" class="site-title">Deutsch<span class="level-pill">A1.1</span></a>
+    <button class="search-trigger" onclick="openSearch()">
+      <svg width="13" height="13" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="8.5" cy="8.5" r="5.5"/><line x1="13" y1="13" x2="18" y2="18"/></svg>
+      Suchen
     </button>
   </div>
 </header>
 
-<!-- ═══ MAIN ═══ -->
-<main class="content">
+<!-- Section Nav -->
+<nav class="section-nav">
+  <div class="section-nav-inner">
+    <a href="#grammar"    class="chip g"  data-sec="grammar">📖 Grammatik</a>
+    <a href="#vocabulary" class="chip v"  data-sec="vocabulary">📚 Wortschatz</a>
+    <a href="#glossary"   class="chip gl" data-sec="glossary">🔤 Glossar</a>
+  </div>
+</nav>
 
-  <!-- HERO -->
-  <div class="hero" id="hero">
-    <p class="hero-tag">A1.1 · German Grammar</p>
-    <h2 class="hero-title">Grammatik</h2>
-    <p class="hero-subtitle">9 essential rules for building correct German sentences.</p>
+<!-- Main -->
+<div class="main-wrap">
+
+  <!-- ═══════════════ HERO ═══════════════ -->
+  <section id="overview" class="hero scroll-target">
+    <p class="hero-eyebrow">Deutsch lernen · Niveau A1.1</p>
+    <h1 class="hero-title">Dein <em>Lernguide</em><br>für A1.1</h1>
+    <p class="hero-sub">Interaktiver Leitfaden für Grammatik, Wortschatz und Glossar — für jedes Lerntempo.</p>
+    <div class="hero-cards">
+      <a href="#grammar" class="hero-card g reveal">
+        <div class="hc-icon">📐</div>
+        <div class="hc-label">Grammatik</div>
+        <div class="hc-sub">11 Muster · Fragen · Kasus</div>
+      </a>
+      <a href="#vocabulary" class="hero-card v reveal" style="transition-delay:0.08s">
+        <div class="hc-icon">🗣️</div>
+        <div class="hc-label">Wortschatz</div>
+        <div class="hc-sub">12 Lektionen · Verben</div>
+      </a>
+      <a href="#glossary" class="hero-card gl reveal" style="transition-delay:0.16s">
+        <div class="hc-icon">📝</div>
+        <div class="hc-label">Glossar</div>
+        <div class="hc-sub">Grammatische Begriffe</div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ═══════════════ GRAMMAR ═══════════════ -->
+  <section id="grammar" class="scroll-target">
+    <div class="sec-head reveal">
+      <div class="sec-line"></div>
+      <div class="sec-head-c">
+        <div class="sec-eyebrow g">Grammatik</div>
+        <div class="sec-title">Grammar Rules</div>
+      </div>
+      <div class="sec-line"></div>
+    </div>
+
+    <!-- Card G1: Sentence Patterns -->
+    <div class="card g reveal" id="sentence-patterns">
+      <div class="card-hd" onclick="toggleCard(this)">
+        <div class="card-hd-left">
+          <span class="card-num">01</span>
+          <div>
+            <div class="card-title">Satzstruktur-Muster</div>
+            <div class="card-sub">11 patterns — S + V + Objects + TEKAMOLO</div>
+          </div>
+        </div>
+        <svg class="card-chev" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="5 8 10 13 15 8"/></svg>
+      </div>
+      <div class="card-bd">
+        <div class="card-bd-in">
+          <div class="note"><strong>TEKAMOLO</strong> = <strong>Te</strong>mporal · <strong>Ka</strong>usal · <strong>Mo</strong>dal · <strong>Lo</strong>kal — the standard adverb order.<br><strong>Abbreviations:</strong> D(N)=Dativ Noun · D(PN)=Dativ Pronoun · Akk(N)=Akkusativ Noun · Akk(PN)=Akkusativ Pronoun</div>
+
+          <!-- Pattern 1 -->
+          <div class="sub-card">
+            <div class="sub-hd" onclick="toggleSub(this)">
+              <span class="sub-title">Pattern 1 — S + V + Te, Ka, Mo, Lo <span style="font-weight:400;color:var(--text-2)">(No object — adverbials only)</span></span>
+              <span class="sub-chev">▼</span>
+            </div>
+            <div class="sub-bd"><div class="sub-bd-in">
+              <div class="formula"><span class="f-s">S</span> + <span class="f-v">V</span> + <span class="f-t">Te, Ka, Mo, Lo</span></div>
+              <div class="t-wrap"><table><thead><tr><th>Example</th><th>Tags</th></tr></thead><tbody>
+                <tr><td><em>Ich fahre <strong>heute schnell nach Berlin</strong>.</em></td><td>heute=TE, schnell=MO, nach Berlin=LO</td></tr>
+                <tr><td><em>Sie bleibt <strong>morgen wegen Krankheit zu Hause</strong>.</em></td><td>morgen=TE, wegen Krankheit=KA, zu Hause=LO</td></tr>
+              </tbody></table></div>
+            </div></div>
+          </div>
+
+          <!-- Pattern 2 -->
+          <div class="sub-card">
+            <div class="sub-hd" onclick="toggleSub(this)">
+              <span class="sub-title">Pattern 2 — S + V + Dativ + Te, Ka, Mo, Lo</span>
+              <span class="sub-chev">▼</span>
+            </div>
+            <div class="sub-bd"><div class="sub-bd-in">
+              <div class="formula"><span class="f-s">S</span> + <span class="f-v">V</span> + <span class="f-d">Dativ</span> + <span class="f-t">Te, Ka, Mo, Lo</span></div>
+              <div class="t-wrap"><table><thead><tr><th>Example</th><th>Tags</th></tr></thead><tbody>
+                <tr><td><em>Ich helfe <strong>dem Mann</strong> heute in der Stadt.</em></td><td>dem Mann=Dativ(N), heute=TE, in der Stadt=LO</td></tr>
+                <tr><td><em>Er schreibt <strong>der Frau</strong> jeden Abend schnell.</em></td><td>der Frau=Dativ(N), jeden Abend=TE, schnell=MO</td></tr>
+              </tbody></table></div>
+            </div></div>
+          </div>
+
+          <!-- Pattern 3 -->
+          <div class="sub-card">
+            <div class="sub-hd" onclick="toggleSub(this)">
+              <span class="sub-title">Pattern 3 — S + V + Te, Ka, Mo, Lo + Akkusativ</span>
+              <span class="sub-chev">▼</span>
+            </div>
+            <div class="sub-bd"><div class="sub-bd-in">
+              <div class="formula"><span class="f-s">S</span> + <span class="f-v">V</span> + <span class="f-t">Te, Ka, Mo, Lo</span> + <span class="f-a">Akk(N)</span></div>
+              <div class="t-wrap"><table><thead><tr><th>Example</th><th>Tags</th></tr></thead><tbody>
+                <tr><td><em>Ich kaufe <strong>heute im Markt</strong> den Apfel.</em></td><td>heute=TE, Im Markt=LO, den Apfel=Akk(N)</td></tr>
+                <tr><td><em>Er liest <strong>morgen schnell</strong> das Buch.</em></td><td>morgen=TE, schnell=MO, das Buch=Akk(N)</td></tr>
+              </tbody></table></div>
+            </div></div>
+          </div>
+
+          <!-- Pattern 4 -->
+          <div class="sub-card">
+            <div class="sub-hd" onclick="toggleSub(this)">
+              <span class="sub-title">Pattern 4 — S + V + Dativ(N) + Akkusativ(N)</span>
+              <span class="sub-chev">▼</span>
+            </div>
+            <div class="sub-bd"><div class="sub-bd-in">
+              <div class="formula"><span class="f-s">S</span> + <span class="f-v">V</span> + <span class="f-d">Dativ(N)</span> + <span class="f-a">Akk(N)</span></div>
+              <div class="t-wrap"><table><thead><tr><th>Example</th><th>Tags</th></tr></thead><tbody>
+                <tr><td><em>Ich gebe <strong>dem Mann</strong> das Buch.</em></td><td>dem Mann=Dativ(N), das Buch=Akk(N)</td></tr>
+                <tr><td><em>Sie zeigt <strong>dem Kind</strong> das Bild.</em></td><td>dem Kind=Dativ(N), das Bild=Akk(N)</td></tr>
+              </tbody></table></div>
+            </div></div>
+          </div>
+
+          <!-- Pattern 5 -->
+          <div class="sub-card">
+            <div class="sub-hd" onclick="toggleSub(this)">
+              <span class="sub-title">Pattern 5 — S + V + Akk(PN) + D(PN) <span style="font-weight:400;color:var(--text-2)">Both pronouns → Akk first</span></span>
+              <span class="sub-chev">▼</span>
+            </div>
+            <div class="sub-bd"><div class="sub-bd-in">
+              <div class="formula"><span class="f-s">S</span> + <span class="f-v">V</span> + <span class="f-a">Akk(PN)</span> + <span class="f-d">D(PN)</span></div>
+              <div class="t-wrap"><table><thead><tr><th>Example</th><th>Tags</th></tr></thead><tbody>
+                <tr><td><em>Ich gebe <strong>es ihm</strong>.</em></td><td>es=Akk(PN), ihm=D(PN)</td></tr>
+                <tr><td><em>Er schickt <strong>sie ihr</strong>.</em></td><td>sie=Akk(PN), ihr=D(PN)</td></tr>
+              </tbody></table></div>
+            </div></div>
+          </div>
+
+          <!-- Pattern 6 -->
+          <div class="sub-card">
+            <div class="sub-hd" onclick="toggleSub(this)">
+              <span class="sub-title">Pattern 6 — S + V + D(PN) + Akk(N) <span style="font-weight:400;color:var(--text-2)">Pronoun first</span></span>
+              <span class="sub-chev">▼</span>
+            </div>
+            <div class="sub-bd"><div class="sub-bd-in">
+              <div class="formula"><span class="f-s">S</span> + <span class="f-v">V</span> + <span class="f-d">D(PN)</span> + <span class="f-a">Akk(N)</span></div>
+              <div class="t-wrap"><table><thead><tr><th>Example</th><th>Tags</th></tr></thead><tbody>
+                <tr><td><em>Ich gebe <strong>ihm</strong> das Buch.</em></td><td>ihm=D(PN), das Buch=Akk(N)</td></tr>
+                <tr><td><em>Sie kauft <strong>mir</strong> einen Kaffee.</em></td><td>mir=D(PN), einen Kaffee=Akk(N)</td></tr>
+              </tbody></table></div>
+            </div></div>
+          </div>
+
+          <!-- Pattern 7 -->
+          <div class="sub-card">
+            <div class="sub-hd" onclick="toggleSub(this)">
+              <span class="sub-title">Pattern 7 — S + V + Akk(PN) + D(N) <span style="font-weight:400;color:var(--text-2)">Pronoun first</span></span>
+              <span class="sub-chev">▼</span>
+            </div>
+            <div class="sub-bd"><div class="sub-bd-in">
+              <div class="formula"><span class="f-s">S</span> + <span class="f-v">V</span> + <span class="f-a">Akk(PN)</span> + <span class="f-d">D(N)</span></div>
+              <div class="t-wrap"><table><thead><tr><th>Example</th><th>Tags</th></tr></thead><tbody>
+                <tr><td><em>Ich gebe <strong>es</strong> dem Mann.</em></td><td>es=Akk(PN), dem Mann=D(N)</td></tr>
+                <tr><td><em>Er schickt <strong>sie</strong> der Frau.</em></td><td>sie=Akk(PN), der Frau=D(N)</td></tr>
+              </tbody></table></div>
+            </div></div>
+          </div>
+
+          <!-- Pattern 8 -->
+          <div class="sub-card">
+            <div class="sub-hd" onclick="toggleSub(this)">
+              <span class="sub-title">Pattern 8 — S + V + D(N) + Te,Ka,Mo,Lo + Akk(N)</span>
+              <span class="sub-chev">▼</span>
+            </div>
+            <div class="sub-bd"><div class="sub-bd-in">
+              <div class="formula"><span class="f-s">S</span> + <span class="f-v">V</span> + <span class="f-d">D(N)</span> + <span class="f-t">TEKAMOLO</span> + <span class="f-a">Akk(N)</span></div>
+              <div class="t-wrap"><table><thead><tr><th>Example</th><th>Tags</th></tr></thead><tbody>
+                <tr><td><em>Ich gebe <strong>dem Mann</strong> heute <strong>das Buch</strong>.</em></td><td>dem Mann=D(N), heute=TE, das Buch=Akk(N)</td></tr>
+                <tr><td><em>Sie zeigt <strong>dem Kind</strong> morgen schnell <strong>das Bild</strong>.</em></td><td>dem Kind=D(N), morgen=TE, schnell=MO, das Bild=Akk(N)</td></tr>
+              </tbody></table></div>
+            </div></div>
+          </div>
+
+          <!-- Pattern 9 -->
+          <div class="sub-card">
+            <div class="sub-hd" onclick="toggleSub(this)">
+              <span class="sub-title">Pattern 9 — S + V + D(PN) + Te,Ka,Mo,Lo + Akk(N)</span>
+              <span class="sub-chev">▼</span>
+            </div>
+            <div class="sub-bd"><div class="sub-bd-in">
+              <div class="formula"><span class="f-s">S</span> + <span class="f-v">V</span> + <span class="f-d">D(PN)</span> + <span class="f-t">TEKAMOLO</span> + <span class="f-a">Akk(N)</span></div>
+              <div class="t-wrap"><table><thead><tr><th>Example</th><th>Tags</th></tr></thead><tbody>
+                <tr><td><em>Ich gebe <strong>ihm</strong> heute <strong>das Buch</strong>.</em></td><td>ihm=D(PN), heute=TE, das Buch=Akk(N)</td></tr>
+                <tr><td><em>Sie kauft <strong>mir</strong> morgen im Markt <strong>einen Kaffee</strong>.</em></td><td>mir=D(PN), morgen=TE, Im Markt=LO, einen Kaffee=Akk(N)</td></tr>
+              </tbody></table></div>
+            </div></div>
+          </div>
+
+          <!-- Pattern 10 -->
+          <div class="sub-card">
+            <div class="sub-hd" onclick="toggleSub(this)">
+              <span class="sub-title">Pattern 10 — S + V + Akk(PN) + D(PN) + Te,Ka,Mo,Lo</span>
+              <span class="sub-chev">▼</span>
+            </div>
+            <div class="sub-bd"><div class="sub-bd-in">
+              <div class="formula"><span class="f-s">S</span> + <span class="f-v">V</span> + <span class="f-a">Akk(PN)</span> + <span class="f-d">D(PN)</span> + <span class="f-t">TEKAMOLO</span></div>
+              <div class="t-wrap"><table><thead><tr><th>Example</th><th>Tags</th></tr></thead><tbody>
+                <tr><td><em>Ich gebe <strong>es ihm</strong> heute schnell.</em></td><td>es=Akk(PN), ihm=D(PN), heute=TE, schnell=MO</td></tr>
+                <tr><td><em>Er schickt <strong>sie ihr</strong> morgen nach Hause.</em></td><td>sie=Akk(PN), ihr=D(PN), morgen=TE, nach Hause=LO</td></tr>
+              </tbody></table></div>
+            </div></div>
+          </div>
+
+          <!-- Pattern 11 -->
+          <div class="sub-card">
+            <div class="sub-hd" onclick="toggleSub(this)">
+              <span class="sub-title">Pattern 11 — S + V + Akk(PN) + D(N) + Te,Ka,Mo,Lo</span>
+              <span class="sub-chev">▼</span>
+            </div>
+            <div class="sub-bd"><div class="sub-bd-in">
+              <div class="formula"><span class="f-s">S</span> + <span class="f-v">V</span> + <span class="f-a">Akk(PN)</span> + <span class="f-d">D(N)</span> + <span class="f-t">TEKAMOLO</span></div>
+              <div class="t-wrap"><table><thead><tr><th>Example</th><th>Tags</th></tr></thead><tbody>
+                <tr><td><em>Ich gebe <strong>es</strong> dem Mann heute schnell.</em></td><td>es=Akk(PN), dem Mann=D(N), heute=TE, schnell=MO</td></tr>
+                <tr><td><em>Er schickt <strong>sie</strong> der Frau morgen nach Hause.</em></td><td>sie=Akk(PN), der Frau=D(N), morgen=TE, nach Hause=LO</td></tr>
+              </tbody></table></div>
+            </div></div>
+          </div>
+
+          <!-- Quick Reference -->
+          <h3>Quick Reference — All 11 Patterns</h3>
+          <div class="t-wrap"><table><thead><tr><th>#</th><th>Pattern</th><th>Key Rule</th></tr></thead><tbody>
+            <tr><td><strong>1</strong></td><td>S + V + Te, Ka, Mo, Lo</td><td>No object — adverbials only</td></tr>
+            <tr><td><strong>2</strong></td><td>S + V + Dativ + Te, Ka, Mo, Lo</td><td>Dativ noun before TEKAMOLO</td></tr>
+            <tr><td><strong>3</strong></td><td>S + V + Te, Ka, Mo, Lo + Akkusativ</td><td>TEKAMOLO before Akk noun</td></tr>
+            <tr><td><strong>4</strong></td><td>S + V + Dativ(N) + Akkusativ(N)</td><td>Both nouns — Dativ before Akk</td></tr>
+            <tr><td><strong>5</strong></td><td>S + V + Akk(PN) + D(PN)</td><td>Both pronouns → Akk first</td></tr>
+            <tr><td><strong>6</strong></td><td>S + V + D(PN) + Akk(N)</td><td>Dativ pronoun + Akk noun → Pronoun first</td></tr>
+            <tr><td><strong>7</strong></td><td>S + V + Akk(PN) + D(N)</td><td>Akk pronoun + Dativ noun → Pronoun first</td></tr>
+            <tr><td><strong>8</strong></td><td>S + V + D(N) + TEKAMOLO + Akk(N)</td><td>TEKAMOLO between the two nouns</td></tr>
+            <tr><td><strong>9</strong></td><td>S + V + D(PN) + TEKAMOLO + Akk(N)</td><td>Dativ pronoun, TEKAMOLO, Akk noun</td></tr>
+            <tr><td><strong>10</strong></td><td>S + V + Akk(PN) + D(PN) + TEKAMOLO</td><td>Both pronouns (Akk→Dativ), then TEKAMOLO</td></tr>
+            <tr><td><strong>11</strong></td><td>S + V + Akk(PN) + D(N) + TEKAMOLO</td><td>Akk pronoun, Dativ noun, then TEKAMOLO</td></tr>
+          </tbody></table></div>
+          <div class="note">
+            <strong>Core rules:</strong><br>
+            · Pronoun always beats noun → pronoun comes first<br>
+            · When both are pronouns → Akkusativ before Dativ<br>
+            · When both are nouns → Dativ before Akkusativ (or TEKAMOLO between them)
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card G2: Word Order -->
+    <div class="card g reveal" id="word-order">
+      <div class="card-hd" onclick="toggleCard(this)">
+        <div class="card-hd-left">
+          <span class="card-num">02</span>
+          <div>
+            <div class="card-title">Wortstellung — V2-Regel</div>
+            <div class="card-sub">Verb always in position 2 · Inversion</div>
+          </div>
+        </div>
+        <svg class="card-chev" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="5 8 10 13 15 8"/></svg>
+      </div>
+      <div class="card-bd"><div class="card-bd-in">
+        <h3>Basic Rule: Verb is always in Position 2</h3>
+        <div class="t-wrap"><table><thead><tr><th>Position 1</th><th>Position 2 (verb)</th><th>Rest</th><th>Meaning</th></tr></thead><tbody>
+          <tr><td>Ich</td><td><strong>wohne</strong></td><td>in Berlin.</td><td>I live in Berlin.</td></tr>
+          <tr><td>Er</td><td><strong>kommt</strong></td><td>aus Japan.</td><td>He comes from Japan.</td></tr>
+          <tr><td>Meine Mutter</td><td><strong>ist</strong></td><td>Ärztin.</td><td>My mother is a doctor.</td></tr>
+          <tr><td>Wir</td><td><strong>lernen</strong></td><td>jeden Tag Deutsch.</td><td>We learn German every day.</td></tr>
+          <tr><td>Ich</td><td><strong>kaufe</strong></td><td>im Supermarkt ein.</td><td>I shop at the supermarket.</td></tr>
+          <tr><td>Der Zug</td><td><strong>fährt</strong></td><td>um 8 Uhr ab.</td><td>The train departs at 8.</td></tr>
+        </tbody></table></div>
+
+        <h3>Inversion (Adverb / Time Expression starts the sentence)</h3>
+        <div class="rule">When an adverb or time expression starts the sentence, <strong>subject and verb swap</strong>.</div>
+        <div class="t-wrap"><table><thead><tr><th>Time/Adverb</th><th>Verb</th><th>Subject</th><th>Rest</th><th>Meaning</th></tr></thead><tbody>
+          <tr><td>Heute</td><td><strong>wohne</strong></td><td>ich</td><td>in Berlin.</td><td>Today I live in Berlin.</td></tr>
+          <tr><td>Um 7 Uhr</td><td><strong>stehe</strong></td><td>ich</td><td>auf.</td><td>At 7 o'clock I get up.</td></tr>
+          <tr><td>Manchmal</td><td><strong>koche</strong></td><td>er</td><td>das Abendessen.</td><td>Sometimes he cooks dinner.</td></tr>
+          <tr><td>Morgen</td><td><strong>fahre</strong></td><td>ich</td><td>nach München.</td><td>Tomorrow I'm going to Munich.</td></tr>
+          <tr><td>Abends</td><td><strong>lese</strong></td><td>er</td><td>ein Buch.</td><td>In the evenings he reads a book.</td></tr>
+          <tr><td>Normalerweise</td><td><strong>arbeite</strong></td><td>ich</td><td>von zu Hause.</td><td>Normally I work from home.</td></tr>
+        </tbody></table></div>
+      </div></div>
+    </div>
+
+    <!-- Card G3: Questions -->
+    <div class="card g reveal" id="questions">
+      <div class="card-hd" onclick="toggleCard(this)">
+        <div class="card-hd-left">
+          <span class="card-num">03</span>
+          <div>
+            <div class="card-title">Fragen — Questions</div>
+            <div class="card-sub">W-Fragen · Ja/Nein-Fragen</div>
+          </div>
+        </div>
+        <svg class="card-chev" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="5 8 10 13 15 8"/></svg>
+      </div>
+      <div class="card-bd"><div class="card-bd-in">
+        <h3>W-Questions (Fragewörter)</h3>
+        <div class="tip"><strong>Word order:</strong> Question word → Verb → Subject → Rest<br><em>Wo <strong>wohnt</strong> er?</em> / <em>Wie <strong>heißen</strong> Sie?</em></div>
+        <div class="t-wrap"><table><thead><tr><th>Fragewort</th><th>Meaning</th><th>Example</th></tr></thead><tbody>
+          <tr><td><strong>Wer?</strong></td><td>Who?</td><td><em>Wer ist das?</em></td></tr>
+          <tr><td><strong>Was?</strong></td><td>What?</td><td><em>Was machst du?</em></td></tr>
+          <tr><td><strong>Wo?</strong></td><td>Where? (location)</td><td><em>Wo wohnst du?</em></td></tr>
+          <tr><td><strong>Woher?</strong></td><td>Where from?</td><td><em>Woher kommst du?</em></td></tr>
+          <tr><td><strong>Wohin?</strong></td><td>Where to?</td><td><em>Wohin gehst du?</em></td></tr>
+          <tr><td><strong>Wie?</strong></td><td>How? / What (name)?</td><td><em>Wie heißt du?</em></td></tr>
+          <tr><td><strong>Wie viel?</strong></td><td>How much?</td><td><em>Wie viel kostet das?</em></td></tr>
+          <tr><td><strong>Wie viele?</strong></td><td>How many?</td><td><em>Wie viele Kinder hast du?</em></td></tr>
+          <tr><td><strong>Wann?</strong></td><td>When?</td><td><em>Wann kommst du?</em></td></tr>
+          <tr><td><strong>Warum?</strong></td><td>Why?</td><td><em>Warum lernst du Deutsch?</em></td></tr>
+          <tr><td><strong>Welch-?</strong></td><td>Which?</td><td><em>Welchen Kaffee möchten Sie?</em></td></tr>
+        </tbody></table></div>
+
+        <h3>Yes/No Questions (Ja/Nein-Fragen)</h3>
+        <div class="rule"><strong>Verb comes first, subject comes second.</strong></div>
+        <div class="t-wrap"><table><thead><tr><th>Verb</th><th>Subject</th><th>Rest</th><th>Meaning</th></tr></thead><tbody>
+          <tr><td><strong>Kommen</strong></td><td>Sie</td><td>aus Deutschland?</td><td>Do you come from Germany?</td></tr>
+          <tr><td><strong>Haben</strong></td><td>Sie</td><td>Kinder?</td><td>Do you have children?</td></tr>
+          <tr><td><strong>Ist</strong></td><td>das</td><td>ein Stuhl?</td><td>Is that a chair?</td></tr>
+          <tr><td><strong>Wohnst</strong></td><td>du</td><td>in Berlin?</td><td>Do you live in Berlin?</td></tr>
+          <tr><td><strong>Sprichst</strong></td><td>du</td><td>Deutsch?</td><td>Do you speak German?</td></tr>
+          <tr><td><strong>Können</strong></td><td>Sie</td><td>mir helfen?</td><td>Can you help me?</td></tr>
+          <tr><td><strong>Fährt</strong></td><td>der Zug</td><td>um 8 Uhr ab?</td><td>Does the train depart at 8?</td></tr>
+        </tbody></table></div>
+      </div></div>
+    </div>
+
+    <!-- Card G4: Negation -->
+    <div class="card g reveal" id="negation">
+      <div class="card-hd" onclick="toggleCard(this)">
+        <div class="card-hd-left">
+          <span class="card-num">04</span>
+          <div>
+            <div class="card-title">Verneinung — Negation</div>
+            <div class="card-sub">nicht · kein · doch</div>
+          </div>
+        </div>
+        <svg class="card-chev" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="5 8 10 13 15 8"/></svg>
+      </div>
+      <div class="card-bd"><div class="card-bd-in">
+        <h3>nicht</h3>
+        <p>Used to negate verbs, adjectives, and adverbs.</p>
+        <div class="note">· At <strong>end</strong> of sentence (verbs): <em>Ich komme <strong>nicht</strong>.</em><br>· <strong>Before</strong> the element it negates (adjectives/adverbs): <em>Das ist <strong>nicht</strong> gut.</em><br>· <strong>Before</strong> a separable prefix: <em>Er steht <strong>nicht</strong> auf.</em></div>
+        <div class="t-wrap"><table><thead><tr><th>Example</th><th>Meaning</th></tr></thead><tbody>
+          <tr><td><em>Ich arbeite <strong>nicht</strong>.</em></td><td>I don't work.</td></tr>
+          <tr><td><em>Sie wohnt <strong>nicht</strong> in Berlin.</em></td><td>She doesn't live in Berlin.</td></tr>
+          <tr><td><em>Das schmeckt <strong>nicht</strong> gut.</em></td><td>That doesn't taste good.</td></tr>
+          <tr><td><em>Er ist <strong>nicht</strong> müde.</em></td><td>He is not tired.</td></tr>
+          <tr><td><em>Ich rufe <strong>nicht</strong> an.</em></td><td>I'm not calling.</td></tr>
+        </tbody></table></div>
+
+        <h3>kein / keine</h3>
+        <p>Negates <strong>nouns</strong> — replaces ein/eine or plural without article.</p>
+        <div class="t-wrap"><table><thead><tr><th>Example</th><th>Meaning</th></tr></thead><tbody>
+          <tr><td><em>Ich habe <strong>kein</strong> Auto.</em></td><td>I don't have a car.</td></tr>
+          <tr><td><em>Das ist <strong>keine</strong> Wohnung.</em></td><td>That is not a flat.</td></tr>
+          <tr><td><em>Ich habe <strong>keine</strong> Geschwister.</em></td><td>I have no siblings.</td></tr>
+          <tr><td><em>Sie trinkt <strong>keinen</strong> Kaffee.</em></td><td>She doesn't drink coffee.</td></tr>
+        </tbody></table></div>
+
+        <div class="tip"><strong>nicht vs. kein:</strong> Use <strong>kein</strong> to negate a noun with ein/eine or no article. Use <strong>nicht</strong> for everything else.<br><em>Ich habe <strong>kein</strong> Auto.</em> ✓ &nbsp;&nbsp; <em>Ich fahre <strong>nicht</strong>.</em> ✓</div>
+
+        <h3>doch</h3>
+        <p>Contradicts a negative statement — means "yes, actually".</p>
+        <div class="t-wrap"><table><thead><tr><th>Negative statement</th><th>Doch reply</th><th>Meaning</th></tr></thead><tbody>
+          <tr><td><em>Kommst du <strong>nicht</strong>?</em></td><td><em><strong>Doch</strong>, ich komme!</em></td><td>Yes, I am coming!</td></tr>
+          <tr><td><em>Du hast kein Auto.</em></td><td><em><strong>Doch</strong>, ich habe ein Auto.</em></td><td>Yes I do have a car.</td></tr>
+          <tr><td><em>Sie spricht <strong>kein</strong> Deutsch.</em></td><td><em><strong>Doch</strong>, sie spricht Deutsch.</em></td><td>Yes, she does speak German.</td></tr>
+        </tbody></table></div>
+        <div class="note"><strong>Rule:</strong> When someone says something <strong>negative</strong> and you want to say <strong>yes</strong> — use <strong>doch</strong>, not <em>ja</em>.</div>
+      </div></div>
+    </div>
+
+    <!-- Card G5: Cases -->
+    <div class="card g reveal" id="cases">
+      <div class="card-hd" onclick="toggleCard(this)">
+        <div class="card-hd-left">
+          <span class="card-num">05</span>
+          <div>
+            <div class="card-title">Kasus — Cases</div>
+            <div class="card-sub">Nominativ · Akkusativ · Dativ</div>
+          </div>
+        </div>
+        <svg class="card-chev" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="5 8 10 13 15 8"/></svg>
+      </div>
+      <div class="card-bd"><div class="card-bd-in">
+        <div class="t-wrap"><table><thead><tr><th>Case</th><th>Role</th><th>Common verbs</th></tr></thead><tbody>
+          <tr><td><strong>Nominativ</strong></td><td>Subject — who performs the action</td><td>sein, heißen, werden</td></tr>
+          <tr><td><strong>Akkusativ</strong></td><td>Direct object — what is directly affected</td><td>kaufen, haben, sehen, nehmen, möchten, brauchen, finden, essen, trinken</td></tr>
+          <tr><td><strong>Dativ</strong></td><td>Indirect object — to/for whom the action is done</td><td>geben, zeigen, helfen, schreiben, schenken, sagen, gehören, gefallen</td></tr>
+        </tbody></table></div>
+
+        <h3>Article Changes by Case</h3>
+        <div class="t-wrap"><table><thead><tr><th></th><th>Maskulin</th><th>Feminin</th><th>Neutrum</th><th>Plural</th></tr></thead><tbody>
+          <tr><td><strong>Nom</strong></td><td>der / ein</td><td>die / eine</td><td>das / ein</td><td>die / —</td></tr>
+          <tr><td><strong>Akk</strong></td><td><strong>den / einen</strong></td><td>die / eine</td><td>das / ein</td><td>die / —</td></tr>
+          <tr><td><strong>Dat</strong></td><td><strong>dem / einem</strong></td><td><strong>der / einer</strong></td><td><strong>dem / einem</strong></td><td><strong>den / —</strong></td></tr>
+        </tbody></table></div>
+
+        <h3>Nominativ Examples</h3>
+        <div class="t-wrap"><table><thead><tr><th>Example</th><th>Meaning</th></tr></thead><tbody>
+          <tr><td><em><strong>Der Mann</strong> kauft einen Apfel.</em></td><td>The man buys an apple.</td></tr>
+          <tr><td><em><strong>Eine Frau</strong> wohnt hier.</em></td><td>A woman lives here.</td></tr>
+          <tr><td><em>Ich bin <strong>ein Student</strong>.</em></td><td>I am a student.</td></tr>
+        </tbody></table></div>
+
+        <h3>Akkusativ Examples</h3>
+        <div class="t-wrap"><table><thead><tr><th>Example</th><th>Meaning</th></tr></thead><tbody>
+          <tr><td><em>Ich kaufe <strong>einen Apfel</strong>.</em></td><td>I buy an apple.</td></tr>
+          <tr><td><em>Er sieht <strong>die Frau</strong>.</em></td><td>He sees the woman.</td></tr>
+          <tr><td><em>Ich möchte <strong>einen Kaffee</strong>.</em></td><td>I would like a coffee.</td></tr>
+        </tbody></table></div>
+
+        <h3>Dativ Examples</h3>
+        <div class="t-wrap"><table><thead><tr><th>Example</th><th>Meaning</th></tr></thead><tbody>
+          <tr><td><em>Ich gebe <strong>dem Mann</strong> das Buch.</em></td><td>I give the man the book.</td></tr>
+          <tr><td><em>Sie hilft <strong>der Frau</strong>.</em></td><td>She helps the woman.</td></tr>
+          <tr><td><em>Ich schenke <strong>meiner Mutter</strong> Blumen.</em></td><td>I give my mother flowers.</td></tr>
+        </tbody></table></div>
+
+        <div class="tip"><strong>Quick tip:</strong> Ask <em>Wer?/Was?</em> → Nominativ &nbsp;·&nbsp; <em>Wen?/Was?</em> → Akkusativ &nbsp;·&nbsp; <em>Wem?</em> → Dativ</div>
+      </div></div>
+    </div>
+
+    <!-- Card G6: Articles -->
+    <div class="card g reveal" id="articles">
+      <div class="card-hd" onclick="toggleCard(this)">
+        <div class="card-hd-left">
+          <span class="card-num">06</span>
+          <div>
+            <div class="card-title">Artikel — Articles</div>
+            <div class="card-sub">Definite vs. Indefinite · When to use</div>
+          </div>
+        </div>
+        <svg class="card-chev" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="5 8 10 13 15 8"/></svg>
+      </div>
+      <div class="card-bd"><div class="card-bd-in">
+        <div class="t-wrap"><table><thead><tr><th>Situation</th><th>Article</th><th>Example</th><th>Meaning</th></tr></thead><tbody>
+          <tr><td>Unknown / first mention</td><td><strong>ein/eine</strong></td><td><em>Das ist <strong>eine</strong> Wohnung.</em></td><td>That is a flat.</td></tr>
+          <tr><td>Known / mentioned before</td><td><strong>der/die/das</strong></td><td><em><strong>Die</strong> Wohnung ist groß.</em></td><td>The flat is big.</td></tr>
+          <tr><td>Unique things</td><td><strong>der/die/das</strong></td><td><em><strong>Die</strong> Sonne scheint.</em></td><td>The sun is shining.</td></tr>
+          <tr><td>Professions/nationalities after sein</td><td><strong>no article</strong></td><td><em>Er ist <strong>Arzt</strong>.</em></td><td>He is a doctor.</td></tr>
+        </tbody></table></div>
+        <div class="t-wrap"><table><thead><tr><th>Example</th><th>Meaning</th><th>Note</th></tr></thead><tbody>
+          <tr><td><em>Ich sehe <strong>einen Mann</strong>.</em></td><td>I see a man.</td><td>First mention → ein</td></tr>
+          <tr><td><em><strong>Der Mann</strong> ist groß.</em></td><td>The man is tall.</td><td>Already known → der</td></tr>
+          <tr><td><em>Sie hat <strong>eine Katze</strong>.</em></td><td>She has a cat.</td><td>First mention → eine</td></tr>
+          <tr><td><em>Sie ist <strong>Lehrerin</strong>.</em></td><td>She is a teacher.</td><td>Profession → no article</td></tr>
+        </tbody></table></div>
+      </div></div>
+    </div>
+
+    <!-- Card G7: Separable Verbs -->
+    <div class="card g reveal" id="separable-verbs">
+      <div class="card-hd" onclick="toggleCard(this)">
+        <div class="card-hd-left">
+          <span class="card-num">07</span>
+          <div>
+            <div class="card-title">Trennbare Verben — Separable Verbs</div>
+            <div class="card-sub">Prefix moves to end of sentence</div>
+          </div>
+        </div>
+        <svg class="card-chev" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="5 8 10 13 15 8"/></svg>
+      </div>
+      <div class="card-bd"><div class="card-bd-in">
+        <div class="rule">The prefix separates and moves to the <strong>end</strong> of the sentence.</div>
+        <div class="t-wrap"><table><thead><tr><th>Full verb</th><th>Meaning</th><th>Example</th><th>Translation</th></tr></thead><tbody>
+          <tr><td><strong>auf</strong>stehen</td><td>to get up</td><td><em>Ich <strong>stehe</strong> um 7 Uhr <strong>auf</strong>.</em></td><td>I get up at 7 o'clock.</td></tr>
+          <tr><td><strong>ein</strong>kaufen</td><td>to shop</td><td><em>Sie <strong>kauft</strong> im Supermarkt <strong>ein</strong>.</em></td><td>She shops at the supermarket.</td></tr>
+          <tr><td><strong>fern</strong>sehen</td><td>to watch TV</td><td><em>Er <strong>sieht</strong> abends <strong>fern</strong>.</em></td><td>He watches TV in the evenings.</td></tr>
+          <tr><td><strong>an</strong>rufen</td><td>to call</td><td><em>Ich <strong>rufe</strong> dich <strong>an</strong>.</em></td><td>I'll call you.</td></tr>
+          <tr><td><strong>auf</strong>räumen</td><td>to tidy up</td><td><em>Wir <strong>räumen</strong> das Zimmer <strong>auf</strong>.</em></td><td>We tidy up the room.</td></tr>
+          <tr><td><strong>ab</strong>fahren</td><td>to depart</td><td><em>Der Zug <strong>fährt</strong> um 9 Uhr <strong>ab</strong>.</em></td><td>The train departs at 9.</td></tr>
+          <tr><td><strong>an</strong>kommen</td><td>to arrive</td><td><em>Sie <strong>kommt</strong> morgen <strong>an</strong>.</em></td><td>She arrives tomorrow.</td></tr>
+          <tr><td><strong>aus</strong>gehen</td><td>to go out</td><td><em>Wir <strong>gehen</strong> heute Abend <strong>aus</strong>.</em></td><td>We're going out tonight.</td></tr>
+          <tr><td><strong>ein</strong>laden</td><td>to invite</td><td><em>Ich <strong>lade</strong> dich <strong>ein</strong>.</em></td><td>I invite you.</td></tr>
+          <tr><td><strong>mit</strong>bringen</td><td>to bring along</td><td><em>Er <strong>bringt</strong> Wein <strong>mit</strong>.</em></td><td>He brings wine along.</td></tr>
+        </tbody></table></div>
+        <h3>With Modal Verbs</h3>
+        <div class="note">With modals, the separable verb stays together as an <strong>infinitive at the end</strong>.</div>
+        <div class="t-wrap"><table><thead><tr><th>Example</th><th>Meaning</th></tr></thead><tbody>
+          <tr><td><em>Ich muss das Zimmer <strong>aufräumen</strong>.</em></td><td>I have to tidy up the room.</td></tr>
+          <tr><td><em>Sie will heute <strong>einkaufen</strong>.</em></td><td>She wants to go shopping today.</td></tr>
+          <tr><td><em>Wir möchten heute Abend <strong>ausgehen</strong>.</em></td><td>We'd like to go out tonight.</td></tr>
+        </tbody></table></div>
+      </div></div>
+    </div>
+
+    <!-- Card G8: Modal Verbs -->
+    <div class="card g reveal" id="modal-verbs">
+      <div class="card-hd" onclick="toggleCard(this)">
+        <div class="card-hd-left">
+          <span class="card-num">08</span>
+          <div>
+            <div class="card-title">Modalverben — Modal Verbs</div>
+            <div class="card-sub">können · müssen · möchten · dürfen · wollen · sollen</div>
+          </div>
+        </div>
+        <svg class="card-chev" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="5 8 10 13 15 8"/></svg>
+      </div>
+      <div class="card-bd"><div class="card-bd-in">
+        <div class="rule"><strong>Word order:</strong> Modal verb → Position 2. &nbsp; Infinitive → End.</div>
+        <div class="t-wrap"><table><thead><tr><th>Modal</th><th>Meaning</th><th>Example</th><th>Translation</th></tr></thead><tbody>
+          <tr><td><strong>können</strong></td><td>can / to be able to</td><td><em>Ich <strong>kann</strong> Gitarre <strong>spielen</strong>.</em></td><td>I can play guitar.</td></tr>
+          <tr><td><strong>müssen</strong></td><td>must / have to</td><td><em>Du <strong>musst</strong> jetzt <strong>gehen</strong>.</em></td><td>You must go now.</td></tr>
+          <tr><td><strong>möchten</strong></td><td>would like to</td><td><em>Er <strong>möchte</strong> einen Kaffee <strong>trinken</strong>.</em></td><td>He would like a coffee.</td></tr>
+          <tr><td><strong>dürfen</strong></td><td>may / allowed to</td><td><em>Wir <strong>dürfen</strong> hier nicht <strong>rauchen</strong>.</em></td><td>We may not smoke here.</td></tr>
+          <tr><td><strong>wollen</strong></td><td>to want to</td><td><em>Sie <strong>will</strong> Ärztin <strong>werden</strong>.</em></td><td>She wants to become a doctor.</td></tr>
+          <tr><td><strong>sollen</strong></td><td>should / supposed to</td><td><em>Du <strong>sollst</strong> das <strong>machen</strong>.</em></td><td>You are supposed to do that.</td></tr>
+        </tbody></table></div>
+        <h3>More Examples</h3>
+        <div class="t-wrap"><table><thead><tr><th>Example</th><th>Meaning</th></tr></thead><tbody>
+          <tr><td><em>Ich <strong>kann</strong> nicht <strong>kommen</strong>.</em></td><td>I can't come.</td></tr>
+          <tr><td><em>Er <strong>muss</strong> heute <strong>arbeiten</strong>.</em></td><td>He has to work today.</td></tr>
+          <tr><td><em>Darf ich Sie etwas <strong>fragen</strong>?</em></td><td>May I ask you something?</td></tr>
+          <tr><td><em>Wir <strong>müssen</strong> den Bus <strong>nehmen</strong>.</em></td><td>We have to take the bus.</td></tr>
+        </tbody></table></div>
+        <div class="note"><strong>Negation with modals:</strong> nicht goes before the infinitive at the end.<br><em>Ich kann heute <strong>nicht kommen</strong>.</em> — I can't come today.</div>
+      </div></div>
+    </div>
+
+    <!-- Card G9: Adjectives after sein -->
+    <div class="card g reveal" id="adjectives">
+      <div class="card-hd" onclick="toggleCard(this)">
+        <div class="card-hd-left">
+          <span class="card-num">09</span>
+          <div>
+            <div class="card-title">Adjektiv nach sein — Predicative Adjectives</div>
+            <div class="card-sub">No ending after sein · werden · bleiben</div>
+          </div>
+        </div>
+        <svg class="card-chev" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="5 8 10 13 15 8"/></svg>
+      </div>
+      <div class="card-bd"><div class="card-bd-in">
+        <div class="rule">When an adjective comes <strong>after sein</strong>, it has <strong>no ending</strong>.</div>
+        <div class="t-wrap"><table><thead><tr><th>Example</th><th>Meaning</th></tr></thead><tbody>
+          <tr><td><em>Das Sofa ist <strong>groß</strong>.</em></td><td>The sofa is big.</td></tr>
+          <tr><td><em>Die Wohnung ist <strong>schön</strong>.</em></td><td>The flat is beautiful.</td></tr>
+          <tr><td><em>Das Essen ist <strong>lecker</strong>.</em></td><td>The food is delicious.</td></tr>
+          <tr><td><em>Das Wetter ist <strong>kalt</strong>.</em></td><td>The weather is cold.</td></tr>
+          <tr><td><em>Er ist <strong>müde</strong>.</em></td><td>He is tired.</td></tr>
+          <tr><td><em>Sie ist <strong>krank</strong>.</em></td><td>She is sick.</td></tr>
+          <tr><td><em>Das Hotel ist <strong>teuer</strong>.</em></td><td>The hotel is expensive.</td></tr>
+          <tr><td><em>Der Kaffee ist <strong>heiß</strong>.</em></td><td>The coffee is hot.</td></tr>
+        </tbody></table></div>
+        <div class="note"><strong>No ending after:</strong> sein, werden, bleiben<br><em>Er wird <strong>alt</strong>.</em> — He is getting old. &nbsp;/&nbsp; <em>Sie bleibt <strong>ruhig</strong>.</em> — She stays calm.</div>
+      </div></div>
+    </div>
+
+    <!-- Card G10: Useful Words -->
+    <div class="card g reveal" id="useful-words">
+      <div class="card-hd" onclick="toggleCard(this)">
+        <div class="card-hd-left">
+          <span class="card-num">10</span>
+          <div>
+            <div class="card-title">Nützliche kleine Wörter</div>
+            <div class="card-sub">Conjunctions · Adverbs · Particles</div>
+          </div>
+        </div>
+        <svg class="card-chev" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="5 8 10 13 15 8"/></svg>
+      </div>
+      <div class="card-bd"><div class="card-bd-in">
+        <div class="t-wrap"><table><thead><tr><th>German</th><th>English</th><th>Example</th></tr></thead><tbody>
+          <tr><td><strong>auch</strong></td><td>also / too</td><td><em>Ich komme auch.</em></td></tr>
+          <tr><td><strong>sehr</strong></td><td>very</td><td><em>Das ist sehr gut.</em></td></tr>
+          <tr><td><strong>gern(e)</strong></td><td>gladly / like to</td><td><em>Ich spiele gern Fußball.</em></td></tr>
+          <tr><td><strong>schon</strong></td><td>already</td><td><em>Ich bin schon fertig.</em></td></tr>
+          <tr><td><strong>noch</strong></td><td>still / yet</td><td><em>Ich lerne noch Deutsch.</em></td></tr>
+          <tr><td><strong>noch nicht</strong></td><td>not yet</td><td><em>Er kommt noch nicht.</em></td></tr>
+          <tr><td><strong>nur</strong></td><td>only</td><td><em>Ich habe nur ein Kind.</em></td></tr>
+          <tr><td><strong>aber</strong></td><td>but</td><td><em>Er ist nett, aber laut.</em></td></tr>
+          <tr><td><strong>oder</strong></td><td>or</td><td><em>Kaffee oder Tee?</em></td></tr>
+          <tr><td><strong>und</strong></td><td>and</td><td><em>Ich und du.</em></td></tr>
+          <tr><td><strong>denn</strong></td><td>because (coord.)</td><td><em>Ich lerne Deutsch, denn ich wohne in Deutschland.</em></td></tr>
+          <tr><td><strong>weil</strong></td><td>because (subord.)</td><td><em>Ich lerne Deutsch, weil ich in Deutschland wohne.</em></td></tr>
+          <tr><td><strong>vielleicht</strong></td><td>maybe / perhaps</td><td><em>Ich komme vielleicht morgen.</em></td></tr>
+          <tr><td><strong>immer</strong></td><td>always</td><td><em>Er ist immer pünktlich.</em></td></tr>
+          <tr><td><strong>nie / niemals</strong></td><td>never</td><td><em>Sie trinkt nie Alkohol.</em></td></tr>
+          <tr><td><strong>oft</strong></td><td>often</td><td><em>Wir gehen oft spazieren.</em></td></tr>
+          <tr><td><strong>manchmal</strong></td><td>sometimes</td><td><em>Manchmal esse ich Pizza.</em></td></tr>
+          <tr><td><strong>meistens</strong></td><td>mostly / usually</td><td><em>Ich fahre meistens mit dem Bus.</em></td></tr>
+          <tr><td><strong>leider</strong></td><td>unfortunately</td><td><em>Ich kann leider nicht kommen.</em></td></tr>
+          <tr><td><strong>natürlich</strong></td><td>of course</td><td><em>Natürlich helfe ich dir.</em></td></tr>
+          <tr><td><strong>trotzdem</strong></td><td>nevertheless</td><td><em>Es regnet, trotzdem gehe ich.</em></td></tr>
+          <tr><td><strong>deshalb</strong></td><td>therefore</td><td><em>Er ist krank, deshalb bleibt er zu Hause.</em></td></tr>
+          <tr><td><strong>gerade</strong></td><td>just now / currently</td><td><em>Ich esse gerade.</em></td></tr>
+          <tr><td><strong>zusammen</strong></td><td>together</td><td><em>Wir lernen zusammen.</em></td></tr>
+        </tbody></table></div>
+        <div class="note"><strong>Coordinating conjunctions</strong> (und, aber, oder, denn) → no word order change.<br><strong>Subordinating conjunctions</strong> (weil, dass, wenn, obwohl) → verb goes to the <strong>end</strong> of the clause.</div>
+      </div></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ VOCABULARY ═══════════════ -->
+  <section id="vocabulary" class="scroll-target">
+    <div class="sec-head reveal">
+      <div class="sec-line"></div>
+      <div class="sec-head-c">
+        <div class="sec-eyebrow v">Wortschatz</div>
+        <div class="sec-title">Vocabulary</div>
+      </div>
+      <div class="sec-line"></div>
+    </div>
+
+    <!-- Vocab Search -->
+    <div class="vsearch-wrap reveal">
+      <span class="vsearch-icon">🔍</span>
+      <input id="vsearch" type="text" placeholder="Vokabeln filtern — z.B. Haus, drink, fahren …" autocomplete="off">
+    </div>
+    <div class="search-count" id="vsearch-count"></div>
+
+    <!-- L1: Greetings -->
+    <div class="card v reveal" id="lektion-1">
+      <div class="card-hd" onclick="toggleCard(this)">
+        <div class="card-hd-left">
+          <span class="card-num">L1</span>
+          <div>
+            <div class="card-title">Greetings &amp; Introductions</div>
+            <div class="card-sub">Begrüßungen und Vorstellungen</div>
+          </div>
+        </div>
+        <svg class="card-chev" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="5 8 10 13 15 8"/></svg>
+      </div>
+      <div class="card-bd"><div class="card-bd-in">
+        <div class="t-wrap"><table><thead><tr><th>German</th><th>English</th></tr></thead><tbody>
+          <tr><td>Hallo / Hi</td><td>Hello / Hi</td></tr>
+          <tr><td>Guten Morgen</td><td>Good morning</td></tr>
+          <tr><td>Guten Tag</td><td>Good day / Hello</td></tr>
+          <tr><td>Guten Abend</td><td>Good evening</td></tr>
+          <tr><td>Gute Nacht</td><td>Good night</td></tr>
+          <tr><td>Auf Wiedersehen</td><td>Goodbye (formal)</td></tr>
+          <tr><td>Tschüss / Tschau</td><td>Bye (informal)</td></tr>
+          <tr><td>Wie heißen Sie?</td><td>What is your name? (formal)</td></tr>
+          <tr><td>Wie heißt du?</td><td>What is your name? (informal)</td></tr>
+          <tr><td>Ich heiße …</td><td>My name is …</td></tr>
+          <tr><td>Wie geht es Ihnen?</td><td>How are you? (formal)</td></tr>
+          <tr><td>Wie geht's?</td><td>How are you? (informal)</td></tr>
+          <tr><td>Danke, gut.</td><td>Fine, thanks.</td></tr>
+          <tr><td>Und Ihnen / dir?</td><td>And you?</td></tr>
+          <tr><td>Bitte</td><td>Please / You're welcome</td></tr>
+          <tr><td>Danke (schön)</td><td>Thank you (very much)</td></tr>
+          <tr><td>Entschuldigung</td><td>Excuse me / Sorry</td></tr>
+        </tbody></table></div>
+      </div></div>
+    </div>
+
+    <!-- L2: Personal Info -->
+    <div class="card v reveal" id="lektion-2">
+      <div class="card-hd" onclick="toggleCard(this)">
+        <div class="card-hd-left">
+          <span class="card-num">L2</span>
+          <div>
+            <div class="card-title">Personal Information</div>
+            <div class="card-sub">Countries · Nationalities · Professions</div>
+          </div>
+        </div>
+        <svg class="card-chev" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="5 8 10 13 15 8"/></svg>
+      </div>
+      <div class="card-bd"><div class="card-bd-in">
+        <h3>Countries &amp; Nationalities</h3>
+        <div class="t-wrap"><table><thead><tr><th>Land</th><th>Nationalität (m/f)</th><th>Sprache</th></tr></thead><tbody>
+          <tr><td>Deutschland</td><td>Deutscher / Deutsche</td><td>Deutsch</td></tr>
+          <tr><td>Österreich</td><td>Österreicher / Österreicherin</td><td>Deutsch</td></tr>
+          <tr><td>die Schweiz</td><td>Schweizer / Schweizerin</td><td>Deutsch</td></tr>
+          <tr><td>Frankreich</td><td>Franzose / Französin</td><td>Französisch</td></tr>
+          <tr><td>Italien</td><td>Italiener / Italienerin</td><td>Italienisch</td></tr>
+          <tr><td>Spanien</td><td>Spanier / Spanierin</td><td>Spanisch</td></tr>
+          <tr><td>England / Großbritannien</td><td>Engländer / Engländerin</td><td>Englisch</td></tr>
+          <tr><td>die USA</td><td>Amerikaner / Amerikanerin</td><td>Englisch</td></tr>
+          <tr><td>Japan</td><td>Japaner / Japanerin</td><td>Japanisch</td></tr>
+          <tr><td>China</td><td>Chinese / Chinesin</td><td>Chinesisch</td></tr>
+          <tr><td>Myanmar</td><td>Myanmare / Myanmarerin</td><td>Burmesisch</td></tr>
+        </tbody></table></div>
+        <h3>Professions</h3>
+        <div class="t-wrap"><table><thead><tr><th>German (m/f)</th><th>English</th></tr></thead><tbody>
+          <tr><td>der Arzt / die Ärztin</td><td>doctor</td></tr>
+          <tr><td>der Lehrer / die Lehrerin</td><td>teacher</td></tr>
+          <tr><td>der Student / die Studentin</td><td>student (university)</td></tr>
+          <tr><td>der Ingenieur / die Ingenieurin</td><td>engineer</td></tr>
+          <tr><td>der Informatiker / die Informatikerin</td><td>IT specialist</td></tr>
+          <tr><td>der Koch / die Köchin</td><td>cook / chef</td></tr>
+          <tr><td>der Kellner / die Kellnerin</td><td>waiter / waitress</td></tr>
+          <tr><td>der Rentner / die Rentnerin</td><td>retiree / pensioner</td></tr>
+          <tr><td>arbeitslos</td><td>unemployed</td></tr>
+        </tbody></table></div>
+        <h3>Key Phrases</h3>
+        <div class="t-wrap"><table><thead><tr><th>German</th><th>English</th></tr></thead><tbody>
+          <tr><td>Woher kommen Sie / kommst du?</td><td>Where are you from?</td></tr>
+          <tr><td>Ich komme aus …</td><td>I come from …</td></tr>
+          <tr><td>Wo wohnen Sie / wohnst du?</td><td>Where do you live?</td></tr>
+          <tr><td>Ich wohne in …</td><td>I live in …</td></tr>
+          <tr><td>Was sind Sie von Beruf?</td><td>What is your profession?</td></tr>
+          <tr><td>Ich bin … (von Beruf).</td><td>I am a … (by profession).</td></tr>
+          <tr><td>Welche Sprachen sprechen Sie?</td><td>What languages do you speak?</td></tr>
+        </tbody></table></div>
+      </div></div>
+    </div>
+
+    <!-- L3: Family -->
+    <div class="card v reveal" id="lektion-3">
+      <div class="card-hd" onclick="toggleCard(this)">
+        <div class="card-hd-left">
+          <span class="card-num">L3</span>
+          <div>
+            <div class="card-title">Familie — Family</div>
+            <div class="card-sub">Familienmitglieder · Beziehungsstatus</div>
+          </div>
+        </div>
+        <svg class="card-chev" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="5 8 10 13 15 8"/></svg>
+      </div>
+      <div class="card-bd"><div class="card-bd-in">
+        <div class="t-wrap"><table><thead><tr><th>German</th><th>English</th></tr></thead><tbody>
+          <tr><td>die Familie</td><td>family</td></tr>
+          <tr><td>der Mann</td><td>husband / man</td></tr>
+          <tr><td>die Frau</td><td>wife / woman</td></tr>
+          <tr><td>der Vater (Papa)</td><td>father (dad)</td></tr>
+          <tr><td>die Mutter (Mama)</td><td>mother (mum)</td></tr>
+          <tr><td>der Sohn</td><td>son</td></tr>
+          <tr><td>die Tochter</td><td>daughter</td></tr>
+          <tr><td>der Bruder</td><td>brother</td></tr>
+          <tr><td>die Schwester</td><td>sister</td></tr>
+          <tr><td>der Großvater (Opa)</td><td>grandfather (grandpa)</td></tr>
+          <tr><td>die Großmutter (Oma)</td><td>grandmother (grandma)</td></tr>
+          <tr><td>der Onkel</td><td>uncle</td></tr>
+          <tr><td>die Tante</td><td>aunt</td></tr>
+          <tr><td>der Cousin</td><td>cousin (male)</td></tr>
+          <tr><td>die Cousine</td><td>cousin (female)</td></tr>
+          <tr><td>das Kind / die Kinder</td><td>child / children</td></tr>
+          <tr><td>ledig</td><td>single</td></tr>
+          <tr><td>verheiratet</td><td>married</td></tr>
+          <tr><td>geschieden</td><td>divorced</td></tr>
+          <tr><td>verwitwet</td><td>widowed</td></tr>
+        </tbody></table></div>
+      </div></div>
+    </div>
+
+    <!-- L4: Food & Drinks -->
+    <div class="card v reveal" id="lektion-4">
+      <div class="card-hd" onclick="toggleCard(this)">
+        <div class="card-hd-left">
+          <span class="card-num">L4</span>
+          <div>
+            <div class="card-title">Essen &amp; Trinken — Food &amp; Drinks</div>
+            <div class="card-sub">Lebensmittel · Im Restaurant / Im Supermarkt</div>
+          </div>
+        </div>
+        <svg class="card-chev" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="5 8 10 13 15 8"/></svg>
+      </div>
+      <div class="card-bd"><div class="card-bd-in">
+        <h3>Food (Lebensmittel)</h3>
+        <div class="t-wrap"><table><thead><tr><th>German</th><th>English</th><th>Artikel</th></tr></thead><tbody>
+          <tr><td>das Brot</td><td>bread</td><td><span class="art das">das</span></td></tr>
+          <tr><td>die Brötchen (pl.)</td><td>bread rolls</td><td><span class="art die">die</span></td></tr>
+          <tr><td>die Butter</td><td>butter</td><td><span class="art die">die</span></td></tr>
+          <tr><td>der Käse</td><td>cheese</td><td><span class="art der">der</span></td></tr>
+          <tr><td>der Schinken</td><td>ham</td><td><span class="art der">der</span></td></tr>
+          <tr><td>das Ei / die Eier</td><td>egg / eggs</td><td><span class="art das">das</span></td></tr>
+          <tr><td>die Wurst</td><td>sausage</td><td><span class="art die">die</span></td></tr>
+          <tr><td>die Milch</td><td>milk</td><td><span class="art die">die</span></td></tr>
+          <tr><td>der Kaffee</td><td>coffee</td><td><span class="art der">der</span></td></tr>
+          <tr><td>der Tee</td><td>tea</td><td><span class="art der">der</span></td></tr>
+          <tr><td>der Saft</td><td>juice</td><td><span class="art der">der</span></td></tr>
+          <tr><td>das Wasser</td><td>water</td><td><span class="art das">das</span></td></tr>
+          <tr><td>das Bier</td><td>beer</td><td><span class="art das">das</span></td></tr>
+          <tr><td>der Wein</td><td>wine</td><td><span class="art der">der</span></td></tr>
+          <tr><td>der Apfel</td><td>apple</td><td><span class="art der">der</span></td></tr>
+          <tr><td>die Banane</td><td>banana</td><td><span class="art die">die</span></td></tr>
+          <tr><td>die Tomate</td><td>tomato</td><td><span class="art die">die</span></td></tr>
+          <tr><td>die Kartoffel</td><td>potato</td><td><span class="art die">die</span></td></tr>
+          <tr><td>das Fleisch</td><td>meat</td><td><span class="art das">das</span></td></tr>
+          <tr><td>der Fisch</td><td>fish</td><td><span class="art der">der</span></td></tr>
+          <tr><td>die Nudeln (pl.)</td><td>pasta / noodles</td><td><span class="art die">die</span></td></tr>
+          <tr><td>der Reis</td><td>rice</td><td><span class="art der">der</span></td></tr>
+          <tr><td>das Gemüse</td><td>vegetables</td><td><span class="art das">das</span></td></tr>
+          <tr><td>das Obst</td><td>fruit</td><td><span class="art das">das</span></td></tr>
+          <tr><td>die Suppe</td><td>soup</td><td><span class="art die">die</span></td></tr>
+          <tr><td>der Kuchen</td><td>cake</td><td><span class="art der">der</span></td></tr>
+        </tbody></table></div>
+        <h3>At the Shop / Restaurant</h3>
+        <div class="t-wrap"><table><thead><tr><th>German</th><th>English</th></tr></thead><tbody>
+          <tr><td>Was kostet …?</td><td>How much does … cost?</td></tr>
+          <tr><td>Das kostet … Euro.</td><td>That costs … euros.</td></tr>
+          <tr><td>Ich nehme …</td><td>I'll take / have …</td></tr>
+          <tr><td>Ich möchte …</td><td>I would like …</td></tr>
+          <tr><td>Haben Sie …?</td><td>Do you have …?</td></tr>
+          <tr><td>Alles zusammen?</td><td>All together (bill)?</td></tr>
+        </tbody></table></div>
+      </div></div>
+    </div>
+
+    <!-- L5: Home & Furniture -->
+    <div class="card v reveal" id="lektion-5">
+      <div class="card-hd" onclick="toggleCard(this)">
+        <div class="card-hd-left">
+          <span class="card-num">L5</span>
+          <div>
+            <div class="card-title">Zuhause — Home &amp; Furniture</div>
+            <div class="card-sub">Räume · Möbel · Farben</div>
+          </div>
+        </div>
+        <svg class="card-chev" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="5 8 10 13 15 8"/></svg>
+      </div>
+      <div class="card-bd"><div class="card-bd-in">
+        <h3>Rooms (Räume)</h3>
+        <div class="t-wrap"><table><thead><tr><th>German</th><th>English</th><th>Artikel</th></tr></thead><tbody>
+          <tr><td>die Wohnung</td><td>apartment / flat</td><td><span class="art die">die</span></td></tr>
+          <tr><td>das Haus</td><td>house</td><td><span class="art das">das</span></td></tr>
+          <tr><td>das Wohnzimmer</td><td>living room</td><td><span class="art das">das</span></td></tr>
+          <tr><td>das Schlafzimmer</td><td>bedroom</td><td><span class="art das">das</span></td></tr>
+          <tr><td>das Kinderzimmer</td><td>children's room</td><td><span class="art das">das</span></td></tr>
+          <tr><td>die Küche</td><td>kitchen</td><td><span class="art die">die</span></td></tr>
+          <tr><td>das Badezimmer / das Bad</td><td>bathroom</td><td><span class="art das">das</span></td></tr>
+          <tr><td>der Flur</td><td>hallway</td><td><span class="art der">der</span></td></tr>
+          <tr><td>der Balkon</td><td>balcony</td><td><span class="art der">der</span></td></tr>
+          <tr><td>der Garten</td><td>garden</td><td><span class="art der">der</span></td></tr>
+        </tbody></table></div>
+        <h3>Furniture (Möbel)</h3>
+        <div class="t-wrap"><table><thead><tr><th>German</th><th>English</th><th>Artikel</th></tr></thead><tbody>
+          <tr><td>das Sofa / die Couch</td><td>sofa / couch</td><td><span class="art das">das</span></td></tr>
+          <tr><td>der Sessel</td><td>armchair</td><td><span class="art der">der</span></td></tr>
+          <tr><td>der Tisch</td><td>table</td><td><span class="art der">der</span></td></tr>
+          <tr><td>der Stuhl</td><td>chair</td><td><span class="art der">der</span></td></tr>
+          <tr><td>das Bett</td><td>bed</td><td><span class="art das">das</span></td></tr>
+          <tr><td>der Schrank</td><td>wardrobe / cabinet</td><td><span class="art der">der</span></td></tr>
+          <tr><td>das Regal</td><td>shelf</td><td><span class="art das">das</span></td></tr>
+          <tr><td>die Lampe</td><td>lamp</td><td><span class="art die">die</span></td></tr>
+          <tr><td>der Fernseher</td><td>television</td><td><span class="art der">der</span></td></tr>
+          <tr><td>das Fenster</td><td>window</td><td><span class="art das">das</span></td></tr>
+          <tr><td>die Tür</td><td>door</td><td><span class="art die">die</span></td></tr>
+        </tbody></table></div>
+        <h3>Colors (Farben)</h3>
+        <div class="t-wrap"><table><thead><tr><th>German</th><th>English</th></tr></thead><tbody>
+          <tr><td>rot</td><td>red</td></tr>
+          <tr><td>blau</td><td>blue</td></tr>
+          <tr><td>grün</td><td>green</td></tr>
+          <tr><td>gelb</td><td>yellow</td></tr>
+          <tr><td>schwarz</td><td>black</td></tr>
+          <tr><td>weiß</td><td>white</td></tr>
+          <tr><td>grau</td><td>grey</td></tr>
+          <tr><td>braun</td><td>brown</td></tr>
+          <tr><td>orange</td><td>orange</td></tr>
+          <tr><td>rosa / pink</td><td>pink</td></tr>
+          <tr><td>lila / violett</td><td>purple / violet</td></tr>
+          <tr><td>hell- / dunkel-</td><td>light- / dark- (e.g. hellblau = light blue)</td></tr>
+        </tbody></table></div>
+      </div></div>
+    </div>
+
+    <!-- L6: Daily Routine & Time -->
+    <div class="card v reveal" id="lektion-6">
+      <div class="card-hd" onclick="toggleCard(this)">
+        <div class="card-hd-left">
+          <span class="card-num">L6</span>
+          <div>
+            <div class="card-title">Alltag &amp; Zeit — Daily Routine &amp; Time</div>
+            <div class="card-sub">Zeitausdrücke · Wochentage · Monate · Jahreszeiten</div>
+          </div>
+        </div>
+        <svg class="card-chev" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="5 8 10 13 15 8"/></svg>
+      </div>
+      <div class="card-bd"><div class="card-bd-in">
+        <h3>Time Expressions</h3>
+        <div class="t-wrap"><table><thead><tr><th>German</th><th>English</th></tr></thead><tbody>
+          <tr><td>Wie viel Uhr ist es?</td><td>What time is it?</td></tr>
+          <tr><td>Es ist … Uhr.</td><td>It is … o'clock.</td></tr>
+          <tr><td>Viertel nach …</td><td>quarter past …</td></tr>
+          <tr><td>halb …</td><td>half past (the previous hour)</td></tr>
+          <tr><td>Viertel vor …</td><td>quarter to …</td></tr>
+          <tr><td>morgens</td><td>in the morning</td></tr>
+          <tr><td>mittags</td><td>at noon</td></tr>
+          <tr><td>nachmittags</td><td>in the afternoon</td></tr>
+          <tr><td>abends</td><td>in the evening</td></tr>
+          <tr><td>heute</td><td>today</td></tr>
+          <tr><td>morgen</td><td>tomorrow</td></tr>
+          <tr><td>gestern</td><td>yesterday</td></tr>
+          <tr><td>jeden Tag</td><td>every day</td></tr>
+        </tbody></table></div>
+        <h3>Days of the Week</h3>
+        <div class="t-wrap"><table><thead><tr><th>German</th><th>English</th></tr></thead><tbody>
+          <tr><td>Montag</td><td>Monday</td></tr>
+          <tr><td>Dienstag</td><td>Tuesday</td></tr>
+          <tr><td>Mittwoch</td><td>Wednesday</td></tr>
+          <tr><td>Donnerstag</td><td>Thursday</td></tr>
+          <tr><td>Freitag</td><td>Friday</td></tr>
+          <tr><td>Samstag / Sonnabend</td><td>Saturday</td></tr>
+          <tr><td>Sonntag</td><td>Sunday</td></tr>
+          <tr><td>am Wochenende</td><td>at the weekend</td></tr>
+        </tbody></table></div>
+        <h3>Months (Monate)</h3>
+        <div class="t-wrap"><table><thead><tr><th>German</th><th>English</th></tr></thead><tbody>
+          <tr><td>Januar / Februar / März</td><td>January / February / March</td></tr>
+          <tr><td>April / Mai / Juni</td><td>April / May / June</td></tr>
+          <tr><td>Juli / August / September</td><td>July / August / September</td></tr>
+          <tr><td>Oktober / November / Dezember</td><td>October / November / December</td></tr>
+        </tbody></table></div>
+        <h3>Seasons (Jahreszeiten)</h3>
+        <div class="t-wrap"><table><thead><tr><th>German</th><th>English</th></tr></thead><tbody>
+          <tr><td>der Frühling</td><td>spring</td></tr>
+          <tr><td>der Sommer</td><td>summer</td></tr>
+          <tr><td>der Herbst</td><td>autumn / fall</td></tr>
+          <tr><td>der Winter</td><td>winter</td></tr>
+        </tbody></table></div>
+        <h3>Daily Activities</h3>
+        <div class="t-wrap"><table><thead><tr><th>German</th><th>English</th></tr></thead><tbody>
+          <tr><td>aufstehen</td><td>to get up</td></tr>
+          <tr><td>aufwachen</td><td>to wake up</td></tr>
+          <tr><td>sich duschen</td><td>to shower</td></tr>
+          <tr><td>frühstücken</td><td>to have breakfast</td></tr>
+          <tr><td>zur Arbeit gehen / fahren</td><td>to go to work</td></tr>
+          <tr><td>zu Mittag essen</td><td>to have lunch</td></tr>
+          <tr><td>nach Hause kommen</td><td>to come home</td></tr>
+          <tr><td>Abendessen kochen</td><td>to cook dinner</td></tr>
+          <tr><td>fernsehen</td><td>to watch TV</td></tr>
+          <tr><td>schlafen gehen</td><td>to go to sleep</td></tr>
+        </tbody></table></div>
+      </div></div>
+    </div>
+
+    <!-- L7: Hobbies -->
+    <div class="card v reveal" id="lektion-7">
+      <div class="card-hd" onclick="toggleCard(this)">
+        <div class="card-hd-left">
+          <span class="card-num">L7</span>
+          <div>
+            <div class="card-title">Hobbys &amp; Freizeit — Hobbies &amp; Free Time</div>
+            <div class="card-sub">Sport · Musik · Kunst · Ausgehen</div>
+          </div>
+        </div>
+        <svg class="card-chev" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="5 8 10 13 15 8"/></svg>
+      </div>
+      <div class="card-bd"><div class="card-bd-in">
+        <div class="t-wrap"><table><thead><tr><th>German</th><th>English</th></tr></thead><tbody>
+          <tr><td>Sport machen / treiben</td><td>to do sports</td></tr>
+          <tr><td>Fußball spielen</td><td>to play football</td></tr>
+          <tr><td>Tennis spielen</td><td>to play tennis</td></tr>
+          <tr><td>schwimmen</td><td>to swim</td></tr>
+          <tr><td>Rad fahren</td><td>to cycle</td></tr>
+          <tr><td>laufen / joggen</td><td>to run / jog</td></tr>
+          <tr><td>tanzen</td><td>to dance</td></tr>
+          <tr><td>singen</td><td>to sing</td></tr>
+          <tr><td>Musik hören</td><td>to listen to music</td></tr>
+          <tr><td>ein Instrument spielen</td><td>to play an instrument</td></tr>
+          <tr><td>lesen</td><td>to read</td></tr>
+          <tr><td>schreiben</td><td>to write</td></tr>
+          <tr><td>malen / zeichnen</td><td>to paint / draw</td></tr>
+          <tr><td>fotografieren</td><td>to take photos</td></tr>
+          <tr><td>kochen</td><td>to cook</td></tr>
+          <tr><td>reisen</td><td>to travel</td></tr>
+          <tr><td>ins Kino gehen</td><td>to go to the cinema</td></tr>
+          <tr><td>ins Theater gehen</td><td>to go to the theatre</td></tr>
+          <tr><td>Freunde treffen</td><td>to meet friends</td></tr>
+          <tr><td>spazieren gehen</td><td>to go for a walk</td></tr>
+        </tbody></table></div>
+      </div></div>
+    </div>
+
+    <!-- Numbers -->
+    <div class="card v reveal" id="numbers">
+      <div class="card-hd" onclick="toggleCard(this)">
+        <div class="card-hd-left">
+          <span class="card-num">0–∞</span>
+          <div>
+            <div class="card-title">Zahlen — Numbers</div>
+            <div class="card-sub">Grundzahlen · Ordinalzahlen</div>
+          </div>
+        </div>
+        <svg class="card-chev" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="5 8 10 13 15 8"/></svg>
+      </div>
+      <div class="card-bd"><div class="card-bd-in">
+        <div class="t-wrap"><table><thead><tr><th>Zahl</th><th>Deutsch</th><th>Zahl</th><th>Deutsch</th></tr></thead><tbody>
+          <tr><td>0</td><td>null</td><td>11</td><td>elf</td></tr>
+          <tr><td>1</td><td>eins</td><td>12</td><td>zwölf</td></tr>
+          <tr><td>2</td><td>zwei</td><td>13</td><td>dreizehn</td></tr>
+          <tr><td>3</td><td>drei</td><td>20</td><td>zwanzig</td></tr>
+          <tr><td>4</td><td>vier</td><td>21</td><td>einundzwanzig</td></tr>
+          <tr><td>5</td><td>fünf</td><td>30</td><td>dreißig</td></tr>
+          <tr><td>6</td><td>sechs</td><td>50</td><td>fünfzig</td></tr>
+          <tr><td>7</td><td>sieben</td><td>100</td><td>hundert</td></tr>
+          <tr><td>8</td><td>acht</td><td>1 000</td><td>tausend</td></tr>
+          <tr><td>9</td><td>neun</td><td>1 000 000</td><td>eine Million</td></tr>
+          <tr><td>10</td><td>zehn</td><td></td><td></td></tr>
+        </tbody></table></div>
+        <h3>Ordinal Numbers (Ordinalzahlen)</h3>
+        <div class="t-wrap"><table><thead><tr><th>German</th><th>English</th></tr></thead><tbody>
+          <tr><td>erste(r/s)</td><td>first</td></tr>
+          <tr><td>zweite(r/s)</td><td>second</td></tr>
+          <tr><td>dritte(r/s)</td><td>third</td></tr>
+          <tr><td>vierte(r/s) — zehnte(r/s)</td><td>fourth — tenth</td></tr>
+          <tr><td>zwanzigste(r/s)</td><td>twentieth</td></tr>
+        </tbody></table></div>
+        <div class="tip"><strong>Dates:</strong> <em>am ersten Januar</em> = on the 1st of January. &nbsp; <em>Der Wievielte ist heute?</em> — What is today's date?</div>
+      </div></div>
+    </div>
+
+    <!-- L8: Weather -->
+    <div class="card v reveal" id="lektion-8">
+      <div class="card-hd" onclick="toggleCard(this)">
+        <div class="card-hd-left">
+          <span class="card-num">L8</span>
+          <div>
+            <div class="card-title">Wetter — Weather</div>
+            <div class="card-sub">Wetterphänomene · Beschreibungen · Phrasen</div>
+          </div>
+        </div>
+        <svg class="card-chev" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="5 8 10 13 15 8"/></svg>
+      </div>
+      <div class="card-bd"><div class="card-bd-in">
+        <div class="t-wrap"><table><thead><tr><th>German</th><th>English</th><th>Artikel</th></tr></thead><tbody>
+          <tr><td>das Wetter</td><td>weather</td><td><span class="art das">das</span></td></tr>
+          <tr><td>die Sonne</td><td>sun</td><td><span class="art die">die</span></td></tr>
+          <tr><td>der Regen</td><td>rain</td><td><span class="art der">der</span></td></tr>
+          <tr><td>der Schnee</td><td>snow</td><td><span class="art der">der</span></td></tr>
+          <tr><td>der Wind</td><td>wind</td><td><span class="art der">der</span></td></tr>
+          <tr><td>der Nebel</td><td>fog</td><td><span class="art der">der</span></td></tr>
+          <tr><td>die Wolke / die Wolken</td><td>cloud / clouds</td><td><span class="art die">die</span></td></tr>
+          <tr><td>das Gewitter</td><td>thunderstorm</td><td><span class="art das">das</span></td></tr>
+          <tr><td>sonnig · regnerisch · bewölkt</td><td>sunny · rainy · cloudy</td><td>—</td></tr>
+          <tr><td>warm · heiß · kalt · kühl</td><td>warm · hot · cold · cool</td><td>—</td></tr>
+        </tbody></table></div>
+        <h3>Weather Phrases</h3>
+        <div class="t-wrap"><table><thead><tr><th>German</th><th>English</th></tr></thead><tbody>
+          <tr><td>Wie ist das Wetter heute?</td><td>What is the weather like today?</td></tr>
+          <tr><td>Es ist sonnig.</td><td>It is sunny.</td></tr>
+          <tr><td>Es regnet.</td><td>It is raining.</td></tr>
+          <tr><td>Es schneit.</td><td>It is snowing.</td></tr>
+          <tr><td>Wie viel Grad hat es?</td><td>How many degrees is it?</td></tr>
+          <tr><td>Es hat 20 Grad.</td><td>It is 20 degrees.</td></tr>
+        </tbody></table></div>
+      </div></div>
+    </div>
+
+    <!-- L9: Body & Health -->
+    <div class="card v reveal" id="lektion-9">
+      <div class="card-hd" onclick="toggleCard(this)">
+        <div class="card-hd-left">
+          <span class="card-num">L9</span>
+          <div>
+            <div class="card-title">Körper &amp; Gesundheit — Body &amp; Health</div>
+            <div class="card-sub">Körperteile · Krankheiten · Phrasen</div>
+          </div>
+        </div>
+        <svg class="card-chev" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="5 8 10 13 15 8"/></svg>
+      </div>
+      <div class="card-bd"><div class="card-bd-in">
+        <h3>Body Parts</h3>
+        <div class="t-wrap"><table><thead><tr><th>German</th><th>English</th><th>Artikel</th></tr></thead><tbody>
+          <tr><td>der Kopf</td><td>head</td><td><span class="art der">der</span></td></tr>
+          <tr><td>das Gesicht</td><td>face</td><td><span class="art das">das</span></td></tr>
+          <tr><td>das Auge / die Augen</td><td>eye / eyes</td><td><span class="art das">das</span></td></tr>
+          <tr><td>die Nase</td><td>nose</td><td><span class="art die">die</span></td></tr>
+          <tr><td>der Mund</td><td>mouth</td><td><span class="art der">der</span></td></tr>
+          <tr><td>das Ohr / die Ohren</td><td>ear / ears</td><td><span class="art das">das</span></td></tr>
+          <tr><td>der Hals</td><td>neck / throat</td><td><span class="art der">der</span></td></tr>
+          <tr><td>der Arm / die Arme</td><td>arm / arms</td><td><span class="art der">der</span></td></tr>
+          <tr><td>die Hand / die Hände</td><td>hand / hands</td><td><span class="art die">die</span></td></tr>
+          <tr><td>der Bauch</td><td>stomach / belly</td><td><span class="art der">der</span></td></tr>
+          <tr><td>der Rücken</td><td>back</td><td><span class="art der">der</span></td></tr>
+          <tr><td>das Bein / die Beine</td><td>leg / legs</td><td><span class="art das">das</span></td></tr>
+          <tr><td>der Fuß / die Füße</td><td>foot / feet</td><td><span class="art der">der</span></td></tr>
+        </tbody></table></div>
+        <h3>Health &amp; Illness</h3>
+        <div class="t-wrap"><table><thead><tr><th>German</th><th>English</th></tr></thead><tbody>
+          <tr><td>krank / gesund</td><td>ill / healthy</td></tr>
+          <tr><td>die Erkältung</td><td>cold (illness)</td></tr>
+          <tr><td>das Fieber</td><td>fever</td></tr>
+          <tr><td>die Kopfschmerzen (pl.)</td><td>headache</td></tr>
+          <tr><td>die Bauchschmerzen (pl.)</td><td>stomachache</td></tr>
+          <tr><td>die Halsschmerzen (pl.)</td><td>sore throat</td></tr>
+          <tr><td>das Krankenhaus</td><td>hospital</td></tr>
+          <tr><td>die Apotheke</td><td>pharmacy</td></tr>
+          <tr><td>das Medikament / die Tablette</td><td>medicine / pill</td></tr>
+        </tbody></table></div>
+        <h3>Health Phrases</h3>
+        <div class="t-wrap"><table><thead><tr><th>German</th><th>English</th></tr></thead><tbody>
+          <tr><td>Ich bin krank.</td><td>I am sick.</td></tr>
+          <tr><td>Ich fühle mich nicht gut.</td><td>I don't feel well.</td></tr>
+          <tr><td>Ich habe Kopfschmerzen.</td><td>I have a headache.</td></tr>
+          <tr><td>Ich habe Fieber.</td><td>I have a fever.</td></tr>
+          <tr><td>Ich brauche einen Arzt.</td><td>I need a doctor.</td></tr>
+          <tr><td>Gute Besserung!</td><td>Get well soon!</td></tr>
+        </tbody></table></div>
+      </div></div>
+    </div>
+
+    <!-- L10: Clothing & Shopping -->
+    <div class="card v reveal" id="lektion-10">
+      <div class="card-hd" onclick="toggleCard(this)">
+        <div class="card-hd-left">
+          <span class="card-num">L10</span>
+          <div>
+            <div class="card-title">Kleidung &amp; Einkaufen</div>
+            <div class="card-sub">Clothing &amp; Shopping</div>
+          </div>
+        </div>
+        <svg class="card-chev" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="5 8 10 13 15 8"/></svg>
+      </div>
+      <div class="card-bd"><div class="card-bd-in">
+        <h3>Clothing (Kleidung)</h3>
+        <div class="t-wrap"><table><thead><tr><th>German</th><th>English</th><th>Artikel</th></tr></thead><tbody>
+          <tr><td>das Hemd</td><td>shirt</td><td><span class="art das">das</span></td></tr>
+          <tr><td>die Bluse</td><td>blouse</td><td><span class="art die">die</span></td></tr>
+          <tr><td>die Hose</td><td>trousers / pants</td><td><span class="art die">die</span></td></tr>
+          <tr><td>der Rock</td><td>skirt</td><td><span class="art der">der</span></td></tr>
+          <tr><td>das Kleid</td><td>dress</td><td><span class="art das">das</span></td></tr>
+          <tr><td>die Jacke</td><td>jacket</td><td><span class="art die">die</span></td></tr>
+          <tr><td>der Mantel</td><td>coat</td><td><span class="art der">der</span></td></tr>
+          <tr><td>der Pullover</td><td>sweater / jumper</td><td><span class="art der">der</span></td></tr>
+          <tr><td>das T-Shirt</td><td>T-shirt</td><td><span class="art das">das</span></td></tr>
+          <tr><td>die Jeans</td><td>jeans</td><td><span class="art die">die</span></td></tr>
+          <tr><td>der Schuh / die Schuhe</td><td>shoe / shoes</td><td><span class="art der">der</span></td></tr>
+          <tr><td>die Mütze</td><td>hat / beanie</td><td><span class="art die">die</span></td></tr>
+          <tr><td>der Schal</td><td>scarf</td><td><span class="art der">der</span></td></tr>
+          <tr><td>die Handschuhe (pl.)</td><td>gloves</td><td><span class="art die">die</span></td></tr>
+        </tbody></table></div>
+        <h3>Shopping Phrases</h3>
+        <div class="t-wrap"><table><thead><tr><th>German</th><th>English</th></tr></thead><tbody>
+          <tr><td>Was kostet das?</td><td>How much does this cost?</td></tr>
+          <tr><td>Das ist (zu) teuer.</td><td>That is (too) expensive.</td></tr>
+          <tr><td>Das ist günstig / billig.</td><td>That is affordable / cheap.</td></tr>
+          <tr><td>Haben Sie das in Größe …?</td><td>Do you have this in size …?</td></tr>
+          <tr><td>Kann ich das anprobieren?</td><td>Can I try this on?</td></tr>
+          <tr><td>Ich nehme das.</td><td>I'll take it.</td></tr>
+          <tr><td>Ich bezahle mit Karte / bar.</td><td>I'll pay by card / cash.</td></tr>
+        </tbody></table></div>
+      </div></div>
+    </div>
+
+    <!-- L11: Transport & Travel -->
+    <div class="card v reveal" id="lektion-11">
+      <div class="card-hd" onclick="toggleCard(this)">
+        <div class="card-hd-left">
+          <span class="card-num">L11</span>
+          <div>
+            <div class="card-title">Verkehr &amp; Reisen — Transport &amp; Travel</div>
+            <div class="card-sub">Verkehrsmittel · Reisevokabular · Phrasen</div>
+          </div>
+        </div>
+        <svg class="card-chev" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="5 8 10 13 15 8"/></svg>
+      </div>
+      <div class="card-bd"><div class="card-bd-in">
+        <h3>Transport (Verkehrsmittel)</h3>
+        <div class="t-wrap"><table><thead><tr><th>German</th><th>English</th><th>Artikel</th></tr></thead><tbody>
+          <tr><td>das Auto / der Wagen</td><td>car</td><td><span class="art das">das</span></td></tr>
+          <tr><td>der Bus</td><td>bus</td><td><span class="art der">der</span></td></tr>
+          <tr><td>der Zug</td><td>train</td><td><span class="art der">der</span></td></tr>
+          <tr><td>die U-Bahn</td><td>subway / underground</td><td><span class="art die">die</span></td></tr>
+          <tr><td>die S-Bahn</td><td>city train</td><td><span class="art die">die</span></td></tr>
+          <tr><td>die Straßenbahn</td><td>tram</td><td><span class="art die">die</span></td></tr>
+          <tr><td>das Fahrrad</td><td>bicycle</td><td><span class="art das">das</span></td></tr>
+          <tr><td>das Flugzeug</td><td>airplane</td><td><span class="art das">das</span></td></tr>
+          <tr><td>das Taxi</td><td>taxi</td><td><span class="art das">das</span></td></tr>
+        </tbody></table></div>
+        <h3>Travel Vocabulary</h3>
+        <div class="t-wrap"><table><thead><tr><th>German</th><th>English</th></tr></thead><tbody>
+          <tr><td>der Bahnhof</td><td>train station</td></tr>
+          <tr><td>der Flughafen</td><td>airport</td></tr>
+          <tr><td>die Bushaltestelle</td><td>bus stop</td></tr>
+          <tr><td>die Fahrkarte / das Ticket</td><td>ticket</td></tr>
+          <tr><td>die Abfahrt / die Ankunft</td><td>departure / arrival</td></tr>
+          <tr><td>die Verspätung</td><td>delay</td></tr>
+          <tr><td>das Gleis</td><td>platform / track</td></tr>
+          <tr><td>der Koffer</td><td>suitcase</td></tr>
+          <tr><td>der Rucksack</td><td>backpack</td></tr>
+          <tr><td>der Reisepass</td><td>passport</td></tr>
+        </tbody></table></div>
+        <h3>Travel Phrases</h3>
+        <div class="t-wrap"><table><thead><tr><th>German</th><th>English</th></tr></thead><tbody>
+          <tr><td>Wie komme ich zum/zur …?</td><td>How do I get to …?</td></tr>
+          <tr><td>Wann fährt der Zug ab?</td><td>When does the train depart?</td></tr>
+          <tr><td>Eine Fahrkarte nach …, bitte.</td><td>One ticket to …, please.</td></tr>
+          <tr><td>Einmal hin und zurück.</td><td>One return ticket.</td></tr>
+          <tr><td>Von welchem Gleis?</td><td>From which platform?</td></tr>
+          <tr><td>Ist der Zug pünktlich?</td><td>Is the train on time?</td></tr>
+          <tr><td>umsteigen</td><td>to change (trains/buses)</td></tr>
+        </tbody></table></div>
+      </div></div>
+    </div>
+
+    <!-- L12: Places in City -->
+    <div class="card v reveal" id="lektion-12">
+      <div class="card-hd" onclick="toggleCard(this)">
+        <div class="card-hd-left">
+          <span class="card-num">L12</span>
+          <div>
+            <div class="card-title">Orte in der Stadt — Places in the City</div>
+            <div class="card-sub">Ortsbezeichnungen · Wegbeschreibung</div>
+          </div>
+        </div>
+        <svg class="card-chev" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="5 8 10 13 15 8"/></svg>
+      </div>
+      <div class="card-bd"><div class="card-bd-in">
+        <h3>Places (Orte)</h3>
+        <div class="t-wrap"><table><thead><tr><th>German</th><th>English</th></tr></thead><tbody>
+          <tr><td>die Stadt / das Dorf</td><td>city / village</td></tr>
+          <tr><td>der Supermarkt</td><td>supermarket</td></tr>
+          <tr><td>die Apotheke</td><td>pharmacy</td></tr>
+          <tr><td>die Bank</td><td>bank</td></tr>
+          <tr><td>das Krankenhaus</td><td>hospital</td></tr>
+          <tr><td>die Schule / die Universität</td><td>school / university</td></tr>
+          <tr><td>das Restaurant / das Café</td><td>restaurant / café</td></tr>
+          <tr><td>die Bäckerei</td><td>bakery</td></tr>
+          <tr><td>die Post</td><td>post office</td></tr>
+          <tr><td>das Rathaus</td><td>city hall</td></tr>
+          <tr><td>die Kirche</td><td>church</td></tr>
+          <tr><td>das Museum / das Kino</td><td>museum / cinema</td></tr>
+          <tr><td>die Bibliothek</td><td>library</td></tr>
+          <tr><td>der Park</td><td>park</td></tr>
+          <tr><td>das Schwimmbad</td><td>swimming pool</td></tr>
+        </tbody></table></div>
+        <h3>Giving Directions</h3>
+        <div class="t-wrap"><table><thead><tr><th>German</th><th>English</th></tr></thead><tbody>
+          <tr><td>Wo ist …?</td><td>Where is …?</td></tr>
+          <tr><td>Gehen Sie geradeaus.</td><td>Go straight ahead.</td></tr>
+          <tr><td>Biegen Sie links ab.</td><td>Turn left.</td></tr>
+          <tr><td>Biegen Sie rechts ab.</td><td>Turn right.</td></tr>
+          <tr><td>Die erste Straße links.</td><td>The first street on the left.</td></tr>
+          <tr><td>an der Kreuzung</td><td>at the crossroads</td></tr>
+          <tr><td>an der Ampel</td><td>at the traffic lights</td></tr>
+          <tr><td>gegenüber / neben / zwischen</td><td>opposite / next to / between</td></tr>
+          <tr><td>Es ist weit / nah.</td><td>It is far / near.</td></tr>
+        </tbody></table></div>
+      </div></div>
+    </div>
+
+    <!-- Core Verbs -->
+    <div class="card v reveal" id="core-verbs">
+      <div class="card-hd" onclick="toggleCard(this)">
+        <div class="card-hd-left">
+          <span class="card-num">★</span>
+          <div>
+            <div class="card-title">Grundverben — Core Verbs</div>
+            <div class="card-sub">Regelmäßige · Unregelmäßige Verben</div>
+          </div>
+        </div>
+        <svg class="card-chev" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="5 8 10 13 15 8"/></svg>
+      </div>
+      <div class="card-bd"><div class="card-bd-in">
+        <h3>Regular Verbs (Regelmäßige)</h3>
+        <div class="t-wrap"><table><thead><tr><th>German</th><th>English</th><th>Example</th></tr></thead><tbody>
+          <tr><td>machen</td><td>to do / make</td><td><em>Ich mache Hausaufgaben.</em></td></tr>
+          <tr><td>kaufen</td><td>to buy</td><td><em>Er kauft Brot.</em></td></tr>
+          <tr><td>kochen</td><td>to cook</td><td><em>Sie kocht Suppe.</em></td></tr>
+          <tr><td>lernen</td><td>to learn</td><td><em>Wir lernen Deutsch.</em></td></tr>
+          <tr><td>wohnen</td><td>to live / reside</td><td><em>Ich wohne in Berlin.</em></td></tr>
+          <tr><td>arbeiten</td><td>to work</td><td><em>Er arbeitet viel.</em></td></tr>
+          <tr><td>spielen</td><td>to play</td><td><em>Das Kind spielt.</em></td></tr>
+          <tr><td>hören</td><td>to hear / listen</td><td><em>Sie hört Musik.</em></td></tr>
+          <tr><td>brauchen</td><td>to need</td><td><em>Ich brauche Hilfe.</em></td></tr>
+          <tr><td>suchen</td><td>to look for</td><td><em>Sie sucht ihre Schlüssel.</em></td></tr>
+          <tr><td>warten</td><td>to wait</td><td><em>Ich warte auf den Bus.</em></td></tr>
+          <tr><td>reisen</td><td>to travel</td><td><em>Wir reisen nach Berlin.</em></td></tr>
+        </tbody></table></div>
+        <h3>Irregular Verbs (Unregelmäßige)</h3>
+        <div class="tip"><strong>Vowel change pattern:</strong> Many irregular verbs change e → i/ie or a → ä in the <em>du</em> and <em>er/sie/es</em> forms.</div>
+        <div class="t-wrap"><table><thead><tr><th>German</th><th>English</th><th>ich / er·sie·es</th></tr></thead><tbody>
+          <tr><td>sein</td><td>to be</td><td>bin / <strong>ist</strong></td></tr>
+          <tr><td>haben</td><td>to have</td><td>habe / <strong>hat</strong></td></tr>
+          <tr><td>werden</td><td>to become</td><td>werde / <strong>wird</strong></td></tr>
+          <tr><td>gehen</td><td>to go</td><td>gehe / geht</td></tr>
+          <tr><td>kommen</td><td>to come</td><td>komme / kommt</td></tr>
+          <tr><td>fahren</td><td>to drive / travel</td><td>fahre / <strong>fährt</strong></td></tr>
+          <tr><td>laufen</td><td>to run / walk</td><td>laufe / <strong>läuft</strong></td></tr>
+          <tr><td>sprechen</td><td>to speak</td><td>spreche / <strong>spricht</strong></td></tr>
+          <tr><td>essen</td><td>to eat</td><td>esse / <strong>isst</strong></td></tr>
+          <tr><td>trinken</td><td>to drink</td><td>trinke / trinkt</td></tr>
+          <tr><td>lesen</td><td>to read</td><td>lese / <strong>liest</strong></td></tr>
+          <tr><td>sehen</td><td>to see</td><td>sehe / <strong>sieht</strong></td></tr>
+          <tr><td>nehmen</td><td>to take</td><td>nehme / <strong>nimmt</strong></td></tr>
+          <tr><td>geben</td><td>to give</td><td>gebe / <strong>gibt</strong></td></tr>
+          <tr><td>schlafen</td><td>to sleep</td><td>schlafe / <strong>schläft</strong></td></tr>
+          <tr><td>treffen</td><td>to meet</td><td>treffe / <strong>trifft</strong></td></tr>
+          <tr><td>helfen</td><td>to help</td><td>helfe / <strong>hilft</strong></td></tr>
+          <tr><td>wissen</td><td>to know (fact)</td><td><strong>weiß</strong> / <strong>weiß</strong></td></tr>
+          <tr><td>kennen</td><td>to know (person)</td><td>kenne / kennt</td></tr>
+          <tr><td>bleiben</td><td>to stay / remain</td><td>bleibe / bleibt</td></tr>
+        </tbody></table></div>
+      </div></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ GLOSSARY ═══════════════ -->
+  <section id="glossary" class="scroll-target">
+    <div class="sec-head reveal">
+      <div class="sec-line"></div>
+      <div class="sec-head-c">
+        <div class="sec-eyebrow gl">Glossar</div>
+        <div class="sec-title">Grammar Terms</div>
+      </div>
+      <div class="sec-line"></div>
+    </div>
+
+    <!-- Cases -->
+    <div class="card gl reveal" id="glos-cases">
+      <div class="card-hd" onclick="toggleCard(this)">
+        <div class="card-hd-left">
+          <span class="card-num">I</span>
+          <div>
+            <div class="card-title">Kasus — Cases</div>
+            <div class="card-sub">Nominativ · Akkusativ · Dativ · Genitiv</div>
+          </div>
+        </div>
+        <svg class="card-chev" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="5 8 10 13 15 8"/></svg>
+      </div>
+      <div class="card-bd"><div class="card-bd-in">
+        <h3>Nominativ (Nominative)</h3>
+        <p><strong>Role:</strong> The subject — who performs the action. <strong>Question:</strong> Wer? Was?</p>
+        <div class="t-wrap"><table><thead><tr><th>Maskulin</th><th>Feminin</th><th>Neutrum</th><th>Plural</th></tr></thead><tbody>
+          <tr><td>der / ein / kein</td><td>die / eine / keine</td><td>das / ein / kein</td><td>die / — / keine</td></tr>
+        </tbody></table></div>
+        <div class="note"><em><strong>Der Mann</strong> arbeitet.</em> / <em><strong>Eine Frau</strong> lacht.</em> / <em><strong>Das Kind</strong> schläft.</em></div>
+
+        <h3>Akkusativ (Accusative)</h3>
+        <p><strong>Role:</strong> Direct object — directly receives the action. <strong>Question:</strong> Wen? Was?</p>
+        <p>Only <strong>masculine</strong> articles change: der → <strong>den</strong>, ein → <strong>einen</strong>, kein → <strong>keinen</strong></p>
+        <div class="t-wrap"><table><thead><tr><th>Maskulin</th><th>Feminin</th><th>Neutrum</th><th>Plural</th></tr></thead><tbody>
+          <tr><td><strong>den / einen / keinen</strong></td><td>die / eine / keine</td><td>das / ein / kein</td><td>die / — / keine</td></tr>
+        </tbody></table></div>
+        <div class="note"><em>Ich sehe <strong>den Mann</strong>.</em> / <em>Er kauft <strong>einen Apfel</strong>.</em> / <em>Sie hat <strong>kein Geld</strong>.</em></div>
+
+        <h3>Dativ (Dative)</h3>
+        <p><strong>Role:</strong> Indirect object — receives something. <strong>Question:</strong> Wem?</p>
+        <div class="t-wrap"><table><thead><tr><th>Maskulin</th><th>Feminin</th><th>Neutrum</th><th>Plural</th></tr></thead><tbody>
+          <tr><td><strong>dem / einem / keinem</strong></td><td><strong>der / einer / keiner</strong></td><td><strong>dem / einem / keinem</strong></td><td><strong>den / — / keinen</strong></td></tr>
+        </tbody></table></div>
+        <div class="note"><em>Ich gebe <strong>dem Mann</strong> ein Buch.</em> / <em>Er hilft <strong>einer Frau</strong>.</em></div>
+        <div class="tip"><strong>Dative prepositions (always Dativ):</strong> mit, nach, bei, von, zu, aus, seit, gegenüber</div>
+
+        <h3>Genitiv (Genitive)</h3>
+        <p><strong>Role:</strong> Possession. <strong>Question:</strong> Wessen? At A1, often replaced by <code>von + Dativ</code>.</p>
+        <div class="note"><em>Das Auto <strong>des Mannes</strong>.</em> / <em>Das Auto <strong>vom Mann</strong>.</em> (spoken substitute)</div>
+      </div></div>
+    </div>
+
+    <!-- Parts of Speech -->
+    <div class="card gl reveal" id="glos-pos">
+      <div class="card-hd" onclick="toggleCard(this)">
+        <div class="card-hd-left">
+          <span class="card-num">II</span>
+          <div>
+            <div class="card-title">Wortarten — Parts of Speech</div>
+            <div class="card-sub">Nomen · Verb · Adjektiv · Adverb · Artikel · Pronomen · Präposition · Konjunktion</div>
+          </div>
+        </div>
+        <svg class="card-chev" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="5 8 10 13 15 8"/></svg>
+      </div>
+      <div class="card-bd"><div class="card-bd-in">
+        <h3>Nomen / Substantiv (Noun)</h3>
+        <p>Names a person, place, thing, or idea. Always <strong>capitalized</strong> in German. Has grammatical gender and a plural form.</p>
+        <div class="note"><em><strong>Das Haus</strong> ist groß.</em> (neutral) / <em><strong>Die Musik</strong> macht mich glücklich.</em> (feminine)</div>
+
+        <h3>Verb (Verb)</h3>
+        <p>Expresses an action or state. Must be conjugated. Sits in <strong>position 2</strong> in main clauses (V2 rule). Goes to <strong>end</strong> in subordinate clauses.</p>
+        <div class="t-wrap"><table><thead><tr><th>Type</th><th>Examples</th></tr></thead><tbody>
+          <tr><td>Action</td><td>gehen, laufen, essen</td></tr>
+          <tr><td>State</td><td>sein, haben, wissen</td></tr>
+          <tr><td>Modal</td><td>können, müssen, wollen</td></tr>
+          <tr><td>Separable</td><td>aufstehen, einkaufen</td></tr>
+        </tbody></table></div>
+
+        <h3>Adjektiv (Adjective)</h3>
+        <p>Describes a noun. After <em>sein, werden, bleiben</em> — <strong>no ending</strong>. Before a noun — endings required (A2).</p>
+        <div class="note"><em>Der Hund ist <strong>groß</strong>.</em> (predicative, no ending) / <em>ein <strong>großer</strong> Hund</em> (attributive, with ending)</div>
+
+        <h3>Adverb (Adverb)</h3>
+        <p>Modifies a verb, adjective, or another adverb. <strong>Does not change form.</strong></p>
+        <div class="t-wrap"><table><thead><tr><th>Type</th><th>Examples</th></tr></thead><tbody>
+          <tr><td>Time (temporal)</td><td>heute, morgen, immer, oft, manchmal, nie</td></tr>
+          <tr><td>Place (lokal)</td><td>hier, dort, zu Hause, überall</td></tr>
+          <tr><td>Manner (modal)</td><td>schnell, langsam, gut, gern</td></tr>
+          <tr><td>Degree</td><td>sehr, zu, genug, fast</td></tr>
+        </tbody></table></div>
+
+        <h3>Artikel (Article)</h3>
+        <div class="t-wrap"><table><thead><tr><th>Type</th><th>German</th><th>English</th></tr></thead><tbody>
+          <tr><td>Definite</td><td>der / die / das</td><td>the</td></tr>
+          <tr><td>Indefinite</td><td>ein / eine / ein</td><td>a / an</td></tr>
+          <tr><td>Negative</td><td>kein / keine / kein</td><td>no / not a</td></tr>
+          <tr><td>Possessive</td><td>mein / dein / sein / ihr …</td><td>my / your / his / her …</td></tr>
+        </tbody></table></div>
+
+        <h3>Pronomen (Pronoun)</h3>
+        <div class="t-wrap"><table><thead><tr><th>Type</th><th>Examples</th></tr></thead><tbody>
+          <tr><td>Personal</td><td>ich, du, er, sie, es, wir, ihr, Sie</td></tr>
+          <tr><td>Possessive</td><td>mein, dein, sein, ihr</td></tr>
+          <tr><td>Interrogative</td><td>wer, was, welcher</td></tr>
+          <tr><td>Reflexive</td><td>mich, dich, sich</td></tr>
+        </tbody></table></div>
+
+        <h3>Präposition (Preposition)</h3>
+        <div class="t-wrap"><table><thead><tr><th>Case</th><th>Common Prepositions</th></tr></thead><tbody>
+          <tr><td>Akkusativ</td><td>durch, für, gegen, ohne, um</td></tr>
+          <tr><td>Dativ</td><td>aus, bei, mit, nach, seit, von, zu, gegenüber</td></tr>
+          <tr><td>Acc. or Dat.</td><td>in, auf, an, über, unter, vor, hinter, neben, zwischen</td></tr>
+        </tbody></table></div>
+        <div class="tip"><strong>Acc. = movement (wohin?):</strong> <em>Ich gehe <strong>in die</strong> Küche.</em><br><strong>Dat. = location (wo?):</strong> <em>Ich bin <strong>in der</strong> Küche.</em></div>
+
+        <h3>Konjunktion (Conjunction)</h3>
+        <div class="t-wrap"><table><thead><tr><th>Type</th><th>German</th><th>English</th></tr></thead><tbody>
+          <tr><td>Coordinating (no change)</td><td>und, oder, aber, denn, sondern</td><td>and, or, but, because, but rather</td></tr>
+          <tr><td>Subordinating (verb to end)</td><td>weil, dass, wenn, obwohl</td><td>because, that, when/if, although</td></tr>
+        </tbody></table></div>
+      </div></div>
+    </div>
+
+    <!-- Key Structural Terms -->
+    <div class="card gl reveal" id="glos-terms">
+      <div class="card-hd" onclick="toggleCard(this)">
+        <div class="card-hd-left">
+          <span class="card-num">III</span>
+          <div>
+            <div class="card-title">Schlüsselbegriffe — Key Terms</div>
+            <div class="card-sub">V2-Regel · TeKaMoLo · Genus · Plural · Imperativ · Perfekt</div>
+          </div>
+        </div>
+        <svg class="card-chev" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="5 8 10 13 15 8"/></svg>
+      </div>
+      <div class="card-bd"><div class="card-bd-in">
+        <h3>V2-Regel (Verb-Second Rule)</h3>
+        <p>The conjugated verb <strong>always</strong> takes the second position in a main clause.</p>
+        <div class="note">
+          <em>Ich <strong>lerne</strong> heute Deutsch.</em> ✓<br>
+          <em>Heute <strong>lerne</strong> ich Deutsch.</em> ✓<br>
+          <em>Deutsch <strong>lerne</strong> ich heute.</em> ✓
+        </div>
+
+        <h3>TeKaMoLo</h3>
+        <p>Memory aid for adverb order: <strong>Te</strong>mporal · <strong>Ka</strong>usal · <strong>Mo</strong>dal · <strong>Lo</strong>kal</p>
+        <div class="t-wrap"><table><thead><tr><th></th><th>Stands for</th><th>Question</th><th>Examples</th></tr></thead><tbody>
+          <tr><td><strong>Te</strong></td><td>Temporal</td><td>When? (Wann?)</td><td>heute, morgen, oft, immer</td></tr>
+          <tr><td><strong>Ka</strong></td><td>Kausal</td><td>Why? (Warum?)</td><td>wegen des Wetters, deshalb</td></tr>
+          <tr><td><strong>Mo</strong></td><td>Modal</td><td>How? (Wie?)</td><td>mit dem Auto, schnell</td></tr>
+          <tr><td><strong>Lo</strong></td><td>Lokal</td><td>Where? (Wo?)</td><td>in Berlin, zu Hause</td></tr>
+        </tbody></table></div>
+        <div class="note"><em>Ich fahre <strong>morgen</strong> (Te) <strong>mit dem Zug</strong> (Mo) <strong>nach Hamburg</strong> (Lo).</em></div>
+
+        <h3>Genus (Grammatical Gender)</h3>
+        <div class="t-wrap"><table><thead><tr><th>Gender</th><th>Article</th><th>Hint</th></tr></thead><tbody>
+          <tr><td>Maskulin</td><td><span class="art der">der</span></td><td>Male people, most professions</td></tr>
+          <tr><td>Feminin</td><td><span class="art die">die</span></td><td>Female people, -ung, -heit, -keit endings</td></tr>
+          <tr><td>Neutral</td><td><span class="art das">das</span></td><td>Diminutives -chen/-lein, many neuter endings</td></tr>
+        </tbody></table></div>
+
+        <h3>Plural (Plural Forms)</h3>
+        <div class="t-wrap"><table><thead><tr><th>Pattern</th><th>Example</th></tr></thead><tbody>
+          <tr><td>No change</td><td>das Zimmer → die Zimmer</td></tr>
+          <tr><td>Add -e</td><td>der Tag → die Tage</td></tr>
+          <tr><td>Add -er</td><td>das Kind → die Kinder</td></tr>
+          <tr><td>Add -en</td><td>die Frau → die Frauen</td></tr>
+          <tr><td>Add -s (foreign)</td><td>das Auto → die Autos</td></tr>
+          <tr><td>Umlaut + -e</td><td>der Mann → die Männer</td></tr>
+        </tbody></table></div>
+        <div class="tip"><strong>Tip:</strong> Always learn the plural with each new noun: <em>der Hund, die Hunde</em></div>
+
+        <h3>Imperativ (Imperative — Commands)</h3>
+        <div class="t-wrap"><table><thead><tr><th>Form</th><th>Example</th><th>Meaning</th></tr></thead><tbody>
+          <tr><td>du</td><td><em>Komm! / Lern!</em></td><td>Come! / Learn!</td></tr>
+          <tr><td>ihr</td><td><em>Kommt! / Lernt!</em></td><td>Come! / Learn! (pl.)</td></tr>
+          <tr><td>Sie</td><td><em>Kommen Sie! / Lernen Sie!</em></td><td>Please come! / Please learn!</td></tr>
+        </tbody></table></div>
+
+        <h3>Perfekt (Present Perfect)</h3>
+        <p>Used for spoken past: <code>haben</code> or <code>sein</code> + Partizip II.</p>
+        <div class="t-wrap"><table><thead><tr><th>Regular</th><th>Irregular</th></tr></thead><tbody>
+          <tr><td>ge- + stem + -t</td><td>ge- + stem (modified) + -en</td></tr>
+          <tr><td>gelernt, gekauft</td><td>gegangen, gefahren</td></tr>
+        </tbody></table></div>
+        <div class="note"><em>Ich habe Kaffee <strong>getrunken</strong>.</em> (haben + Partizip II)<br><em>Sie ist nach Hause <strong>gegangen</strong>.</em> (sein + Partizip II — for movement verbs)</div>
+
+        <h3>Quick Summary: All Key Terms</h3>
+        <div class="t-wrap"><table><thead><tr><th>Term</th><th>German</th><th>Short Definition</th></tr></thead><tbody>
+          <tr><td>Subject</td><td>Subjekt</td><td>Who does the action (Nominative)</td></tr>
+          <tr><td>Direct Object</td><td>Direktes Objekt</td><td>Directly acted on (Accusative)</td></tr>
+          <tr><td>Indirect Object</td><td>Indirektes Objekt</td><td>Who receives something (Dative)</td></tr>
+          <tr><td>Noun</td><td>Nomen</td><td>Name of person/thing (always capitalized)</td></tr>
+          <tr><td>Verb</td><td>Verb</td><td>Action or state word</td></tr>
+          <tr><td>Adjective</td><td>Adjektiv</td><td>Describes a noun</td></tr>
+          <tr><td>Adverb</td><td>Adverb</td><td>Describes a verb/adjective</td></tr>
+          <tr><td>Article</td><td>Artikel</td><td>der/die/das/ein/eine</td></tr>
+          <tr><td>Pronoun</td><td>Pronomen</td><td>Replaces a noun</td></tr>
+          <tr><td>Preposition</td><td>Präposition</td><td>Shows relationship (in, auf, mit…)</td></tr>
+          <tr><td>Conjunction</td><td>Konjunktion</td><td>Connects clauses (und, weil, aber…)</td></tr>
+          <tr><td>Infinitive</td><td>Infinitiv</td><td>Base verb form (lernen, gehen)</td></tr>
+          <tr><td>Past Participle</td><td>Partizip II</td><td>For Perfekt (gelernt, gegangen)</td></tr>
+          <tr><td>Imperative</td><td>Imperativ</td><td>Command form (Lern! Komm!)</td></tr>
+          <tr><td>V2 Rule</td><td>V2-Regel</td><td>Verb always in 2nd position</td></tr>
+          <tr><td>TeKaMoLo</td><td>TeKaMoLo</td><td>Time–Reason–Manner–Place order</td></tr>
+          <tr><td>Gender</td><td>Genus</td><td>Masculine / Feminine / Neuter</td></tr>
+          <tr><td>Case</td><td>Kasus</td><td>Grammatical role (Nom/Acc/Dat/Gen)</td></tr>
+          <tr><td>Plural</td><td>Plural</td><td>More than one of a noun</td></tr>
+        </tbody></table></div>
+      </div></div>
+    </div>
+  </section>
+
+</div><!-- /main-wrap -->
+
+<!-- Footer -->
+<footer class="site-footer">
+  Deutsch A1.1 — Lernhilfe &nbsp;·&nbsp; Alle Themen auf einer Seite
+</footer>
+
+<!-- Floating Action Button -->
+<div class="fab-wrap">
+  <button class="fab" onclick="openDrawer()">
+    <span class="fab-dot"></span>
+    Themen
+    <svg width="13" height="13" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="5 13 10 8 15 13"/></svg>
+  </button>
+</div>
+
+<!-- Drawer Background -->
+<div class="drawer-bg" id="drawer-bg" onclick="closeDrawer()"></div>
+
+<!-- Topic Drawer -->
+<div class="drawer" id="drawer">
+  <div class="drawer-handle"></div>
+  <div class="drawer-title">Alle Themen</div>
+
+  <div class="drawer-sec">
+    <span class="drawer-sec-label g">📐 Grammatik</span>
+    <div class="drawer-links">
+      <span class="dl" onclick="navTo('sentence-patterns')">Satzstruktur (11 Muster)</span>
+      <span class="dl" onclick="navTo('word-order')">Wortstellung · V2</span>
+      <span class="dl" onclick="navTo('questions')">Fragen (W &amp; Ja/Nein)</span>
+      <span class="dl" onclick="navTo('negation')">Verneinung</span>
+      <span class="dl" onclick="navTo('cases')">Kasus (Nom·Akk·Dat)</span>
+      <span class="dl" onclick="navTo('articles')">Artikel</span>
+      <span class="dl" onclick="navTo('separable-verbs')">Trennbare Verben</span>
+      <span class="dl" onclick="navTo('modal-verbs')">Modalverben</span>
+      <span class="dl" onclick="navTo('adjectives')">Adjektiv nach sein</span>
+      <span class="dl" onclick="navTo('useful-words')">Nützliche Wörter</span>
+    </div>
   </div>
 
-  <!-- PILLS -->
-  <div class="pills-row" id="pillsRow">
-    <button class="pill" data-sec="s1" onclick="jumpTo('s1')">Satzbau</button>
-    <button class="pill" data-sec="s2" onclick="jumpTo('s2')">V2-Regel</button>
-    <button class="pill" data-sec="s3" onclick="jumpTo('s3')">Fragesätze</button>
-    <button class="pill" data-sec="s4" onclick="jumpTo('s4')">Verneinung</button>
-    <button class="pill" data-sec="s5" onclick="jumpTo('s5')">TeKaMoLo</button>
-    <button class="pill" data-sec="s6" onclick="jumpTo('s6')">Nebensätze</button>
-    <button class="pill" data-sec="s7" onclick="jumpTo('s7')">Satztypen</button>
-    <button class="pill" data-sec="s8" onclick="jumpTo('s8')">Imperativ</button>
-    <button class="pill" data-sec="s9" onclick="jumpTo('s9')">Checkliste</button>
+  <div class="drawer-sec">
+    <span class="drawer-sec-label v">📚 Wortschatz</span>
+    <div class="drawer-links">
+      <span class="dl" onclick="navTo('lektion-1')">L1 Begrüßungen</span>
+      <span class="dl" onclick="navTo('lektion-2')">L2 Informationen</span>
+      <span class="dl" onclick="navTo('lektion-3')">L3 Familie</span>
+      <span class="dl" onclick="navTo('lektion-4')">L4 Essen &amp; Trinken</span>
+      <span class="dl" onclick="navTo('lektion-5')">L5 Zuhause</span>
+      <span class="dl" onclick="navTo('lektion-6')">L6 Alltag &amp; Zeit</span>
+      <span class="dl" onclick="navTo('lektion-7')">L7 Hobbys</span>
+      <span class="dl" onclick="navTo('numbers')">Zahlen</span>
+      <span class="dl" onclick="navTo('lektion-8')">L8 Wetter</span>
+      <span class="dl" onclick="navTo('lektion-9')">L9 Körper &amp; Gesundheit</span>
+      <span class="dl" onclick="navTo('lektion-10')">L10 Kleidung</span>
+      <span class="dl" onclick="navTo('lektion-11')">L11 Verkehr &amp; Reisen</span>
+      <span class="dl" onclick="navTo('lektion-12')">L12 Stadt &amp; Richtungen</span>
+      <span class="dl" onclick="navTo('core-verbs')">★ Grundverben</span>
+    </div>
   </div>
 
-  <!-- ── 1. Sentence Structure ── -->
-  <section class="topic-card" id="s1" style="--sec-color:#007AFF;">
-    <div class="card-header">
-      <div class="sec-num" style="background:#007AFF;">1</div>
-      <div class="card-titles">
-        <div class="card-de">Satzbau</div>
-        <div class="card-en">Sentence Structure</div>
-      </div>
+  <div class="drawer-sec">
+    <span class="drawer-sec-label gl">🔤 Glossar</span>
+    <div class="drawer-links">
+      <span class="dl" onclick="navTo('glos-cases')">Kasus</span>
+      <span class="dl" onclick="navTo('glos-pos')">Wortarten</span>
+      <span class="dl" onclick="navTo('glos-terms')">Schlüsselbegriffe</span>
     </div>
-    <div class="card-body">
-      <p>German follows a <strong>Subject–Verb–Object (SVO)</strong> pattern in its simplest form.</p>
+  </div>
+</div>
 
-      <div class="tbl-wrap mt-12">
-        <table>
-          <thead>
-            <tr><th>Position</th><th>1st</th><th>2nd</th><th>3rd+</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Role</td><td>Subject</td><td>Verb</td><td>Object / Rest</td></tr>
-          </tbody>
-        </table>
-      </div>
+<!-- Search Overlay Background -->
+<div class="overlay-bg" id="search-bg" onclick="closeSearch()"></div>
 
-      <div class="label mt-14">Examples</div>
-      <div class="examples">
-        <div class="ex">
-          <div class="ex-de">Ich lerne Deutsch.</div>
-          <div class="ex-en">→ I learn German.</div>
-        </div>
-        <div class="ex">
-          <div class="ex-de">Anna kauft ein Buch.</div>
-          <div class="ex-en">→ Anna buys a book.</div>
-        </div>
-        <div class="ex">
-          <div class="ex-de">Wir essen heute Pizza.</div>
-          <div class="ex-en">→ We eat pizza today.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── 2. V2 Rule ── -->
-  <section class="topic-card" id="s2" style="--sec-color:#AF52DE;">
-    <div class="card-header">
-      <div class="sec-num" style="background:#AF52DE;">2</div>
-      <div class="card-titles">
-        <div class="card-de">Verb-Zweit-Regel</div>
-        <div class="card-en">The V2 Rule</div>
-      </div>
-    </div>
-    <div class="card-body">
-      <div class="bq" style="border-color:#AF52DE; background:rgba(175,82,222,0.07);">
-        The conjugated verb <strong>always sits in the second position</strong> in a main clause — no matter what comes first.
-      </div>
-
-      <div class="code-block mt-12">[Position 1]  [Verb]  [Subject]  [Rest]</div>
-
-      <div class="tbl-wrap mt-12">
-        <table>
-          <thead>
-            <tr><th>Sentence</th><th>Pos. 1</th><th>Verb ②</th><th>Rest</th></tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><code>Ich lerne heute Deutsch.</code></td>
-              <td>Ich</td>
-              <td class="highlight-cell" style="color:#AF52DE;">lerne</td>
-              <td>heute Deutsch</td>
-            </tr>
-            <tr>
-              <td><code>Heute lerne ich Deutsch.</code></td>
-              <td>Heute</td>
-              <td class="highlight-cell" style="color:#AF52DE;">lerne</td>
-              <td>ich Deutsch</td>
-            </tr>
-            <tr>
-              <td><code>Deutsch lerne ich heute.</code></td>
-              <td>Deutsch</td>
-              <td class="highlight-cell" style="color:#AF52DE;">lerne</td>
-              <td>ich heute</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <p class="mt-12">All three sentences mean the same thing. <code>lerne</code> always stays <strong>second</strong>.</p>
-
-      <div class="label mt-14">More Examples</div>
-      <div class="examples">
-        <div class="ex">
-          <div class="ex-de">Morgen gehe ich ins Kino.</div>
-          <div class="ex-en">→ Tomorrow I go to the cinema.</div>
-        </div>
-        <div class="ex">
-          <div class="ex-de">Das Buch lese ich gern.</div>
-          <div class="ex-en">→ The book I like to read.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── 3. Questions ── -->
-  <section class="topic-card" id="s3" style="--sec-color:#34C759;">
-    <div class="card-header">
-      <div class="sec-num" style="background:#34C759;">3</div>
-      <div class="card-titles">
-        <div class="card-de">Fragesätze</div>
-        <div class="card-en">Question Sentences</div>
-      </div>
-    </div>
-    <div class="card-body">
-
-      <div class="sub">
-        <div class="sub-title">
-          <div class="sub-dot" style="background:#34C759;"></div>
-          Ja/Nein-Fragen · Yes/No Questions
-        </div>
-        <p>The verb moves to <strong>first position</strong>:</p>
-        <div class="code-block">[Verb]  [Subject]  [Rest] ?</div>
-        <div class="examples">
-          <div class="ex">
-            <div class="ex-de">Lernst du Deutsch?</div>
-            <div class="ex-en">→ Do you learn German?</div>
-          </div>
-          <div class="ex">
-            <div class="ex-de">Ist das dein Buch?</div>
-            <div class="ex-en">→ Is that your book?</div>
-          </div>
-          <div class="ex">
-            <div class="ex-de">Hast du Zeit?</div>
-            <div class="ex-en">→ Do you have time?</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="sub">
-        <div class="sub-title">
-          <div class="sub-dot" style="background:#34C759;"></div>
-          W-Fragen · W-Questions
-        </div>
-        <p>Question word takes position 1, verb stays 2nd:</p>
-        <div class="code-block">[W-Word]  [Verb]  [Subject]  [Rest] ?</div>
-        <div class="tbl-wrap mt-8">
-          <table>
-            <thead>
-              <tr><th>W-Word</th><th>Meaning</th><th>Example</th></tr>
-            </thead>
-            <tbody>
-              <tr><td><strong>Wer</strong></td><td>Who</td><td><code>Wer bist du?</code></td></tr>
-              <tr><td><strong>Was</strong></td><td>What</td><td><code>Was machst du?</code></td></tr>
-              <tr><td><strong>Wo</strong></td><td>Where</td><td><code>Wo wohnst du?</code></td></tr>
-              <tr><td><strong>Woher</strong></td><td>Where from</td><td><code>Woher kommst du?</code></td></tr>
-              <tr><td><strong>Wohin</strong></td><td>Where to</td><td><code>Wohin gehst du?</code></td></tr>
-              <tr><td><strong>Wann</strong></td><td>When</td><td><code>Wann kommst du?</code></td></tr>
-              <tr><td><strong>Wie</strong></td><td>How</td><td><code>Wie heißt du?</code></td></tr>
-              <tr><td><strong>Warum</strong></td><td>Why</td><td><code>Warum lernst du?</code></td></tr>
-              <tr><td><strong>Wie viel</strong></td><td>How much</td><td><code>Wie viel kostet das?</code></td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── 4. Negation ── -->
-  <section class="topic-card" id="s4" style="--sec-color:#FF9F0A;">
-    <div class="card-header">
-      <div class="sec-num" style="background:#FF9F0A;">4</div>
-      <div class="card-titles">
-        <div class="card-de">Verneinung</div>
-        <div class="card-en">Negation</div>
-      </div>
-    </div>
-    <div class="card-body">
-
-      <div class="sub">
-        <div class="sub-title">
-          <div class="sub-dot" style="background:#FF9F0A;"></div>
-          Using <code>nicht</code> — "not"
-        </div>
-        <p>Negates verbs, adjectives, adverbs, and nouns with a definite article.</p>
-        <div class="examples mt-10">
-          <div class="ex">
-            <div class="ex-de">Ich verstehe das <span style="color:#FF9F0A;font-weight:700;">nicht</span>.</div>
-            <div class="ex-en">→ I don't understand that.</div>
-          </div>
-          <div class="ex">
-            <div class="ex-de">Er ist <span style="color:#FF9F0A;font-weight:700;">nicht</span> müde.</div>
-            <div class="ex-en">→ He is not tired.</div>
-          </div>
-          <div class="ex">
-            <div class="ex-de">Ich schlafe <span style="color:#FF9F0A;font-weight:700;">nicht</span>.</div>
-            <div class="ex-en">→ I don't sleep.</div>
-          </div>
-        </div>
-        <div class="tbl-wrap mt-12">
-          <table>
-            <thead><tr><th>When</th><th>Position of nicht</th></tr></thead>
-            <tbody>
-              <tr><td>Negating the whole verb</td><td>End of sentence</td></tr>
-              <tr><td>Before an adjective/adverb</td><td>Directly before it</td></tr>
-              <tr><td>Specific element</td><td>Before that element</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <div class="sub">
-        <div class="sub-title">
-          <div class="sub-dot" style="background:#FF9F0A;"></div>
-          Using <code>kein/keine</code> — "no / not a"
-        </div>
-        <p>Negates nouns that use <em>ein/eine</em> or have no article:</p>
-        <div class="examples mt-10">
-          <div class="ex">
-            <div class="ex-de">Ich habe <span style="color:#FF9F0A;font-weight:700;">keine</span> Zeit.</div>
-            <div class="ex-en">→ I have no time.</div>
-          </div>
-          <div class="ex">
-            <div class="ex-de">Das ist <span style="color:#FF9F0A;font-weight:700;">kein</span> Problem.</div>
-            <div class="ex-en">→ That is not a problem.</div>
-          </div>
-          <div class="ex">
-            <div class="ex-de">Er hat <span style="color:#FF9F0A;font-weight:700;">kein</span> Auto.</div>
-            <div class="ex-en">→ He has no car.</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="rule-box mt-12">
-        <div class="rule-label">Golden Rule</div>
-        Use <strong>kein</strong> where you would use <em>ein/eine</em>.<br>
-        Use <strong>nicht</strong> everywhere else.
-      </div>
-    </div>
-  </section>
-
-  <!-- ── 5. TeKaMoLo ── -->
-  <section class="topic-card" id="s5" style="--sec-color:#FF375F;">
-    <div class="card-header">
-      <div class="sec-num" style="background:#FF375F;">5</div>
-      <div class="card-titles">
-        <div class="card-de">TeKaMoLo</div>
-        <div class="card-en">Adverb Word Order</div>
-      </div>
-    </div>
-    <div class="card-body">
-      <p>A mnemonic for the correct order of adverbial phrases in German sentences.</p>
-
-      <div class="teka-flow">
-        <div class="teka-pill" style="background:rgba(255,55,95,0.1);">
-          <div class="teka-letter" style="color:#FF375F;">Te</div>
-          <div class="teka-word" style="color:#FF375F;">Temporal</div>
-          <div class="teka-q">When?</div>
-        </div>
-        <div class="teka-arr">›</div>
-        <div class="teka-pill" style="background:rgba(255,159,10,0.1);">
-          <div class="teka-letter" style="color:#FF9F0A;">Ka</div>
-          <div class="teka-word" style="color:#FF9F0A;">Kausal</div>
-          <div class="teka-q">Why?</div>
-        </div>
-        <div class="teka-arr">›</div>
-        <div class="teka-pill" style="background:rgba(52,199,89,0.1);">
-          <div class="teka-letter" style="color:#34C759;">Mo</div>
-          <div class="teka-word" style="color:#34C759;">Modal</div>
-          <div class="teka-q">How?</div>
-        </div>
-        <div class="teka-arr">›</div>
-        <div class="teka-pill" style="background:rgba(0,122,255,0.1);">
-          <div class="teka-letter" style="color:#007AFF;">Lo</div>
-          <div class="teka-word" style="color:#007AFF;">Lokal</div>
-          <div class="teka-q">Where?</div>
-        </div>
-      </div>
-
-      <div class="tbl-wrap">
-        <table>
-          <thead><tr><th>Letter</th><th>Stands for</th><th>Asks</th><th>Examples</th></tr></thead>
-          <tbody>
-            <tr><td style="color:#FF375F;font-weight:700;">Te</td><td>Temporal</td><td>When?</td><td>morgen, heute, um 8 Uhr</td></tr>
-            <tr><td style="color:#FF9F0A;font-weight:700;">Ka</td><td>Kausal</td><td>Why?</td><td>deshalb, wegen des Wetters</td></tr>
-            <tr><td style="color:#34C759;font-weight:700;">Mo</td><td>Modal</td><td>How?</td><td>mit dem Auto, schnell</td></tr>
-            <tr><td style="color:#007AFF;font-weight:700;">Lo</td><td>Lokal</td><td>Where?</td><td>in Berlin, nach Hause</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="label mt-14">Examples</div>
-      <div class="examples">
-        <div class="ex">
-          <div class="ex-de">Ich fahre <span style="color:#FF375F;">morgen</span> <span style="color:#34C759;">mit dem Bus</span> <span style="color:#007AFF;">in die Stadt</span>.</div>
-          <div class="ex-en">→ I travel tomorrow by bus into the city.</div>
-        </div>
-        <div class="ex">
-          <div class="ex-de">Er arbeitet <span style="color:#FF375F;">täglich</span> <span style="color:#34C759;">fleißig</span> <span style="color:#007AFF;">im Büro</span>.</div>
-          <div class="ex-en">→ He works diligently every day in the office.</div>
-        </div>
-      </div>
-
-      <div class="bq" style="border-color:#FF375F;background:rgba(255,55,95,0.06);margin-top:12px;">
-        <strong>Tip:</strong> You rarely use all four at once — but when you do, follow this order.
-      </div>
-    </div>
-  </section>
-
-  <!-- ── 6. Subordinate Clauses ── -->
-  <section class="topic-card" id="s6" style="--sec-color:#00C7BE;">
-    <div class="card-header">
-      <div class="sec-num" style="background:#00C7BE;">6</div>
-      <div class="card-titles">
-        <div class="card-de">Nebensätze</div>
-        <div class="card-en">Subordinate Clauses</div>
-      </div>
-    </div>
-    <div class="card-body">
-      <p>With a <strong>subordinating conjunction</strong>, the verb moves to the <strong>end</strong> of the clause.</p>
-
-      <div class="code-block mt-10">[Main clause], [conj.] [subject] [rest] [VERB].</div>
-
-      <div class="label mt-14">Common Conjunctions (A1)</div>
-      <div class="tbl-wrap">
-        <table>
-          <thead><tr><th>Word</th><th>Meaning</th><th>Example</th></tr></thead>
-          <tbody>
-            <tr><td><strong>weil</strong></td><td>because</td><td><code>..., weil ich müde <span style="color:#00C7BE;">bin</span>.</code></td></tr>
-            <tr><td><strong>dass</strong></td><td>that</td><td><code>..., dass du Recht <span style="color:#00C7BE;">hast</span>.</code></td></tr>
-            <tr><td><strong>wenn</strong></td><td>when / if</td><td><code>Wenn ich Zeit <span style="color:#00C7BE;">habe</span>, ...</code></td></tr>
-            <tr><td><strong>obwohl</strong></td><td>although</td><td><code>..., obwohl ich müde <span style="color:#00C7BE;">bin</span>.</code></td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="label mt-14">Examples</div>
-      <div class="examples">
-        <div class="ex">
-          <div class="ex-de">Ich bin müde, weil ich viel gearbeitet <span style="color:#00C7BE;font-weight:700;">habe</span>.</div>
-          <div class="ex-en">→ I am tired because I worked a lot.</div>
-        </div>
-        <div class="ex">
-          <div class="ex-de">Ich weiß, dass sie Lehrerin <span style="color:#00C7BE;font-weight:700;">ist</span>.</div>
-          <div class="ex-en">→ I know that she is a teacher.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── 7. Sentence Types ── -->
-  <section class="topic-card" id="s7" style="--sec-color:#5E5CE6;">
-    <div class="card-header">
-      <div class="sec-num" style="background:#5E5CE6;">7</div>
-      <div class="card-titles">
-        <div class="card-de">Satztypen</div>
-        <div class="card-en">Sentence Types Summary</div>
-      </div>
-    </div>
-    <div class="card-body">
-      <div class="tbl-wrap">
-        <table>
-          <thead><tr><th>Type</th><th>Structure</th><th>Example</th></tr></thead>
-          <tbody>
-            <tr>
-              <td><strong>Statement</strong></td>
-              <td>Subj + Verb + …</td>
-              <td><code>Ich trinke Kaffee.</code></td>
-            </tr>
-            <tr>
-              <td><strong>Yes/No Q</strong></td>
-              <td>Verb + Subj + …</td>
-              <td><code>Trinkst du Kaffee?</code></td>
-            </tr>
-            <tr>
-              <td><strong>W-Question</strong></td>
-              <td>W + Verb + Subj + …</td>
-              <td><code>Was trinkst du?</code></td>
-            </tr>
-            <tr>
-              <td><strong>Command</strong></td>
-              <td>Verb stem (+ …)</td>
-              <td><code>Trink Kaffee!</code></td>
-            </tr>
-            <tr>
-              <td><strong>Subclause</strong></td>
-              <td>… weil + … + Verb</td>
-              <td><code>…, weil ich Kaffee trinke.</code></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── 8. Imperative ── -->
-  <section class="topic-card" id="s8" style="--sec-color:#FF6961;">
-    <div class="card-header">
-      <div class="sec-num" style="background:#FF6961;">8</div>
-      <div class="card-titles">
-        <div class="card-de">Imperativ</div>
-        <div class="card-en">Commands</div>
-      </div>
-    </div>
-    <div class="card-body">
-      <div class="tbl-wrap">
-        <table>
-          <thead><tr><th>Form</th><th>Formation</th><th>Example</th></tr></thead>
-          <tbody>
-            <tr>
-              <td><strong>du</strong></td>
-              <td>Verb stem</td>
-              <td><code>Lern Deutsch!</code></td>
-            </tr>
-            <tr>
-              <td><strong>ihr</strong></td>
-              <td>Stem + <em>-t</em></td>
-              <td><code>Lernt Deutsch!</code></td>
-            </tr>
-            <tr>
-              <td><strong>Sie</strong></td>
-              <td>Infinitive + Sie</td>
-              <td><code>Lernen Sie Deutsch!</code></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="label mt-14">Examples</div>
-      <div class="examples">
-        <div class="ex">
-          <div class="ex-de">Komm her!</div>
-          <div class="ex-en">→ Come here! (du)</div>
-        </div>
-        <div class="ex">
-          <div class="ex-de">Hör zu!</div>
-          <div class="ex-en">→ Listen! (du)</div>
-        </div>
-        <div class="ex">
-          <div class="ex-de">Schreiben Sie bitte Ihren Namen.</div>
-          <div class="ex-en">→ Please write your name. (Sie)</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── 9. Checklist ── -->
-  <section class="topic-card" id="s9" style="--sec-color:#30D158;">
-    <div class="card-header">
-      <div class="sec-num" style="background:#30D158;">9</div>
-      <div class="card-titles">
-        <div class="card-de">Schnellcheck</div>
-        <div class="card-en">Quick Reference Checklist</div>
-      </div>
-    </div>
-    <div class="card-body">
-      <p style="margin-bottom:14px;font-size:14px;">Tap each rule to mark it as understood.</p>
-      <div class="checklist">
-
-        <div class="check-item" onclick="toggleCheck(this)">
-          <div class="check-circle">
-            <svg class="check-icon" width="12" height="10" viewBox="0 0 12 10" fill="none">
-              <path d="M1.5 5L4.5 8L10.5 1.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <div class="check-text">Conjugated verb sits in <strong>position 2</strong> in main clauses.</div>
-        </div>
-
-        <div class="check-item" onclick="toggleCheck(this)">
-          <div class="check-circle">
-            <svg class="check-icon" width="12" height="10" viewBox="0 0 12 10" fill="none">
-              <path d="M1.5 5L4.5 8L10.5 1.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <div class="check-text">In yes/no questions, the verb comes <strong>first</strong>.</div>
-        </div>
-
-        <div class="check-item" onclick="toggleCheck(this)">
-          <div class="check-circle">
-            <svg class="check-icon" width="12" height="10" viewBox="0 0 12 10" fill="none">
-              <path d="M1.5 5L4.5 8L10.5 1.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <div class="check-text">After subordinating conjunctions, the verb goes <strong>last</strong>.</div>
-        </div>
-
-        <div class="check-item" onclick="toggleCheck(this)">
-          <div class="check-circle">
-            <svg class="check-icon" width="12" height="10" viewBox="0 0 12 10" fill="none">
-              <path d="M1.5 5L4.5 8L10.5 1.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <div class="check-text">Adverbials follow <strong>Te → Ka → Mo → Lo</strong> order.</div>
-        </div>
-
-        <div class="check-item" onclick="toggleCheck(this)">
-          <div class="check-circle">
-            <svg class="check-icon" width="12" height="10" viewBox="0 0 12 10" fill="none">
-              <path d="M1.5 5L4.5 8L10.5 1.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <div class="check-text">Use <strong>kein</strong> for nouns, <strong>nicht</strong> for everything else.</div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-</main>
-
-<!-- FAB -->
-<button class="fab" id="fabBtn" aria-label="Jump to section">
-  <svg width="16" height="14" viewBox="0 0 16 14" fill="none">
-    <rect width="16" height="2" rx="1" fill="white"/>
-    <rect y="6" width="12" height="2" rx="1" fill="white"/>
-    <rect y="12" width="8" height="2" rx="1" fill="white"/>
-  </svg>
-  Sections
-</button>
-
-<!-- OVERLAY -->
-<div class="overlay" id="overlay"></div>
-
-<!-- BOTTOM SHEET -->
-<div class="sheet" id="sheet">
-  <div class="sheet-handle"></div>
-  <div class="sheet-head">Jump to Section</div>
-
-  <a class="sheet-item" href="#s1" onclick="closeSheet()">
-    <div class="sheet-num" style="background:#007AFF;">1</div>
-    <div class="sheet-info">
-      <div class="sheet-de">Satzbau</div>
-      <div class="sheet-en">Sentence Structure</div>
-    </div>
-    <span class="sheet-chev">›</span>
-  </a>
-  <a class="sheet-item" href="#s2" onclick="closeSheet()">
-    <div class="sheet-num" style="background:#AF52DE;">2</div>
-    <div class="sheet-info">
-      <div class="sheet-de">Verb-Zweit-Regel</div>
-      <div class="sheet-en">The V2 Rule</div>
-    </div>
-    <span class="sheet-chev">›</span>
-  </a>
-  <a class="sheet-item" href="#s3" onclick="closeSheet()">
-    <div class="sheet-num" style="background:#34C759;">3</div>
-    <div class="sheet-info">
-      <div class="sheet-de">Fragesätze</div>
-      <div class="sheet-en">Question Sentences</div>
-    </div>
-    <span class="sheet-chev">›</span>
-  </a>
-  <a class="sheet-item" href="#s4" onclick="closeSheet()">
-    <div class="sheet-num" style="background:#FF9F0A;">4</div>
-    <div class="sheet-info">
-      <div class="sheet-de">Verneinung</div>
-      <div class="sheet-en">Negation</div>
-    </div>
-    <span class="sheet-chev">›</span>
-  </a>
-  <a class="sheet-item" href="#s5" onclick="closeSheet()">
-    <div class="sheet-num" style="background:#FF375F;">5</div>
-    <div class="sheet-info">
-      <div class="sheet-de">TeKaMoLo</div>
-      <div class="sheet-en">Adverb Word Order</div>
-    </div>
-    <span class="sheet-chev">›</span>
-  </a>
-  <a class="sheet-item" href="#s6" onclick="closeSheet()">
-    <div class="sheet-num" style="background:#00C7BE;">6</div>
-    <div class="sheet-info">
-      <div class="sheet-de">Nebensätze</div>
-      <div class="sheet-en">Subordinate Clauses</div>
-    </div>
-    <span class="sheet-chev">›</span>
-  </a>
-  <a class="sheet-item" href="#s7" onclick="closeSheet()">
-    <div class="sheet-num" style="background:#5E5CE6;">7</div>
-    <div class="sheet-info">
-      <div class="sheet-de">Satztypen</div>
-      <div class="sheet-en">Sentence Types</div>
-    </div>
-    <span class="sheet-chev">›</span>
-  </a>
-  <a class="sheet-item" href="#s8" onclick="closeSheet()">
-    <div class="sheet-num" style="background:#FF6961;">8</div>
-    <div class="sheet-info">
-      <div class="sheet-de">Imperativ</div>
-      <div class="sheet-en">Commands</div>
-    </div>
-    <span class="sheet-chev">›</span>
-  </a>
-  <a class="sheet-item" href="#s9" onclick="closeSheet()">
-    <div class="sheet-num" style="background:#30D158;">9</div>
-    <div class="sheet-info">
-      <div class="sheet-de">Schnellcheck</div>
-      <div class="sheet-en">Quick Reference</div>
-    </div>
-    <span class="sheet-chev">›</span>
-  </a>
+<!-- Search Modal -->
+<div class="search-modal" id="search-modal">
+  <div class="sm-input-row">
+    <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="8.5" cy="8.5" r="5.5"/><line x1="13" y1="13" x2="18" y2="18"/></svg>
+    <input id="gsearch" type="text" placeholder="Suche nach Begriffen, Vokabeln …" autocomplete="off">
+    <button class="sm-close" onclick="closeSearch()">Esc</button>
+  </div>
+  <div class="sm-results" id="sm-results">
+    <div class="sm-empty">Tippe etwas, um zu suchen …</div>
+  </div>
 </div>
 
 <script>
-  /* ── Reading progress bar ── */
-  window.addEventListener('scroll', () => {
-    const scrolled = window.scrollY;
-    const total = document.documentElement.scrollHeight - window.innerHeight;
-    document.getElementById('pFill').style.width = ((scrolled / total) * 100) + '%';
-  }, { passive: true });
+// ── Accordion: main cards ──
+function toggleCard(hd) {
+  const card = hd.closest('.card');
+  card.classList.toggle('open');
+}
 
-  /* ── Section data ── */
-  const SECTIONS = [
-    { id: 's1', de: 'Satzbau',         color: '#007AFF' },
-    { id: 's2', de: 'V2-Regel',        color: '#AF52DE' },
-    { id: 's3', de: 'Fragesätze',      color: '#34C759' },
-    { id: 's4', de: 'Verneinung',      color: '#FF9F0A' },
-    { id: 's5', de: 'TeKaMoLo',        color: '#FF375F' },
-    { id: 's6', de: 'Nebensätze',      color: '#00C7BE' },
-    { id: 's7', de: 'Satztypen',       color: '#5E5CE6' },
-    { id: 's8', de: 'Imperativ',       color: '#FF6961' },
-    { id: 's9', de: 'Schnellcheck',    color: '#30D158' },
-  ];
+// ── Sub-accordion ──
+function toggleSub(hd) {
+  const sub = hd.closest('.sub-card');
+  sub.classList.toggle('open');
+}
 
-  /* ── IntersectionObserver: update header + active pill ── */
-  const hTitle = document.getElementById('hTitle');
-  const allPills = document.querySelectorAll('.pill');
+// ── Drawer ──
+function openDrawer() {
+  document.getElementById('drawer').classList.add('open');
+  document.getElementById('drawer-bg').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeDrawer() {
+  document.getElementById('drawer').classList.remove('open');
+  document.getElementById('drawer-bg').classList.remove('open');
+  document.body.style.overflow = '';
+}
 
-  function setActive(secId) {
-    const data = SECTIONS.find(s => s.id === secId);
-    if (!data) { hTitle.textContent = 'Grammatik'; return; }
-    hTitle.textContent = data.de;
+function navTo(id) {
+  closeDrawer();
+  const el = document.getElementById(id);
+  if (!el) return;
+  // Open card if it's a card
+  const card = el.classList.contains('card') ? el : el.closest('.card');
+  if (card && !card.classList.contains('open')) card.classList.add('open');
+  setTimeout(() => {
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 50);
+}
 
-    allPills.forEach(p => {
-      if (p.dataset.sec === secId) {
-        p.style.background = data.color;
-        p.style.color = '#fff';
-        // Scroll only the pills container horizontally — never touch page scroll
-        const row = document.getElementById('pillsRow');
-        const target = p.offsetLeft - (row.offsetWidth / 2) + (p.offsetWidth / 2);
-        row.scrollTo({ left: Math.max(0, target), behavior: 'smooth' });
-      } else {
-        p.style.background = '';
-        p.style.color = '';
-      }
-    });
+// ── Global Search ──
+const searchData = [];
+document.querySelectorAll('#grammar tbody tr, #vocabulary tbody tr, #glossary tbody tr').forEach(row => {
+  const cells = row.querySelectorAll('td');
+  if (cells.length < 2) return;
+  const de = cells[0].textContent.trim();
+  const en = cells[1].textContent.trim();
+  if (!de) return;
+  const sectionEl = row.closest('section');
+  const section = sectionEl ? sectionEl.id : '';
+  const cardEl = row.closest('.card');
+  const cardId = cardEl ? cardEl.id : '';
+  const subCardEl = row.closest('.sub-card');
+  let subCardIdx = -1;
+  if (subCardEl && cardEl) {
+    subCardIdx = Array.from(cardEl.querySelectorAll('.sub-card')).indexOf(subCardEl);
   }
+  searchData.push({ de, en, section, cardId, subCardIdx });
+});
 
-  const io = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) setActive(e.target.id); });
-  }, { threshold: 0.35 });
+function openSearch() {
+  document.getElementById('search-bg').classList.add('open');
+  document.getElementById('search-modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  setTimeout(() => document.getElementById('gsearch').focus(), 100);
+}
+function closeSearch() {
+  document.getElementById('search-bg').classList.remove('open');
+  document.getElementById('search-modal').classList.remove('open');
+  document.getElementById('gsearch').value = '';
+  document.getElementById('sm-results').innerHTML = '<div class="sm-empty">Tippe etwas, um zu suchen …</div>';
+  document.body.style.overflow = '';
+}
 
-  SECTIONS.forEach(s => {
-    const el = document.getElementById(s.id);
-    if (el) io.observe(el);
-  });
+document.getElementById('gsearch').addEventListener('input', function() {
+  const q = this.value.trim().toLowerCase();
+  const resultsEl = document.getElementById('sm-results');
+  if (!q) {
+    resultsEl.innerHTML = '<div class="sm-empty">Tippe etwas, um zu suchen …</div>';
+    return;
+  }
+  const matches = searchData.filter(d =>
+    d.de.toLowerCase().includes(q) || d.en.toLowerCase().includes(q)
+  ).slice(0, 30);
 
-  // Reset when hero is visible
-  const heroIO = new IntersectionObserver(entries => {
-    if (entries[0].isIntersecting) {
-      hTitle.textContent = 'Grammatik';
-      allPills.forEach(p => { p.style.background = ''; p.style.color = ''; });
+  if (!matches.length) {
+    resultsEl.innerHTML = '<div class="sm-empty">Keine Ergebnisse gefunden.</div>';
+    return;
+  }
+  resultsEl.innerHTML = matches.map(m => {
+    const idx = searchData.indexOf(m);
+    const sType = m.section === 'vocabulary' ? 'v' : m.section === 'grammar' ? 'g' : 'gl';
+    const sLabel = m.section === 'vocabulary' ? 'Wortschatz' : m.section === 'grammar' ? 'Grammatik' : 'Glossar';
+    return `<div class="sm-item" onclick="goToResult(${idx})">
+      <div class="sm-item-text">
+        <div class="sm-de">${m.de}</div>
+        <div class="sm-en">${m.en}</div>
+      </div>
+      <span class="sm-tag ${sType}">${sLabel}</span>
+    </div>`;
+  }).join('');
+});
+
+function goToResult(idx) {
+  const item = searchData[idx];
+  closeSearch();
+  if (!item || !item.cardId) return;
+  const card = document.getElementById(item.cardId);
+  if (!card) return;
+  // Open main card
+  card.classList.add('open');
+  // Open the specific sub-card (e.g. a grammar pattern) if applicable
+  if (item.subCardIdx >= 0) {
+    const subCards = card.querySelectorAll('.sub-card');
+    if (subCards[item.subCardIdx]) subCards[item.subCardIdx].classList.add('open');
+  }
+  setTimeout(() => card.scrollIntoView({ behavior: 'smooth', block: 'start' }), 60);
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    closeSearch();
+    closeDrawer();
+  }
+  if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+    e.preventDefault();
+    openSearch();
+  }
+});
+
+// ── Vocabulary Inline Filter ──
+const vsearch = document.getElementById('vsearch');
+const vcountEl = document.getElementById('vsearch-count');
+let totalRows = 0;
+
+vsearch.addEventListener('input', function() {
+  const q = this.value.trim().toLowerCase();
+  const rows = document.querySelectorAll('#vocabulary tbody tr');
+  totalRows = rows.length;
+  let shown = 0;
+
+  rows.forEach(row => {
+    if (!q) {
+      row.classList.remove('v-hidden');
+      shown++;
+    } else {
+      const match = row.textContent.toLowerCase().includes(q);
+      row.classList.toggle('v-hidden', !match);
+      if (match) shown++;
     }
-  }, { threshold: 0.5 });
-  heroIO.observe(document.getElementById('hero'));
-
-  /* ── Jump to section (with header offset) ── */
-  function jumpTo(id) {
-    const el = document.getElementById(id);
-    if (!el) return;
-    const offset = document.querySelector('.top-bar').offsetHeight + 10;
-    const top = el.getBoundingClientRect().top + window.scrollY - offset;
-    window.scrollTo({ top, behavior: 'smooth' });
-  }
-
-  /* ── Bottom sheet ── */
-  const fab     = document.getElementById('fabBtn');
-  const sheet   = document.getElementById('sheet');
-  const overlay = document.getElementById('overlay');
-
-  function openSheet() {
-    sheet.classList.add('open');
-    overlay.classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeSheet() {
-    sheet.classList.remove('open');
-    overlay.classList.remove('open');
-    document.body.style.overflow = '';
-  }
-
-  fab.addEventListener('click', openSheet);
-  overlay.addEventListener('click', closeSheet);
-
-  // Also wire the menu button
-  document.getElementById('menuBtn').addEventListener('click', openSheet);
-
-  /* ── Checklist toggle ── */
-  function toggleCheck(el) {
-    el.classList.toggle('done');
-  }
-
-  /* ── Sheet: close + smooth scroll for anchor links ── */
-  document.querySelectorAll('.sheet-item').forEach(item => {
-    item.addEventListener('click', e => {
-      e.preventDefault();
-      const target = item.getAttribute('href').replace('#', '');
-      closeSheet();
-      setTimeout(() => jumpTo(target), 320); // wait for sheet to close
-    });
   });
+
+  // Open all vocab cards if filtering
+  if (q) {
+    document.querySelectorAll('#vocabulary .card').forEach(c => c.classList.add('open'));
+    vcountEl.textContent = `${shown} von ${totalRows} Einträgen gefunden`;
+  } else {
+    vcountEl.textContent = '';
+  }
+});
+
+// ── Progress Bar ──
+const progressBar = document.getElementById('progress-bar');
+window.addEventListener('scroll', () => {
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+  progressBar.style.width = pct + '%';
+}, { passive: true });
+
+// ── Active section chip highlighting ──
+const sections = [
+  { id: 'grammar',    chip: 'grammar' },
+  { id: 'vocabulary', chip: 'vocabulary' },
+  { id: 'glossary',   chip: 'glossary' }
+];
+
+const chips = document.querySelectorAll('.section-nav .chip');
+
+const sectionEls = sections.map(s => document.getElementById(s.id)).filter(Boolean);
+
+const chipObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const id = entry.target.id;
+      chips.forEach(c => {
+        c.classList.toggle('active', c.dataset.sec === id);
+      });
+    }
+  });
+}, { rootMargin: '-40% 0px -50% 0px' });
+
+sectionEls.forEach(el => chipObserver.observe(el));
+
+// ── Reveal on scroll ──
+const revealEls = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('vis');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { rootMargin: '0px 0px -60px 0px' });
+
+revealEls.forEach(el => revealObserver.observe(el));
+
+// ── Hero cards smooth scroll ──
+document.querySelectorAll('.hero-card').forEach(card => {
+  card.addEventListener('click', () => {
+    const href = card.getAttribute('href');
+    if (href) {
+      const target = document.querySelector(href);
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+});
 </script>
 </body>
 </html>
