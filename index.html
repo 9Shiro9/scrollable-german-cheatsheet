@@ -821,8 +821,8 @@
 <!-- Section Nav -->
 <nav class="section-nav">
   <div class="section-nav-inner">
-    <a href="#grammar"    class="chip g"  data-sec="grammar">📖 Grammatik</a>
     <a href="#vocabulary" class="chip v"  data-sec="vocabulary">📚 Wortschatz</a>
+    <a href="#grammar"    class="chip g"  data-sec="grammar">📖 Grammatik</a>
     <a href="#glossary"   class="chip gl" data-sec="glossary">🔤 Glossar</a>
   </div>
 </nav>
@@ -836,583 +836,21 @@
     <h1 class="hero-title">Dein <em>Lernguide</em><br>für A1.1</h1>
     <p class="hero-sub">Interaktiver Leitfaden für Grammatik, Wortschatz und Glossar — für jedes Lerntempo.</p>
     <div class="hero-cards">
-      <a href="#grammar" class="hero-card g reveal">
-        <div class="hc-icon">📐</div>
-        <div class="hc-label">Grammatik</div>
-        <div class="hc-sub">11 Muster · Fragen · Kasus</div>
-      </a>
-      <a href="#vocabulary" class="hero-card v reveal" style="transition-delay:0.08s">
+      <a href="#vocabulary" class="hero-card v reveal">
         <div class="hc-icon">🗣️</div>
         <div class="hc-label">Wortschatz</div>
         <div class="hc-sub">12 Lektionen · Verben</div>
+      </a>
+      <a href="#grammar" class="hero-card g reveal" style="transition-delay:0.08s">
+        <div class="hc-icon">📐</div>
+        <div class="hc-label">Grammatik</div>
+        <div class="hc-sub">11 Muster · Fragen · Kasus</div>
       </a>
       <a href="#glossary" class="hero-card gl reveal" style="transition-delay:0.16s">
         <div class="hc-icon">📝</div>
         <div class="hc-label">Glossar</div>
         <div class="hc-sub">Grammatische Begriffe</div>
       </a>
-    </div>
-  </section>
-
-  <!-- ═══════════════ GRAMMAR ═══════════════ -->
-  <section id="grammar" class="scroll-target">
-    <div class="sec-head reveal">
-      <div class="sec-line"></div>
-      <div class="sec-head-c">
-        <div class="sec-eyebrow g">Grammatik</div>
-        <div class="sec-title">Grammar Rules</div>
-      </div>
-      <div class="sec-line"></div>
-    </div>
-
-    <!-- Card G1: Sentence Patterns -->
-    <div class="card g reveal" id="sentence-patterns">
-      <div class="card-hd" onclick="toggleCard(this)">
-        <div class="card-hd-left">
-          <span class="card-num">01</span>
-          <div>
-            <div class="card-title">Satzstruktur-Muster</div>
-            <div class="card-sub">11 patterns — S + V + Objects + TEKAMOLO</div>
-          </div>
-        </div>
-        <svg class="card-chev" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="5 8 10 13 15 8"/></svg>
-      </div>
-      <div class="card-bd">
-        <div class="card-bd-in">
-          <div class="note"><strong>TEKAMOLO</strong> = <strong>Te</strong>mporal · <strong>Ka</strong>usal · <strong>Mo</strong>dal · <strong>Lo</strong>kal — the standard adverb order.<br><strong>Abbreviations:</strong> D(N)=Dativ Noun · D(PN)=Dativ Pronoun · Akk(N)=Akkusativ Noun · Akk(PN)=Akkusativ Pronoun</div>
-
-          <!-- Pattern 1 -->
-          <div class="sub-card">
-            <div class="sub-hd" onclick="toggleSub(this)">
-              <span class="sub-title">Pattern 1 — S + V + Te, Ka, Mo, Lo <span style="font-weight:400;color:var(--text-2)">(No object — adverbials only)</span></span>
-              <span class="sub-chev">▼</span>
-            </div>
-            <div class="sub-bd"><div class="sub-bd-in">
-              <div class="formula"><span class="f-s">S</span> + <span class="f-v">V</span> + <span class="f-t">Te, Ka, Mo, Lo</span></div>
-              <div class="t-wrap"><table><thead><tr><th>Example</th><th>Tags</th></tr></thead><tbody>
-                <tr><td><em>Ich fahre <strong>heute schnell nach Berlin</strong>.</em></td><td>heute=TE, schnell=MO, nach Berlin=LO</td></tr>
-                <tr><td><em>Sie bleibt <strong>morgen wegen Krankheit zu Hause</strong>.</em></td><td>morgen=TE, wegen Krankheit=KA, zu Hause=LO</td></tr>
-              </tbody></table></div>
-            </div></div>
-          </div>
-
-          <!-- Pattern 2 -->
-          <div class="sub-card">
-            <div class="sub-hd" onclick="toggleSub(this)">
-              <span class="sub-title">Pattern 2 — S + V + Dativ + Te, Ka, Mo, Lo</span>
-              <span class="sub-chev">▼</span>
-            </div>
-            <div class="sub-bd"><div class="sub-bd-in">
-              <div class="formula"><span class="f-s">S</span> + <span class="f-v">V</span> + <span class="f-d">Dativ</span> + <span class="f-t">Te, Ka, Mo, Lo</span></div>
-              <div class="t-wrap"><table><thead><tr><th>Example</th><th>Tags</th></tr></thead><tbody>
-                <tr><td><em>Ich helfe <strong>dem Mann</strong> heute in der Stadt.</em></td><td>dem Mann=Dativ(N), heute=TE, in der Stadt=LO</td></tr>
-                <tr><td><em>Er schreibt <strong>der Frau</strong> jeden Abend schnell.</em></td><td>der Frau=Dativ(N), jeden Abend=TE, schnell=MO</td></tr>
-              </tbody></table></div>
-            </div></div>
-          </div>
-
-          <!-- Pattern 3 -->
-          <div class="sub-card">
-            <div class="sub-hd" onclick="toggleSub(this)">
-              <span class="sub-title">Pattern 3 — S + V + Te, Ka, Mo, Lo + Akkusativ</span>
-              <span class="sub-chev">▼</span>
-            </div>
-            <div class="sub-bd"><div class="sub-bd-in">
-              <div class="formula"><span class="f-s">S</span> + <span class="f-v">V</span> + <span class="f-t">Te, Ka, Mo, Lo</span> + <span class="f-a">Akk(N)</span></div>
-              <div class="t-wrap"><table><thead><tr><th>Example</th><th>Tags</th></tr></thead><tbody>
-                <tr><td><em>Ich kaufe <strong>heute im Markt</strong> den Apfel.</em></td><td>heute=TE, Im Markt=LO, den Apfel=Akk(N)</td></tr>
-                <tr><td><em>Er liest <strong>morgen schnell</strong> das Buch.</em></td><td>morgen=TE, schnell=MO, das Buch=Akk(N)</td></tr>
-              </tbody></table></div>
-            </div></div>
-          </div>
-
-          <!-- Pattern 4 -->
-          <div class="sub-card">
-            <div class="sub-hd" onclick="toggleSub(this)">
-              <span class="sub-title">Pattern 4 — S + V + Dativ(N) + Akkusativ(N)</span>
-              <span class="sub-chev">▼</span>
-            </div>
-            <div class="sub-bd"><div class="sub-bd-in">
-              <div class="formula"><span class="f-s">S</span> + <span class="f-v">V</span> + <span class="f-d">Dativ(N)</span> + <span class="f-a">Akk(N)</span></div>
-              <div class="t-wrap"><table><thead><tr><th>Example</th><th>Tags</th></tr></thead><tbody>
-                <tr><td><em>Ich gebe <strong>dem Mann</strong> das Buch.</em></td><td>dem Mann=Dativ(N), das Buch=Akk(N)</td></tr>
-                <tr><td><em>Sie zeigt <strong>dem Kind</strong> das Bild.</em></td><td>dem Kind=Dativ(N), das Bild=Akk(N)</td></tr>
-              </tbody></table></div>
-            </div></div>
-          </div>
-
-          <!-- Pattern 5 -->
-          <div class="sub-card">
-            <div class="sub-hd" onclick="toggleSub(this)">
-              <span class="sub-title">Pattern 5 — S + V + Akk(PN) + D(PN) <span style="font-weight:400;color:var(--text-2)">Both pronouns → Akk first</span></span>
-              <span class="sub-chev">▼</span>
-            </div>
-            <div class="sub-bd"><div class="sub-bd-in">
-              <div class="formula"><span class="f-s">S</span> + <span class="f-v">V</span> + <span class="f-a">Akk(PN)</span> + <span class="f-d">D(PN)</span></div>
-              <div class="t-wrap"><table><thead><tr><th>Example</th><th>Tags</th></tr></thead><tbody>
-                <tr><td><em>Ich gebe <strong>es ihm</strong>.</em></td><td>es=Akk(PN), ihm=D(PN)</td></tr>
-                <tr><td><em>Er schickt <strong>sie ihr</strong>.</em></td><td>sie=Akk(PN), ihr=D(PN)</td></tr>
-              </tbody></table></div>
-            </div></div>
-          </div>
-
-          <!-- Pattern 6 -->
-          <div class="sub-card">
-            <div class="sub-hd" onclick="toggleSub(this)">
-              <span class="sub-title">Pattern 6 — S + V + D(PN) + Akk(N) <span style="font-weight:400;color:var(--text-2)">Pronoun first</span></span>
-              <span class="sub-chev">▼</span>
-            </div>
-            <div class="sub-bd"><div class="sub-bd-in">
-              <div class="formula"><span class="f-s">S</span> + <span class="f-v">V</span> + <span class="f-d">D(PN)</span> + <span class="f-a">Akk(N)</span></div>
-              <div class="t-wrap"><table><thead><tr><th>Example</th><th>Tags</th></tr></thead><tbody>
-                <tr><td><em>Ich gebe <strong>ihm</strong> das Buch.</em></td><td>ihm=D(PN), das Buch=Akk(N)</td></tr>
-                <tr><td><em>Sie kauft <strong>mir</strong> einen Kaffee.</em></td><td>mir=D(PN), einen Kaffee=Akk(N)</td></tr>
-              </tbody></table></div>
-            </div></div>
-          </div>
-
-          <!-- Pattern 7 -->
-          <div class="sub-card">
-            <div class="sub-hd" onclick="toggleSub(this)">
-              <span class="sub-title">Pattern 7 — S + V + Akk(PN) + D(N) <span style="font-weight:400;color:var(--text-2)">Pronoun first</span></span>
-              <span class="sub-chev">▼</span>
-            </div>
-            <div class="sub-bd"><div class="sub-bd-in">
-              <div class="formula"><span class="f-s">S</span> + <span class="f-v">V</span> + <span class="f-a">Akk(PN)</span> + <span class="f-d">D(N)</span></div>
-              <div class="t-wrap"><table><thead><tr><th>Example</th><th>Tags</th></tr></thead><tbody>
-                <tr><td><em>Ich gebe <strong>es</strong> dem Mann.</em></td><td>es=Akk(PN), dem Mann=D(N)</td></tr>
-                <tr><td><em>Er schickt <strong>sie</strong> der Frau.</em></td><td>sie=Akk(PN), der Frau=D(N)</td></tr>
-              </tbody></table></div>
-            </div></div>
-          </div>
-
-          <!-- Pattern 8 -->
-          <div class="sub-card">
-            <div class="sub-hd" onclick="toggleSub(this)">
-              <span class="sub-title">Pattern 8 — S + V + D(N) + Te,Ka,Mo,Lo + Akk(N)</span>
-              <span class="sub-chev">▼</span>
-            </div>
-            <div class="sub-bd"><div class="sub-bd-in">
-              <div class="formula"><span class="f-s">S</span> + <span class="f-v">V</span> + <span class="f-d">D(N)</span> + <span class="f-t">TEKAMOLO</span> + <span class="f-a">Akk(N)</span></div>
-              <div class="t-wrap"><table><thead><tr><th>Example</th><th>Tags</th></tr></thead><tbody>
-                <tr><td><em>Ich gebe <strong>dem Mann</strong> heute <strong>das Buch</strong>.</em></td><td>dem Mann=D(N), heute=TE, das Buch=Akk(N)</td></tr>
-                <tr><td><em>Sie zeigt <strong>dem Kind</strong> morgen schnell <strong>das Bild</strong>.</em></td><td>dem Kind=D(N), morgen=TE, schnell=MO, das Bild=Akk(N)</td></tr>
-              </tbody></table></div>
-            </div></div>
-          </div>
-
-          <!-- Pattern 9 -->
-          <div class="sub-card">
-            <div class="sub-hd" onclick="toggleSub(this)">
-              <span class="sub-title">Pattern 9 — S + V + D(PN) + Te,Ka,Mo,Lo + Akk(N)</span>
-              <span class="sub-chev">▼</span>
-            </div>
-            <div class="sub-bd"><div class="sub-bd-in">
-              <div class="formula"><span class="f-s">S</span> + <span class="f-v">V</span> + <span class="f-d">D(PN)</span> + <span class="f-t">TEKAMOLO</span> + <span class="f-a">Akk(N)</span></div>
-              <div class="t-wrap"><table><thead><tr><th>Example</th><th>Tags</th></tr></thead><tbody>
-                <tr><td><em>Ich gebe <strong>ihm</strong> heute <strong>das Buch</strong>.</em></td><td>ihm=D(PN), heute=TE, das Buch=Akk(N)</td></tr>
-                <tr><td><em>Sie kauft <strong>mir</strong> morgen im Markt <strong>einen Kaffee</strong>.</em></td><td>mir=D(PN), morgen=TE, Im Markt=LO, einen Kaffee=Akk(N)</td></tr>
-              </tbody></table></div>
-            </div></div>
-          </div>
-
-          <!-- Pattern 10 -->
-          <div class="sub-card">
-            <div class="sub-hd" onclick="toggleSub(this)">
-              <span class="sub-title">Pattern 10 — S + V + Akk(PN) + D(PN) + Te,Ka,Mo,Lo</span>
-              <span class="sub-chev">▼</span>
-            </div>
-            <div class="sub-bd"><div class="sub-bd-in">
-              <div class="formula"><span class="f-s">S</span> + <span class="f-v">V</span> + <span class="f-a">Akk(PN)</span> + <span class="f-d">D(PN)</span> + <span class="f-t">TEKAMOLO</span></div>
-              <div class="t-wrap"><table><thead><tr><th>Example</th><th>Tags</th></tr></thead><tbody>
-                <tr><td><em>Ich gebe <strong>es ihm</strong> heute schnell.</em></td><td>es=Akk(PN), ihm=D(PN), heute=TE, schnell=MO</td></tr>
-                <tr><td><em>Er schickt <strong>sie ihr</strong> morgen nach Hause.</em></td><td>sie=Akk(PN), ihr=D(PN), morgen=TE, nach Hause=LO</td></tr>
-              </tbody></table></div>
-            </div></div>
-          </div>
-
-          <!-- Pattern 11 -->
-          <div class="sub-card">
-            <div class="sub-hd" onclick="toggleSub(this)">
-              <span class="sub-title">Pattern 11 — S + V + Akk(PN) + D(N) + Te,Ka,Mo,Lo</span>
-              <span class="sub-chev">▼</span>
-            </div>
-            <div class="sub-bd"><div class="sub-bd-in">
-              <div class="formula"><span class="f-s">S</span> + <span class="f-v">V</span> + <span class="f-a">Akk(PN)</span> + <span class="f-d">D(N)</span> + <span class="f-t">TEKAMOLO</span></div>
-              <div class="t-wrap"><table><thead><tr><th>Example</th><th>Tags</th></tr></thead><tbody>
-                <tr><td><em>Ich gebe <strong>es</strong> dem Mann heute schnell.</em></td><td>es=Akk(PN), dem Mann=D(N), heute=TE, schnell=MO</td></tr>
-                <tr><td><em>Er schickt <strong>sie</strong> der Frau morgen nach Hause.</em></td><td>sie=Akk(PN), der Frau=D(N), morgen=TE, nach Hause=LO</td></tr>
-              </tbody></table></div>
-            </div></div>
-          </div>
-
-          <!-- Quick Reference -->
-          <h3>Quick Reference — All 11 Patterns</h3>
-          <div class="t-wrap"><table><thead><tr><th>#</th><th>Pattern</th><th>Key Rule</th></tr></thead><tbody>
-            <tr><td><strong>1</strong></td><td>S + V + Te, Ka, Mo, Lo</td><td>No object — adverbials only</td></tr>
-            <tr><td><strong>2</strong></td><td>S + V + Dativ + Te, Ka, Mo, Lo</td><td>Dativ noun before TEKAMOLO</td></tr>
-            <tr><td><strong>3</strong></td><td>S + V + Te, Ka, Mo, Lo + Akkusativ</td><td>TEKAMOLO before Akk noun</td></tr>
-            <tr><td><strong>4</strong></td><td>S + V + Dativ(N) + Akkusativ(N)</td><td>Both nouns — Dativ before Akk</td></tr>
-            <tr><td><strong>5</strong></td><td>S + V + Akk(PN) + D(PN)</td><td>Both pronouns → Akk first</td></tr>
-            <tr><td><strong>6</strong></td><td>S + V + D(PN) + Akk(N)</td><td>Dativ pronoun + Akk noun → Pronoun first</td></tr>
-            <tr><td><strong>7</strong></td><td>S + V + Akk(PN) + D(N)</td><td>Akk pronoun + Dativ noun → Pronoun first</td></tr>
-            <tr><td><strong>8</strong></td><td>S + V + D(N) + TEKAMOLO + Akk(N)</td><td>TEKAMOLO between the two nouns</td></tr>
-            <tr><td><strong>9</strong></td><td>S + V + D(PN) + TEKAMOLO + Akk(N)</td><td>Dativ pronoun, TEKAMOLO, Akk noun</td></tr>
-            <tr><td><strong>10</strong></td><td>S + V + Akk(PN) + D(PN) + TEKAMOLO</td><td>Both pronouns (Akk→Dativ), then TEKAMOLO</td></tr>
-            <tr><td><strong>11</strong></td><td>S + V + Akk(PN) + D(N) + TEKAMOLO</td><td>Akk pronoun, Dativ noun, then TEKAMOLO</td></tr>
-          </tbody></table></div>
-          <div class="note">
-            <strong>Core rules:</strong><br>
-            · Pronoun always beats noun → pronoun comes first<br>
-            · When both are pronouns → Akkusativ before Dativ<br>
-            · When both are nouns → Dativ before Akkusativ (or TEKAMOLO between them)
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Card G2: Word Order -->
-    <div class="card g reveal" id="word-order">
-      <div class="card-hd" onclick="toggleCard(this)">
-        <div class="card-hd-left">
-          <span class="card-num">02</span>
-          <div>
-            <div class="card-title">Wortstellung — V2-Regel</div>
-            <div class="card-sub">Verb always in position 2 · Inversion</div>
-          </div>
-        </div>
-        <svg class="card-chev" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="5 8 10 13 15 8"/></svg>
-      </div>
-      <div class="card-bd"><div class="card-bd-in">
-        <h3>Basic Rule: Verb is always in Position 2</h3>
-        <div class="t-wrap"><table><thead><tr><th>Position 1</th><th>Position 2 (verb)</th><th>Rest</th><th>Meaning</th></tr></thead><tbody>
-          <tr><td>Ich</td><td><strong>wohne</strong></td><td>in Berlin.</td><td>I live in Berlin.</td></tr>
-          <tr><td>Er</td><td><strong>kommt</strong></td><td>aus Japan.</td><td>He comes from Japan.</td></tr>
-          <tr><td>Meine Mutter</td><td><strong>ist</strong></td><td>Ärztin.</td><td>My mother is a doctor.</td></tr>
-          <tr><td>Wir</td><td><strong>lernen</strong></td><td>jeden Tag Deutsch.</td><td>We learn German every day.</td></tr>
-          <tr><td>Ich</td><td><strong>kaufe</strong></td><td>im Supermarkt ein.</td><td>I shop at the supermarket.</td></tr>
-          <tr><td>Der Zug</td><td><strong>fährt</strong></td><td>um 8 Uhr ab.</td><td>The train departs at 8.</td></tr>
-        </tbody></table></div>
-
-        <h3>Inversion (Adverb / Time Expression starts the sentence)</h3>
-        <div class="rule">When an adverb or time expression starts the sentence, <strong>subject and verb swap</strong>.</div>
-        <div class="t-wrap"><table><thead><tr><th>Time/Adverb</th><th>Verb</th><th>Subject</th><th>Rest</th><th>Meaning</th></tr></thead><tbody>
-          <tr><td>Heute</td><td><strong>wohne</strong></td><td>ich</td><td>in Berlin.</td><td>Today I live in Berlin.</td></tr>
-          <tr><td>Um 7 Uhr</td><td><strong>stehe</strong></td><td>ich</td><td>auf.</td><td>At 7 o'clock I get up.</td></tr>
-          <tr><td>Manchmal</td><td><strong>koche</strong></td><td>er</td><td>das Abendessen.</td><td>Sometimes he cooks dinner.</td></tr>
-          <tr><td>Morgen</td><td><strong>fahre</strong></td><td>ich</td><td>nach München.</td><td>Tomorrow I'm going to Munich.</td></tr>
-          <tr><td>Abends</td><td><strong>lese</strong></td><td>er</td><td>ein Buch.</td><td>In the evenings he reads a book.</td></tr>
-          <tr><td>Normalerweise</td><td><strong>arbeite</strong></td><td>ich</td><td>von zu Hause.</td><td>Normally I work from home.</td></tr>
-        </tbody></table></div>
-      </div></div>
-    </div>
-
-    <!-- Card G3: Questions -->
-    <div class="card g reveal" id="questions">
-      <div class="card-hd" onclick="toggleCard(this)">
-        <div class="card-hd-left">
-          <span class="card-num">03</span>
-          <div>
-            <div class="card-title">Fragen — Questions</div>
-            <div class="card-sub">W-Fragen · Ja/Nein-Fragen</div>
-          </div>
-        </div>
-        <svg class="card-chev" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="5 8 10 13 15 8"/></svg>
-      </div>
-      <div class="card-bd"><div class="card-bd-in">
-        <h3>W-Questions (Fragewörter)</h3>
-        <div class="tip"><strong>Word order:</strong> Question word → Verb → Subject → Rest<br><em>Wo <strong>wohnt</strong> er?</em> / <em>Wie <strong>heißen</strong> Sie?</em></div>
-        <div class="t-wrap"><table><thead><tr><th>Fragewort</th><th>Meaning</th><th>Example</th></tr></thead><tbody>
-          <tr><td><strong>Wer?</strong></td><td>Who?</td><td><em>Wer ist das?</em></td></tr>
-          <tr><td><strong>Was?</strong></td><td>What?</td><td><em>Was machst du?</em></td></tr>
-          <tr><td><strong>Wo?</strong></td><td>Where? (location)</td><td><em>Wo wohnst du?</em></td></tr>
-          <tr><td><strong>Woher?</strong></td><td>Where from?</td><td><em>Woher kommst du?</em></td></tr>
-          <tr><td><strong>Wohin?</strong></td><td>Where to?</td><td><em>Wohin gehst du?</em></td></tr>
-          <tr><td><strong>Wie?</strong></td><td>How? / What (name)?</td><td><em>Wie heißt du?</em></td></tr>
-          <tr><td><strong>Wie viel?</strong></td><td>How much?</td><td><em>Wie viel kostet das?</em></td></tr>
-          <tr><td><strong>Wie viele?</strong></td><td>How many?</td><td><em>Wie viele Kinder hast du?</em></td></tr>
-          <tr><td><strong>Wann?</strong></td><td>When?</td><td><em>Wann kommst du?</em></td></tr>
-          <tr><td><strong>Warum?</strong></td><td>Why?</td><td><em>Warum lernst du Deutsch?</em></td></tr>
-          <tr><td><strong>Welch-?</strong></td><td>Which?</td><td><em>Welchen Kaffee möchten Sie?</em></td></tr>
-        </tbody></table></div>
-
-        <h3>Yes/No Questions (Ja/Nein-Fragen)</h3>
-        <div class="rule"><strong>Verb comes first, subject comes second.</strong></div>
-        <div class="t-wrap"><table><thead><tr><th>Verb</th><th>Subject</th><th>Rest</th><th>Meaning</th></tr></thead><tbody>
-          <tr><td><strong>Kommen</strong></td><td>Sie</td><td>aus Deutschland?</td><td>Do you come from Germany?</td></tr>
-          <tr><td><strong>Haben</strong></td><td>Sie</td><td>Kinder?</td><td>Do you have children?</td></tr>
-          <tr><td><strong>Ist</strong></td><td>das</td><td>ein Stuhl?</td><td>Is that a chair?</td></tr>
-          <tr><td><strong>Wohnst</strong></td><td>du</td><td>in Berlin?</td><td>Do you live in Berlin?</td></tr>
-          <tr><td><strong>Sprichst</strong></td><td>du</td><td>Deutsch?</td><td>Do you speak German?</td></tr>
-          <tr><td><strong>Können</strong></td><td>Sie</td><td>mir helfen?</td><td>Can you help me?</td></tr>
-          <tr><td><strong>Fährt</strong></td><td>der Zug</td><td>um 8 Uhr ab?</td><td>Does the train depart at 8?</td></tr>
-        </tbody></table></div>
-      </div></div>
-    </div>
-
-    <!-- Card G4: Negation -->
-    <div class="card g reveal" id="negation">
-      <div class="card-hd" onclick="toggleCard(this)">
-        <div class="card-hd-left">
-          <span class="card-num">04</span>
-          <div>
-            <div class="card-title">Verneinung — Negation</div>
-            <div class="card-sub">nicht · kein · doch</div>
-          </div>
-        </div>
-        <svg class="card-chev" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="5 8 10 13 15 8"/></svg>
-      </div>
-      <div class="card-bd"><div class="card-bd-in">
-        <h3>nicht</h3>
-        <p>Used to negate verbs, adjectives, and adverbs.</p>
-        <div class="note">· At <strong>end</strong> of sentence (verbs): <em>Ich komme <strong>nicht</strong>.</em><br>· <strong>Before</strong> the element it negates (adjectives/adverbs): <em>Das ist <strong>nicht</strong> gut.</em><br>· <strong>Before</strong> a separable prefix: <em>Er steht <strong>nicht</strong> auf.</em></div>
-        <div class="t-wrap"><table><thead><tr><th>Example</th><th>Meaning</th></tr></thead><tbody>
-          <tr><td><em>Ich arbeite <strong>nicht</strong>.</em></td><td>I don't work.</td></tr>
-          <tr><td><em>Sie wohnt <strong>nicht</strong> in Berlin.</em></td><td>She doesn't live in Berlin.</td></tr>
-          <tr><td><em>Das schmeckt <strong>nicht</strong> gut.</em></td><td>That doesn't taste good.</td></tr>
-          <tr><td><em>Er ist <strong>nicht</strong> müde.</em></td><td>He is not tired.</td></tr>
-          <tr><td><em>Ich rufe <strong>nicht</strong> an.</em></td><td>I'm not calling.</td></tr>
-        </tbody></table></div>
-
-        <h3>kein / keine</h3>
-        <p>Negates <strong>nouns</strong> — replaces ein/eine or plural without article.</p>
-        <div class="t-wrap"><table><thead><tr><th>Example</th><th>Meaning</th></tr></thead><tbody>
-          <tr><td><em>Ich habe <strong>kein</strong> Auto.</em></td><td>I don't have a car.</td></tr>
-          <tr><td><em>Das ist <strong>keine</strong> Wohnung.</em></td><td>That is not a flat.</td></tr>
-          <tr><td><em>Ich habe <strong>keine</strong> Geschwister.</em></td><td>I have no siblings.</td></tr>
-          <tr><td><em>Sie trinkt <strong>keinen</strong> Kaffee.</em></td><td>She doesn't drink coffee.</td></tr>
-        </tbody></table></div>
-
-        <div class="tip"><strong>nicht vs. kein:</strong> Use <strong>kein</strong> to negate a noun with ein/eine or no article. Use <strong>nicht</strong> for everything else.<br><em>Ich habe <strong>kein</strong> Auto.</em> ✓ &nbsp;&nbsp; <em>Ich fahre <strong>nicht</strong>.</em> ✓</div>
-
-        <h3>doch</h3>
-        <p>Contradicts a negative statement — means "yes, actually".</p>
-        <div class="t-wrap"><table><thead><tr><th>Negative statement</th><th>Doch reply</th><th>Meaning</th></tr></thead><tbody>
-          <tr><td><em>Kommst du <strong>nicht</strong>?</em></td><td><em><strong>Doch</strong>, ich komme!</em></td><td>Yes, I am coming!</td></tr>
-          <tr><td><em>Du hast kein Auto.</em></td><td><em><strong>Doch</strong>, ich habe ein Auto.</em></td><td>Yes I do have a car.</td></tr>
-          <tr><td><em>Sie spricht <strong>kein</strong> Deutsch.</em></td><td><em><strong>Doch</strong>, sie spricht Deutsch.</em></td><td>Yes, she does speak German.</td></tr>
-        </tbody></table></div>
-        <div class="note"><strong>Rule:</strong> When someone says something <strong>negative</strong> and you want to say <strong>yes</strong> — use <strong>doch</strong>, not <em>ja</em>.</div>
-      </div></div>
-    </div>
-
-    <!-- Card G5: Cases -->
-    <div class="card g reveal" id="cases">
-      <div class="card-hd" onclick="toggleCard(this)">
-        <div class="card-hd-left">
-          <span class="card-num">05</span>
-          <div>
-            <div class="card-title">Kasus — Cases</div>
-            <div class="card-sub">Nominativ · Akkusativ · Dativ</div>
-          </div>
-        </div>
-        <svg class="card-chev" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="5 8 10 13 15 8"/></svg>
-      </div>
-      <div class="card-bd"><div class="card-bd-in">
-        <div class="t-wrap"><table><thead><tr><th>Case</th><th>Role</th><th>Common verbs</th></tr></thead><tbody>
-          <tr><td><strong>Nominativ</strong></td><td>Subject — who performs the action</td><td>sein, heißen, werden</td></tr>
-          <tr><td><strong>Akkusativ</strong></td><td>Direct object — what is directly affected</td><td>kaufen, haben, sehen, nehmen, möchten, brauchen, finden, essen, trinken</td></tr>
-          <tr><td><strong>Dativ</strong></td><td>Indirect object — to/for whom the action is done</td><td>geben, zeigen, helfen, schreiben, schenken, sagen, gehören, gefallen</td></tr>
-        </tbody></table></div>
-
-        <h3>Article Changes by Case</h3>
-        <div class="t-wrap"><table><thead><tr><th></th><th>Maskulin</th><th>Feminin</th><th>Neutrum</th><th>Plural</th></tr></thead><tbody>
-          <tr><td><strong>Nom</strong></td><td>der / ein</td><td>die / eine</td><td>das / ein</td><td>die / —</td></tr>
-          <tr><td><strong>Akk</strong></td><td><strong>den / einen</strong></td><td>die / eine</td><td>das / ein</td><td>die / —</td></tr>
-          <tr><td><strong>Dat</strong></td><td><strong>dem / einem</strong></td><td><strong>der / einer</strong></td><td><strong>dem / einem</strong></td><td><strong>den / —</strong></td></tr>
-        </tbody></table></div>
-
-        <h3>Nominativ Examples</h3>
-        <div class="t-wrap"><table><thead><tr><th>Example</th><th>Meaning</th></tr></thead><tbody>
-          <tr><td><em><strong>Der Mann</strong> kauft einen Apfel.</em></td><td>The man buys an apple.</td></tr>
-          <tr><td><em><strong>Eine Frau</strong> wohnt hier.</em></td><td>A woman lives here.</td></tr>
-          <tr><td><em>Ich bin <strong>ein Student</strong>.</em></td><td>I am a student.</td></tr>
-        </tbody></table></div>
-
-        <h3>Akkusativ Examples</h3>
-        <div class="t-wrap"><table><thead><tr><th>Example</th><th>Meaning</th></tr></thead><tbody>
-          <tr><td><em>Ich kaufe <strong>einen Apfel</strong>.</em></td><td>I buy an apple.</td></tr>
-          <tr><td><em>Er sieht <strong>die Frau</strong>.</em></td><td>He sees the woman.</td></tr>
-          <tr><td><em>Ich möchte <strong>einen Kaffee</strong>.</em></td><td>I would like a coffee.</td></tr>
-        </tbody></table></div>
-
-        <h3>Dativ Examples</h3>
-        <div class="t-wrap"><table><thead><tr><th>Example</th><th>Meaning</th></tr></thead><tbody>
-          <tr><td><em>Ich gebe <strong>dem Mann</strong> das Buch.</em></td><td>I give the man the book.</td></tr>
-          <tr><td><em>Sie hilft <strong>der Frau</strong>.</em></td><td>She helps the woman.</td></tr>
-          <tr><td><em>Ich schenke <strong>meiner Mutter</strong> Blumen.</em></td><td>I give my mother flowers.</td></tr>
-        </tbody></table></div>
-
-        <div class="tip"><strong>Quick tip:</strong> Ask <em>Wer?/Was?</em> → Nominativ &nbsp;·&nbsp; <em>Wen?/Was?</em> → Akkusativ &nbsp;·&nbsp; <em>Wem?</em> → Dativ</div>
-      </div></div>
-    </div>
-
-    <!-- Card G6: Articles -->
-    <div class="card g reveal" id="articles">
-      <div class="card-hd" onclick="toggleCard(this)">
-        <div class="card-hd-left">
-          <span class="card-num">06</span>
-          <div>
-            <div class="card-title">Artikel — Articles</div>
-            <div class="card-sub">Definite vs. Indefinite · When to use</div>
-          </div>
-        </div>
-        <svg class="card-chev" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="5 8 10 13 15 8"/></svg>
-      </div>
-      <div class="card-bd"><div class="card-bd-in">
-        <div class="t-wrap"><table><thead><tr><th>Situation</th><th>Article</th><th>Example</th><th>Meaning</th></tr></thead><tbody>
-          <tr><td>Unknown / first mention</td><td><strong>ein/eine</strong></td><td><em>Das ist <strong>eine</strong> Wohnung.</em></td><td>That is a flat.</td></tr>
-          <tr><td>Known / mentioned before</td><td><strong>der/die/das</strong></td><td><em><strong>Die</strong> Wohnung ist groß.</em></td><td>The flat is big.</td></tr>
-          <tr><td>Unique things</td><td><strong>der/die/das</strong></td><td><em><strong>Die</strong> Sonne scheint.</em></td><td>The sun is shining.</td></tr>
-          <tr><td>Professions/nationalities after sein</td><td><strong>no article</strong></td><td><em>Er ist <strong>Arzt</strong>.</em></td><td>He is a doctor.</td></tr>
-        </tbody></table></div>
-        <div class="t-wrap"><table><thead><tr><th>Example</th><th>Meaning</th><th>Note</th></tr></thead><tbody>
-          <tr><td><em>Ich sehe <strong>einen Mann</strong>.</em></td><td>I see a man.</td><td>First mention → ein</td></tr>
-          <tr><td><em><strong>Der Mann</strong> ist groß.</em></td><td>The man is tall.</td><td>Already known → der</td></tr>
-          <tr><td><em>Sie hat <strong>eine Katze</strong>.</em></td><td>She has a cat.</td><td>First mention → eine</td></tr>
-          <tr><td><em>Sie ist <strong>Lehrerin</strong>.</em></td><td>She is a teacher.</td><td>Profession → no article</td></tr>
-        </tbody></table></div>
-      </div></div>
-    </div>
-
-    <!-- Card G7: Separable Verbs -->
-    <div class="card g reveal" id="separable-verbs">
-      <div class="card-hd" onclick="toggleCard(this)">
-        <div class="card-hd-left">
-          <span class="card-num">07</span>
-          <div>
-            <div class="card-title">Trennbare Verben — Separable Verbs</div>
-            <div class="card-sub">Prefix moves to end of sentence</div>
-          </div>
-        </div>
-        <svg class="card-chev" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="5 8 10 13 15 8"/></svg>
-      </div>
-      <div class="card-bd"><div class="card-bd-in">
-        <div class="rule">The prefix separates and moves to the <strong>end</strong> of the sentence.</div>
-        <div class="t-wrap"><table><thead><tr><th>Full verb</th><th>Meaning</th><th>Example</th><th>Translation</th></tr></thead><tbody>
-          <tr><td><strong>auf</strong>stehen</td><td>to get up</td><td><em>Ich <strong>stehe</strong> um 7 Uhr <strong>auf</strong>.</em></td><td>I get up at 7 o'clock.</td></tr>
-          <tr><td><strong>ein</strong>kaufen</td><td>to shop</td><td><em>Sie <strong>kauft</strong> im Supermarkt <strong>ein</strong>.</em></td><td>She shops at the supermarket.</td></tr>
-          <tr><td><strong>fern</strong>sehen</td><td>to watch TV</td><td><em>Er <strong>sieht</strong> abends <strong>fern</strong>.</em></td><td>He watches TV in the evenings.</td></tr>
-          <tr><td><strong>an</strong>rufen</td><td>to call</td><td><em>Ich <strong>rufe</strong> dich <strong>an</strong>.</em></td><td>I'll call you.</td></tr>
-          <tr><td><strong>auf</strong>räumen</td><td>to tidy up</td><td><em>Wir <strong>räumen</strong> das Zimmer <strong>auf</strong>.</em></td><td>We tidy up the room.</td></tr>
-          <tr><td><strong>ab</strong>fahren</td><td>to depart</td><td><em>Der Zug <strong>fährt</strong> um 9 Uhr <strong>ab</strong>.</em></td><td>The train departs at 9.</td></tr>
-          <tr><td><strong>an</strong>kommen</td><td>to arrive</td><td><em>Sie <strong>kommt</strong> morgen <strong>an</strong>.</em></td><td>She arrives tomorrow.</td></tr>
-          <tr><td><strong>aus</strong>gehen</td><td>to go out</td><td><em>Wir <strong>gehen</strong> heute Abend <strong>aus</strong>.</em></td><td>We're going out tonight.</td></tr>
-          <tr><td><strong>ein</strong>laden</td><td>to invite</td><td><em>Ich <strong>lade</strong> dich <strong>ein</strong>.</em></td><td>I invite you.</td></tr>
-          <tr><td><strong>mit</strong>bringen</td><td>to bring along</td><td><em>Er <strong>bringt</strong> Wein <strong>mit</strong>.</em></td><td>He brings wine along.</td></tr>
-        </tbody></table></div>
-        <h3>With Modal Verbs</h3>
-        <div class="note">With modals, the separable verb stays together as an <strong>infinitive at the end</strong>.</div>
-        <div class="t-wrap"><table><thead><tr><th>Example</th><th>Meaning</th></tr></thead><tbody>
-          <tr><td><em>Ich muss das Zimmer <strong>aufräumen</strong>.</em></td><td>I have to tidy up the room.</td></tr>
-          <tr><td><em>Sie will heute <strong>einkaufen</strong>.</em></td><td>She wants to go shopping today.</td></tr>
-          <tr><td><em>Wir möchten heute Abend <strong>ausgehen</strong>.</em></td><td>We'd like to go out tonight.</td></tr>
-        </tbody></table></div>
-      </div></div>
-    </div>
-
-    <!-- Card G8: Modal Verbs -->
-    <div class="card g reveal" id="modal-verbs">
-      <div class="card-hd" onclick="toggleCard(this)">
-        <div class="card-hd-left">
-          <span class="card-num">08</span>
-          <div>
-            <div class="card-title">Modalverben — Modal Verbs</div>
-            <div class="card-sub">können · müssen · möchten · dürfen · wollen · sollen</div>
-          </div>
-        </div>
-        <svg class="card-chev" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="5 8 10 13 15 8"/></svg>
-      </div>
-      <div class="card-bd"><div class="card-bd-in">
-        <div class="rule"><strong>Word order:</strong> Modal verb → Position 2. &nbsp; Infinitive → End.</div>
-        <div class="t-wrap"><table><thead><tr><th>Modal</th><th>Meaning</th><th>Example</th><th>Translation</th></tr></thead><tbody>
-          <tr><td><strong>können</strong></td><td>can / to be able to</td><td><em>Ich <strong>kann</strong> Gitarre <strong>spielen</strong>.</em></td><td>I can play guitar.</td></tr>
-          <tr><td><strong>müssen</strong></td><td>must / have to</td><td><em>Du <strong>musst</strong> jetzt <strong>gehen</strong>.</em></td><td>You must go now.</td></tr>
-          <tr><td><strong>möchten</strong></td><td>would like to</td><td><em>Er <strong>möchte</strong> einen Kaffee <strong>trinken</strong>.</em></td><td>He would like a coffee.</td></tr>
-          <tr><td><strong>dürfen</strong></td><td>may / allowed to</td><td><em>Wir <strong>dürfen</strong> hier nicht <strong>rauchen</strong>.</em></td><td>We may not smoke here.</td></tr>
-          <tr><td><strong>wollen</strong></td><td>to want to</td><td><em>Sie <strong>will</strong> Ärztin <strong>werden</strong>.</em></td><td>She wants to become a doctor.</td></tr>
-          <tr><td><strong>sollen</strong></td><td>should / supposed to</td><td><em>Du <strong>sollst</strong> das <strong>machen</strong>.</em></td><td>You are supposed to do that.</td></tr>
-        </tbody></table></div>
-        <h3>More Examples</h3>
-        <div class="t-wrap"><table><thead><tr><th>Example</th><th>Meaning</th></tr></thead><tbody>
-          <tr><td><em>Ich <strong>kann</strong> nicht <strong>kommen</strong>.</em></td><td>I can't come.</td></tr>
-          <tr><td><em>Er <strong>muss</strong> heute <strong>arbeiten</strong>.</em></td><td>He has to work today.</td></tr>
-          <tr><td><em>Darf ich Sie etwas <strong>fragen</strong>?</em></td><td>May I ask you something?</td></tr>
-          <tr><td><em>Wir <strong>müssen</strong> den Bus <strong>nehmen</strong>.</em></td><td>We have to take the bus.</td></tr>
-        </tbody></table></div>
-        <div class="note"><strong>Negation with modals:</strong> nicht goes before the infinitive at the end.<br><em>Ich kann heute <strong>nicht kommen</strong>.</em> — I can't come today.</div>
-      </div></div>
-    </div>
-
-    <!-- Card G9: Adjectives after sein -->
-    <div class="card g reveal" id="adjectives">
-      <div class="card-hd" onclick="toggleCard(this)">
-        <div class="card-hd-left">
-          <span class="card-num">09</span>
-          <div>
-            <div class="card-title">Adjektiv nach sein — Predicative Adjectives</div>
-            <div class="card-sub">No ending after sein · werden · bleiben</div>
-          </div>
-        </div>
-        <svg class="card-chev" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="5 8 10 13 15 8"/></svg>
-      </div>
-      <div class="card-bd"><div class="card-bd-in">
-        <div class="rule">When an adjective comes <strong>after sein</strong>, it has <strong>no ending</strong>.</div>
-        <div class="t-wrap"><table><thead><tr><th>Example</th><th>Meaning</th></tr></thead><tbody>
-          <tr><td><em>Das Sofa ist <strong>groß</strong>.</em></td><td>The sofa is big.</td></tr>
-          <tr><td><em>Die Wohnung ist <strong>schön</strong>.</em></td><td>The flat is beautiful.</td></tr>
-          <tr><td><em>Das Essen ist <strong>lecker</strong>.</em></td><td>The food is delicious.</td></tr>
-          <tr><td><em>Das Wetter ist <strong>kalt</strong>.</em></td><td>The weather is cold.</td></tr>
-          <tr><td><em>Er ist <strong>müde</strong>.</em></td><td>He is tired.</td></tr>
-          <tr><td><em>Sie ist <strong>krank</strong>.</em></td><td>She is sick.</td></tr>
-          <tr><td><em>Das Hotel ist <strong>teuer</strong>.</em></td><td>The hotel is expensive.</td></tr>
-          <tr><td><em>Der Kaffee ist <strong>heiß</strong>.</em></td><td>The coffee is hot.</td></tr>
-        </tbody></table></div>
-        <div class="note"><strong>No ending after:</strong> sein, werden, bleiben<br><em>Er wird <strong>alt</strong>.</em> — He is getting old. &nbsp;/&nbsp; <em>Sie bleibt <strong>ruhig</strong>.</em> — She stays calm.</div>
-      </div></div>
-    </div>
-
-    <!-- Card G10: Useful Words -->
-    <div class="card g reveal" id="useful-words">
-      <div class="card-hd" onclick="toggleCard(this)">
-        <div class="card-hd-left">
-          <span class="card-num">10</span>
-          <div>
-            <div class="card-title">Nützliche kleine Wörter</div>
-            <div class="card-sub">Conjunctions · Adverbs · Particles</div>
-          </div>
-        </div>
-        <svg class="card-chev" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="5 8 10 13 15 8"/></svg>
-      </div>
-      <div class="card-bd"><div class="card-bd-in">
-        <div class="t-wrap"><table><thead><tr><th>German</th><th>English</th><th>Example</th></tr></thead><tbody>
-          <tr><td><strong>auch</strong></td><td>also / too</td><td><em>Ich komme auch.</em></td></tr>
-          <tr><td><strong>sehr</strong></td><td>very</td><td><em>Das ist sehr gut.</em></td></tr>
-          <tr><td><strong>gern(e)</strong></td><td>gladly / like to</td><td><em>Ich spiele gern Fußball.</em></td></tr>
-          <tr><td><strong>schon</strong></td><td>already</td><td><em>Ich bin schon fertig.</em></td></tr>
-          <tr><td><strong>noch</strong></td><td>still / yet</td><td><em>Ich lerne noch Deutsch.</em></td></tr>
-          <tr><td><strong>noch nicht</strong></td><td>not yet</td><td><em>Er kommt noch nicht.</em></td></tr>
-          <tr><td><strong>nur</strong></td><td>only</td><td><em>Ich habe nur ein Kind.</em></td></tr>
-          <tr><td><strong>aber</strong></td><td>but</td><td><em>Er ist nett, aber laut.</em></td></tr>
-          <tr><td><strong>oder</strong></td><td>or</td><td><em>Kaffee oder Tee?</em></td></tr>
-          <tr><td><strong>und</strong></td><td>and</td><td><em>Ich und du.</em></td></tr>
-          <tr><td><strong>denn</strong></td><td>because (coord.)</td><td><em>Ich lerne Deutsch, denn ich wohne in Deutschland.</em></td></tr>
-          <tr><td><strong>weil</strong></td><td>because (subord.)</td><td><em>Ich lerne Deutsch, weil ich in Deutschland wohne.</em></td></tr>
-          <tr><td><strong>vielleicht</strong></td><td>maybe / perhaps</td><td><em>Ich komme vielleicht morgen.</em></td></tr>
-          <tr><td><strong>immer</strong></td><td>always</td><td><em>Er ist immer pünktlich.</em></td></tr>
-          <tr><td><strong>nie / niemals</strong></td><td>never</td><td><em>Sie trinkt nie Alkohol.</em></td></tr>
-          <tr><td><strong>oft</strong></td><td>often</td><td><em>Wir gehen oft spazieren.</em></td></tr>
-          <tr><td><strong>manchmal</strong></td><td>sometimes</td><td><em>Manchmal esse ich Pizza.</em></td></tr>
-          <tr><td><strong>meistens</strong></td><td>mostly / usually</td><td><em>Ich fahre meistens mit dem Bus.</em></td></tr>
-          <tr><td><strong>leider</strong></td><td>unfortunately</td><td><em>Ich kann leider nicht kommen.</em></td></tr>
-          <tr><td><strong>natürlich</strong></td><td>of course</td><td><em>Natürlich helfe ich dir.</em></td></tr>
-          <tr><td><strong>trotzdem</strong></td><td>nevertheless</td><td><em>Es regnet, trotzdem gehe ich.</em></td></tr>
-          <tr><td><strong>deshalb</strong></td><td>therefore</td><td><em>Er ist krank, deshalb bleibt er zu Hause.</em></td></tr>
-          <tr><td><strong>gerade</strong></td><td>just now / currently</td><td><em>Ich esse gerade.</em></td></tr>
-          <tr><td><strong>zusammen</strong></td><td>together</td><td><em>Wir lernen zusammen.</em></td></tr>
-        </tbody></table></div>
-        <div class="note"><strong>Coordinating conjunctions</strong> (und, aber, oder, denn) → no word order change.<br><strong>Subordinating conjunctions</strong> (weil, dass, wenn, obwohl) → verb goes to the <strong>end</strong> of the clause.</div>
-      </div></div>
     </div>
   </section>
 
@@ -2106,6 +1544,568 @@
     </div>
   </section>
 
+  <!-- ═══════════════ GRAMMAR ═══════════════ -->
+  <section id="grammar" class="scroll-target">
+    <div class="sec-head reveal">
+      <div class="sec-line"></div>
+      <div class="sec-head-c">
+        <div class="sec-eyebrow g">Grammatik</div>
+        <div class="sec-title">Grammar Rules</div>
+      </div>
+      <div class="sec-line"></div>
+    </div>
+
+    <!-- Card G1: Sentence Patterns -->
+    <div class="card g reveal" id="sentence-patterns">
+      <div class="card-hd" onclick="toggleCard(this)">
+        <div class="card-hd-left">
+          <span class="card-num">01</span>
+          <div>
+            <div class="card-title">Satzstruktur-Muster</div>
+            <div class="card-sub">11 patterns — S + V + Objects + TEKAMOLO</div>
+          </div>
+        </div>
+        <svg class="card-chev" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="5 8 10 13 15 8"/></svg>
+      </div>
+      <div class="card-bd">
+        <div class="card-bd-in">
+          <div class="note"><strong>TEKAMOLO</strong> = <strong>Te</strong>mporal · <strong>Ka</strong>usal · <strong>Mo</strong>dal · <strong>Lo</strong>kal — the standard adverb order.<br><strong>Abbreviations:</strong> D(N)=Dativ Noun · D(PN)=Dativ Pronoun · Akk(N)=Akkusativ Noun · Akk(PN)=Akkusativ Pronoun</div>
+
+          <!-- Pattern 1 -->
+          <div class="sub-card">
+            <div class="sub-hd" onclick="toggleSub(this)">
+              <span class="sub-title">Pattern 1 — S + V + Te, Ka, Mo, Lo <span style="font-weight:400;color:var(--text-2)">(No object — adverbials only)</span></span>
+              <span class="sub-chev">▼</span>
+            </div>
+            <div class="sub-bd"><div class="sub-bd-in">
+              <div class="formula"><span class="f-s">S</span> + <span class="f-v">V</span> + <span class="f-t">Te, Ka, Mo, Lo</span></div>
+              <div class="t-wrap"><table><thead><tr><th>Example</th><th>Tags</th></tr></thead><tbody>
+                <tr><td><em>Ich fahre <strong>heute schnell nach Berlin</strong>.</em></td><td>heute=TE, schnell=MO, nach Berlin=LO</td></tr>
+                <tr><td><em>Sie bleibt <strong>morgen wegen Krankheit zu Hause</strong>.</em></td><td>morgen=TE, wegen Krankheit=KA, zu Hause=LO</td></tr>
+              </tbody></table></div>
+            </div></div>
+          </div>
+
+          <!-- Pattern 2 -->
+          <div class="sub-card">
+            <div class="sub-hd" onclick="toggleSub(this)">
+              <span class="sub-title">Pattern 2 — S + V + Dativ + Te, Ka, Mo, Lo</span>
+              <span class="sub-chev">▼</span>
+            </div>
+            <div class="sub-bd"><div class="sub-bd-in">
+              <div class="formula"><span class="f-s">S</span> + <span class="f-v">V</span> + <span class="f-d">Dativ</span> + <span class="f-t">Te, Ka, Mo, Lo</span></div>
+              <div class="t-wrap"><table><thead><tr><th>Example</th><th>Tags</th></tr></thead><tbody>
+                <tr><td><em>Ich helfe <strong>dem Mann</strong> heute in der Stadt.</em></td><td>dem Mann=Dativ(N), heute=TE, in der Stadt=LO</td></tr>
+                <tr><td><em>Er schreibt <strong>der Frau</strong> jeden Abend schnell.</em></td><td>der Frau=Dativ(N), jeden Abend=TE, schnell=MO</td></tr>
+              </tbody></table></div>
+            </div></div>
+          </div>
+
+          <!-- Pattern 3 -->
+          <div class="sub-card">
+            <div class="sub-hd" onclick="toggleSub(this)">
+              <span class="sub-title">Pattern 3 — S + V + Te, Ka, Mo, Lo + Akkusativ</span>
+              <span class="sub-chev">▼</span>
+            </div>
+            <div class="sub-bd"><div class="sub-bd-in">
+              <div class="formula"><span class="f-s">S</span> + <span class="f-v">V</span> + <span class="f-t">Te, Ka, Mo, Lo</span> + <span class="f-a">Akk(N)</span></div>
+              <div class="t-wrap"><table><thead><tr><th>Example</th><th>Tags</th></tr></thead><tbody>
+                <tr><td><em>Ich kaufe <strong>heute im Markt</strong> den Apfel.</em></td><td>heute=TE, Im Markt=LO, den Apfel=Akk(N)</td></tr>
+                <tr><td><em>Er liest <strong>morgen schnell</strong> das Buch.</em></td><td>morgen=TE, schnell=MO, das Buch=Akk(N)</td></tr>
+              </tbody></table></div>
+            </div></div>
+          </div>
+
+          <!-- Pattern 4 -->
+          <div class="sub-card">
+            <div class="sub-hd" onclick="toggleSub(this)">
+              <span class="sub-title">Pattern 4 — S + V + Dativ(N) + Akkusativ(N)</span>
+              <span class="sub-chev">▼</span>
+            </div>
+            <div class="sub-bd"><div class="sub-bd-in">
+              <div class="formula"><span class="f-s">S</span> + <span class="f-v">V</span> + <span class="f-d">Dativ(N)</span> + <span class="f-a">Akk(N)</span></div>
+              <div class="t-wrap"><table><thead><tr><th>Example</th><th>Tags</th></tr></thead><tbody>
+                <tr><td><em>Ich gebe <strong>dem Mann</strong> das Buch.</em></td><td>dem Mann=Dativ(N), das Buch=Akk(N)</td></tr>
+                <tr><td><em>Sie zeigt <strong>dem Kind</strong> das Bild.</em></td><td>dem Kind=Dativ(N), das Bild=Akk(N)</td></tr>
+              </tbody></table></div>
+            </div></div>
+          </div>
+
+          <!-- Pattern 5 -->
+          <div class="sub-card">
+            <div class="sub-hd" onclick="toggleSub(this)">
+              <span class="sub-title">Pattern 5 — S + V + Akk(PN) + D(PN) <span style="font-weight:400;color:var(--text-2)">Both pronouns → Akk first</span></span>
+              <span class="sub-chev">▼</span>
+            </div>
+            <div class="sub-bd"><div class="sub-bd-in">
+              <div class="formula"><span class="f-s">S</span> + <span class="f-v">V</span> + <span class="f-a">Akk(PN)</span> + <span class="f-d">D(PN)</span></div>
+              <div class="t-wrap"><table><thead><tr><th>Example</th><th>Tags</th></tr></thead><tbody>
+                <tr><td><em>Ich gebe <strong>es ihm</strong>.</em></td><td>es=Akk(PN), ihm=D(PN)</td></tr>
+                <tr><td><em>Er schickt <strong>sie ihr</strong>.</em></td><td>sie=Akk(PN), ihr=D(PN)</td></tr>
+              </tbody></table></div>
+            </div></div>
+          </div>
+
+          <!-- Pattern 6 -->
+          <div class="sub-card">
+            <div class="sub-hd" onclick="toggleSub(this)">
+              <span class="sub-title">Pattern 6 — S + V + D(PN) + Akk(N) <span style="font-weight:400;color:var(--text-2)">Pronoun first</span></span>
+              <span class="sub-chev">▼</span>
+            </div>
+            <div class="sub-bd"><div class="sub-bd-in">
+              <div class="formula"><span class="f-s">S</span> + <span class="f-v">V</span> + <span class="f-d">D(PN)</span> + <span class="f-a">Akk(N)</span></div>
+              <div class="t-wrap"><table><thead><tr><th>Example</th><th>Tags</th></tr></thead><tbody>
+                <tr><td><em>Ich gebe <strong>ihm</strong> das Buch.</em></td><td>ihm=D(PN), das Buch=Akk(N)</td></tr>
+                <tr><td><em>Sie kauft <strong>mir</strong> einen Kaffee.</em></td><td>mir=D(PN), einen Kaffee=Akk(N)</td></tr>
+              </tbody></table></div>
+            </div></div>
+          </div>
+
+          <!-- Pattern 7 -->
+          <div class="sub-card">
+            <div class="sub-hd" onclick="toggleSub(this)">
+              <span class="sub-title">Pattern 7 — S + V + Akk(PN) + D(N) <span style="font-weight:400;color:var(--text-2)">Pronoun first</span></span>
+              <span class="sub-chev">▼</span>
+            </div>
+            <div class="sub-bd"><div class="sub-bd-in">
+              <div class="formula"><span class="f-s">S</span> + <span class="f-v">V</span> + <span class="f-a">Akk(PN)</span> + <span class="f-d">D(N)</span></div>
+              <div class="t-wrap"><table><thead><tr><th>Example</th><th>Tags</th></tr></thead><tbody>
+                <tr><td><em>Ich gebe <strong>es</strong> dem Mann.</em></td><td>es=Akk(PN), dem Mann=D(N)</td></tr>
+                <tr><td><em>Er schickt <strong>sie</strong> der Frau.</em></td><td>sie=Akk(PN), der Frau=D(N)</td></tr>
+              </tbody></table></div>
+            </div></div>
+          </div>
+
+          <!-- Pattern 8 -->
+          <div class="sub-card">
+            <div class="sub-hd" onclick="toggleSub(this)">
+              <span class="sub-title">Pattern 8 — S + V + D(N) + Te,Ka,Mo,Lo + Akk(N)</span>
+              <span class="sub-chev">▼</span>
+            </div>
+            <div class="sub-bd"><div class="sub-bd-in">
+              <div class="formula"><span class="f-s">S</span> + <span class="f-v">V</span> + <span class="f-d">D(N)</span> + <span class="f-t">TEKAMOLO</span> + <span class="f-a">Akk(N)</span></div>
+              <div class="t-wrap"><table><thead><tr><th>Example</th><th>Tags</th></tr></thead><tbody>
+                <tr><td><em>Ich gebe <strong>dem Mann</strong> heute <strong>das Buch</strong>.</em></td><td>dem Mann=D(N), heute=TE, das Buch=Akk(N)</td></tr>
+                <tr><td><em>Sie zeigt <strong>dem Kind</strong> morgen schnell <strong>das Bild</strong>.</em></td><td>dem Kind=D(N), morgen=TE, schnell=MO, das Bild=Akk(N)</td></tr>
+              </tbody></table></div>
+            </div></div>
+          </div>
+
+          <!-- Pattern 9 -->
+          <div class="sub-card">
+            <div class="sub-hd" onclick="toggleSub(this)">
+              <span class="sub-title">Pattern 9 — S + V + D(PN) + Te,Ka,Mo,Lo + Akk(N)</span>
+              <span class="sub-chev">▼</span>
+            </div>
+            <div class="sub-bd"><div class="sub-bd-in">
+              <div class="formula"><span class="f-s">S</span> + <span class="f-v">V</span> + <span class="f-d">D(PN)</span> + <span class="f-t">TEKAMOLO</span> + <span class="f-a">Akk(N)</span></div>
+              <div class="t-wrap"><table><thead><tr><th>Example</th><th>Tags</th></tr></thead><tbody>
+                <tr><td><em>Ich gebe <strong>ihm</strong> heute <strong>das Buch</strong>.</em></td><td>ihm=D(PN), heute=TE, das Buch=Akk(N)</td></tr>
+                <tr><td><em>Sie kauft <strong>mir</strong> morgen im Markt <strong>einen Kaffee</strong>.</em></td><td>mir=D(PN), morgen=TE, Im Markt=LO, einen Kaffee=Akk(N)</td></tr>
+              </tbody></table></div>
+            </div></div>
+          </div>
+
+          <!-- Pattern 10 -->
+          <div class="sub-card">
+            <div class="sub-hd" onclick="toggleSub(this)">
+              <span class="sub-title">Pattern 10 — S + V + Akk(PN) + D(PN) + Te,Ka,Mo,Lo</span>
+              <span class="sub-chev">▼</span>
+            </div>
+            <div class="sub-bd"><div class="sub-bd-in">
+              <div class="formula"><span class="f-s">S</span> + <span class="f-v">V</span> + <span class="f-a">Akk(PN)</span> + <span class="f-d">D(PN)</span> + <span class="f-t">TEKAMOLO</span></div>
+              <div class="t-wrap"><table><thead><tr><th>Example</th><th>Tags</th></tr></thead><tbody>
+                <tr><td><em>Ich gebe <strong>es ihm</strong> heute schnell.</em></td><td>es=Akk(PN), ihm=D(PN), heute=TE, schnell=MO</td></tr>
+                <tr><td><em>Er schickt <strong>sie ihr</strong> morgen nach Hause.</em></td><td>sie=Akk(PN), ihr=D(PN), morgen=TE, nach Hause=LO</td></tr>
+              </tbody></table></div>
+            </div></div>
+          </div>
+
+          <!-- Pattern 11 -->
+          <div class="sub-card">
+            <div class="sub-hd" onclick="toggleSub(this)">
+              <span class="sub-title">Pattern 11 — S + V + Akk(PN) + D(N) + Te,Ka,Mo,Lo</span>
+              <span class="sub-chev">▼</span>
+            </div>
+            <div class="sub-bd"><div class="sub-bd-in">
+              <div class="formula"><span class="f-s">S</span> + <span class="f-v">V</span> + <span class="f-a">Akk(PN)</span> + <span class="f-d">D(N)</span> + <span class="f-t">TEKAMOLO</span></div>
+              <div class="t-wrap"><table><thead><tr><th>Example</th><th>Tags</th></tr></thead><tbody>
+                <tr><td><em>Ich gebe <strong>es</strong> dem Mann heute schnell.</em></td><td>es=Akk(PN), dem Mann=D(N), heute=TE, schnell=MO</td></tr>
+                <tr><td><em>Er schickt <strong>sie</strong> der Frau morgen nach Hause.</em></td><td>sie=Akk(PN), der Frau=D(N), morgen=TE, nach Hause=LO</td></tr>
+              </tbody></table></div>
+            </div></div>
+          </div>
+
+          <!-- Quick Reference -->
+          <h3>Quick Reference — All 11 Patterns</h3>
+          <div class="t-wrap"><table><thead><tr><th>#</th><th>Pattern</th><th>Key Rule</th></tr></thead><tbody>
+            <tr><td><strong>1</strong></td><td>S + V + Te, Ka, Mo, Lo</td><td>No object — adverbials only</td></tr>
+            <tr><td><strong>2</strong></td><td>S + V + Dativ + Te, Ka, Mo, Lo</td><td>Dativ noun before TEKAMOLO</td></tr>
+            <tr><td><strong>3</strong></td><td>S + V + Te, Ka, Mo, Lo + Akkusativ</td><td>TEKAMOLO before Akk noun</td></tr>
+            <tr><td><strong>4</strong></td><td>S + V + Dativ(N) + Akkusativ(N)</td><td>Both nouns — Dativ before Akk</td></tr>
+            <tr><td><strong>5</strong></td><td>S + V + Akk(PN) + D(PN)</td><td>Both pronouns → Akk first</td></tr>
+            <tr><td><strong>6</strong></td><td>S + V + D(PN) + Akk(N)</td><td>Dativ pronoun + Akk noun → Pronoun first</td></tr>
+            <tr><td><strong>7</strong></td><td>S + V + Akk(PN) + D(N)</td><td>Akk pronoun + Dativ noun → Pronoun first</td></tr>
+            <tr><td><strong>8</strong></td><td>S + V + D(N) + TEKAMOLO + Akk(N)</td><td>TEKAMOLO between the two nouns</td></tr>
+            <tr><td><strong>9</strong></td><td>S + V + D(PN) + TEKAMOLO + Akk(N)</td><td>Dativ pronoun, TEKAMOLO, Akk noun</td></tr>
+            <tr><td><strong>10</strong></td><td>S + V + Akk(PN) + D(PN) + TEKAMOLO</td><td>Both pronouns (Akk→Dativ), then TEKAMOLO</td></tr>
+            <tr><td><strong>11</strong></td><td>S + V + Akk(PN) + D(N) + TEKAMOLO</td><td>Akk pronoun, Dativ noun, then TEKAMOLO</td></tr>
+          </tbody></table></div>
+          <div class="note">
+            <strong>Core rules:</strong><br>
+            · Pronoun always beats noun → pronoun comes first<br>
+            · When both are pronouns → Akkusativ before Dativ<br>
+            · When both are nouns → Dativ before Akkusativ (or TEKAMOLO between them)
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card G2: Word Order -->
+    <div class="card g reveal" id="word-order">
+      <div class="card-hd" onclick="toggleCard(this)">
+        <div class="card-hd-left">
+          <span class="card-num">02</span>
+          <div>
+            <div class="card-title">Wortstellung — V2-Regel</div>
+            <div class="card-sub">Verb always in position 2 · Inversion</div>
+          </div>
+        </div>
+        <svg class="card-chev" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="5 8 10 13 15 8"/></svg>
+      </div>
+      <div class="card-bd"><div class="card-bd-in">
+        <h3>Basic Rule: Verb is always in Position 2</h3>
+        <div class="t-wrap"><table><thead><tr><th>Position 1</th><th>Position 2 (verb)</th><th>Rest</th><th>Meaning</th></tr></thead><tbody>
+          <tr><td>Ich</td><td><strong>wohne</strong></td><td>in Berlin.</td><td>I live in Berlin.</td></tr>
+          <tr><td>Er</td><td><strong>kommt</strong></td><td>aus Japan.</td><td>He comes from Japan.</td></tr>
+          <tr><td>Meine Mutter</td><td><strong>ist</strong></td><td>Ärztin.</td><td>My mother is a doctor.</td></tr>
+          <tr><td>Wir</td><td><strong>lernen</strong></td><td>jeden Tag Deutsch.</td><td>We learn German every day.</td></tr>
+          <tr><td>Ich</td><td><strong>kaufe</strong></td><td>im Supermarkt ein.</td><td>I shop at the supermarket.</td></tr>
+          <tr><td>Der Zug</td><td><strong>fährt</strong></td><td>um 8 Uhr ab.</td><td>The train departs at 8.</td></tr>
+        </tbody></table></div>
+
+        <h3>Inversion (Adverb / Time Expression starts the sentence)</h3>
+        <div class="rule">When an adverb or time expression starts the sentence, <strong>subject and verb swap</strong>.</div>
+        <div class="t-wrap"><table><thead><tr><th>Time/Adverb</th><th>Verb</th><th>Subject</th><th>Rest</th><th>Meaning</th></tr></thead><tbody>
+          <tr><td>Heute</td><td><strong>wohne</strong></td><td>ich</td><td>in Berlin.</td><td>Today I live in Berlin.</td></tr>
+          <tr><td>Um 7 Uhr</td><td><strong>stehe</strong></td><td>ich</td><td>auf.</td><td>At 7 o'clock I get up.</td></tr>
+          <tr><td>Manchmal</td><td><strong>koche</strong></td><td>er</td><td>das Abendessen.</td><td>Sometimes he cooks dinner.</td></tr>
+          <tr><td>Morgen</td><td><strong>fahre</strong></td><td>ich</td><td>nach München.</td><td>Tomorrow I'm going to Munich.</td></tr>
+          <tr><td>Abends</td><td><strong>lese</strong></td><td>er</td><td>ein Buch.</td><td>In the evenings he reads a book.</td></tr>
+          <tr><td>Normalerweise</td><td><strong>arbeite</strong></td><td>ich</td><td>von zu Hause.</td><td>Normally I work from home.</td></tr>
+        </tbody></table></div>
+      </div></div>
+    </div>
+
+    <!-- Card G3: Questions -->
+    <div class="card g reveal" id="questions">
+      <div class="card-hd" onclick="toggleCard(this)">
+        <div class="card-hd-left">
+          <span class="card-num">03</span>
+          <div>
+            <div class="card-title">Fragen — Questions</div>
+            <div class="card-sub">W-Fragen · Ja/Nein-Fragen</div>
+          </div>
+        </div>
+        <svg class="card-chev" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="5 8 10 13 15 8"/></svg>
+      </div>
+      <div class="card-bd"><div class="card-bd-in">
+        <h3>W-Questions (Fragewörter)</h3>
+        <div class="tip"><strong>Word order:</strong> Question word → Verb → Subject → Rest<br><em>Wo <strong>wohnt</strong> er?</em> / <em>Wie <strong>heißen</strong> Sie?</em></div>
+        <div class="t-wrap"><table><thead><tr><th>Fragewort</th><th>Meaning</th><th>Example</th></tr></thead><tbody>
+          <tr><td><strong>Wer?</strong></td><td>Who?</td><td><em>Wer ist das?</em></td></tr>
+          <tr><td><strong>Was?</strong></td><td>What?</td><td><em>Was machst du?</em></td></tr>
+          <tr><td><strong>Wo?</strong></td><td>Where? (location)</td><td><em>Wo wohnst du?</em></td></tr>
+          <tr><td><strong>Woher?</strong></td><td>Where from?</td><td><em>Woher kommst du?</em></td></tr>
+          <tr><td><strong>Wohin?</strong></td><td>Where to?</td><td><em>Wohin gehst du?</em></td></tr>
+          <tr><td><strong>Wie?</strong></td><td>How? / What (name)?</td><td><em>Wie heißt du?</em></td></tr>
+          <tr><td><strong>Wie viel?</strong></td><td>How much?</td><td><em>Wie viel kostet das?</em></td></tr>
+          <tr><td><strong>Wie viele?</strong></td><td>How many?</td><td><em>Wie viele Kinder hast du?</em></td></tr>
+          <tr><td><strong>Wann?</strong></td><td>When?</td><td><em>Wann kommst du?</em></td></tr>
+          <tr><td><strong>Warum?</strong></td><td>Why?</td><td><em>Warum lernst du Deutsch?</em></td></tr>
+          <tr><td><strong>Welch-?</strong></td><td>Which?</td><td><em>Welchen Kaffee möchten Sie?</em></td></tr>
+        </tbody></table></div>
+
+        <h3>Yes/No Questions (Ja/Nein-Fragen)</h3>
+        <div class="rule"><strong>Verb comes first, subject comes second.</strong></div>
+        <div class="t-wrap"><table><thead><tr><th>Verb</th><th>Subject</th><th>Rest</th><th>Meaning</th></tr></thead><tbody>
+          <tr><td><strong>Kommen</strong></td><td>Sie</td><td>aus Deutschland?</td><td>Do you come from Germany?</td></tr>
+          <tr><td><strong>Haben</strong></td><td>Sie</td><td>Kinder?</td><td>Do you have children?</td></tr>
+          <tr><td><strong>Ist</strong></td><td>das</td><td>ein Stuhl?</td><td>Is that a chair?</td></tr>
+          <tr><td><strong>Wohnst</strong></td><td>du</td><td>in Berlin?</td><td>Do you live in Berlin?</td></tr>
+          <tr><td><strong>Sprichst</strong></td><td>du</td><td>Deutsch?</td><td>Do you speak German?</td></tr>
+          <tr><td><strong>Können</strong></td><td>Sie</td><td>mir helfen?</td><td>Can you help me?</td></tr>
+          <tr><td><strong>Fährt</strong></td><td>der Zug</td><td>um 8 Uhr ab?</td><td>Does the train depart at 8?</td></tr>
+        </tbody></table></div>
+      </div></div>
+    </div>
+
+    <!-- Card G4: Negation -->
+    <div class="card g reveal" id="negation">
+      <div class="card-hd" onclick="toggleCard(this)">
+        <div class="card-hd-left">
+          <span class="card-num">04</span>
+          <div>
+            <div class="card-title">Verneinung — Negation</div>
+            <div class="card-sub">nicht · kein · doch</div>
+          </div>
+        </div>
+        <svg class="card-chev" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="5 8 10 13 15 8"/></svg>
+      </div>
+      <div class="card-bd"><div class="card-bd-in">
+        <h3>nicht</h3>
+        <p>Used to negate verbs, adjectives, and adverbs.</p>
+        <div class="note">· At <strong>end</strong> of sentence (verbs): <em>Ich komme <strong>nicht</strong>.</em><br>· <strong>Before</strong> the element it negates (adjectives/adverbs): <em>Das ist <strong>nicht</strong> gut.</em><br>· <strong>Before</strong> a separable prefix: <em>Er steht <strong>nicht</strong> auf.</em></div>
+        <div class="t-wrap"><table><thead><tr><th>Example</th><th>Meaning</th></tr></thead><tbody>
+          <tr><td><em>Ich arbeite <strong>nicht</strong>.</em></td><td>I don't work.</td></tr>
+          <tr><td><em>Sie wohnt <strong>nicht</strong> in Berlin.</em></td><td>She doesn't live in Berlin.</td></tr>
+          <tr><td><em>Das schmeckt <strong>nicht</strong> gut.</em></td><td>That doesn't taste good.</td></tr>
+          <tr><td><em>Er ist <strong>nicht</strong> müde.</em></td><td>He is not tired.</td></tr>
+          <tr><td><em>Ich rufe <strong>nicht</strong> an.</em></td><td>I'm not calling.</td></tr>
+        </tbody></table></div>
+
+        <h3>kein / keine</h3>
+        <p>Negates <strong>nouns</strong> — replaces ein/eine or plural without article.</p>
+        <div class="t-wrap"><table><thead><tr><th>Example</th><th>Meaning</th></tr></thead><tbody>
+          <tr><td><em>Ich habe <strong>kein</strong> Auto.</em></td><td>I don't have a car.</td></tr>
+          <tr><td><em>Das ist <strong>keine</strong> Wohnung.</em></td><td>That is not a flat.</td></tr>
+          <tr><td><em>Ich habe <strong>keine</strong> Geschwister.</em></td><td>I have no siblings.</td></tr>
+          <tr><td><em>Sie trinkt <strong>keinen</strong> Kaffee.</em></td><td>She doesn't drink coffee.</td></tr>
+        </tbody></table></div>
+
+        <div class="tip"><strong>nicht vs. kein:</strong> Use <strong>kein</strong> to negate a noun with ein/eine or no article. Use <strong>nicht</strong> for everything else.<br><em>Ich habe <strong>kein</strong> Auto.</em> ✓ &nbsp;&nbsp; <em>Ich fahre <strong>nicht</strong>.</em> ✓</div>
+
+        <h3>doch</h3>
+        <p>Contradicts a negative statement — means "yes, actually".</p>
+        <div class="t-wrap"><table><thead><tr><th>Negative statement</th><th>Doch reply</th><th>Meaning</th></tr></thead><tbody>
+          <tr><td><em>Kommst du <strong>nicht</strong>?</em></td><td><em><strong>Doch</strong>, ich komme!</em></td><td>Yes, I am coming!</td></tr>
+          <tr><td><em>Du hast kein Auto.</em></td><td><em><strong>Doch</strong>, ich habe ein Auto.</em></td><td>Yes I do have a car.</td></tr>
+          <tr><td><em>Sie spricht <strong>kein</strong> Deutsch.</em></td><td><em><strong>Doch</strong>, sie spricht Deutsch.</em></td><td>Yes, she does speak German.</td></tr>
+        </tbody></table></div>
+        <div class="note"><strong>Rule:</strong> When someone says something <strong>negative</strong> and you want to say <strong>yes</strong> — use <strong>doch</strong>, not <em>ja</em>.</div>
+      </div></div>
+    </div>
+
+    <!-- Card G5: Cases -->
+    <div class="card g reveal" id="cases">
+      <div class="card-hd" onclick="toggleCard(this)">
+        <div class="card-hd-left">
+          <span class="card-num">05</span>
+          <div>
+            <div class="card-title">Kasus — Cases</div>
+            <div class="card-sub">Nominativ · Akkusativ · Dativ</div>
+          </div>
+        </div>
+        <svg class="card-chev" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="5 8 10 13 15 8"/></svg>
+      </div>
+      <div class="card-bd"><div class="card-bd-in">
+        <div class="t-wrap"><table><thead><tr><th>Case</th><th>Role</th><th>Common verbs</th></tr></thead><tbody>
+          <tr><td><strong>Nominativ</strong></td><td>Subject — who performs the action</td><td>sein, heißen, werden</td></tr>
+          <tr><td><strong>Akkusativ</strong></td><td>Direct object — what is directly affected</td><td>kaufen, haben, sehen, nehmen, möchten, brauchen, finden, essen, trinken</td></tr>
+          <tr><td><strong>Dativ</strong></td><td>Indirect object — to/for whom the action is done</td><td>geben, zeigen, helfen, schreiben, schenken, sagen, gehören, gefallen</td></tr>
+        </tbody></table></div>
+
+        <h3>Article Changes by Case</h3>
+        <div class="t-wrap"><table><thead><tr><th></th><th>Maskulin</th><th>Feminin</th><th>Neutrum</th><th>Plural</th></tr></thead><tbody>
+          <tr><td><strong>Nom</strong></td><td>der / ein</td><td>die / eine</td><td>das / ein</td><td>die / —</td></tr>
+          <tr><td><strong>Akk</strong></td><td><strong>den / einen</strong></td><td>die / eine</td><td>das / ein</td><td>die / —</td></tr>
+          <tr><td><strong>Dat</strong></td><td><strong>dem / einem</strong></td><td><strong>der / einer</strong></td><td><strong>dem / einem</strong></td><td><strong>den / —</strong></td></tr>
+        </tbody></table></div>
+
+        <h3>Nominativ Examples</h3>
+        <div class="t-wrap"><table><thead><tr><th>Example</th><th>Meaning</th></tr></thead><tbody>
+          <tr><td><em><strong>Der Mann</strong> kauft einen Apfel.</em></td><td>The man buys an apple.</td></tr>
+          <tr><td><em><strong>Eine Frau</strong> wohnt hier.</em></td><td>A woman lives here.</td></tr>
+          <tr><td><em>Ich bin <strong>ein Student</strong>.</em></td><td>I am a student.</td></tr>
+        </tbody></table></div>
+
+        <h3>Akkusativ Examples</h3>
+        <div class="t-wrap"><table><thead><tr><th>Example</th><th>Meaning</th></tr></thead><tbody>
+          <tr><td><em>Ich kaufe <strong>einen Apfel</strong>.</em></td><td>I buy an apple.</td></tr>
+          <tr><td><em>Er sieht <strong>die Frau</strong>.</em></td><td>He sees the woman.</td></tr>
+          <tr><td><em>Ich möchte <strong>einen Kaffee</strong>.</em></td><td>I would like a coffee.</td></tr>
+        </tbody></table></div>
+
+        <h3>Dativ Examples</h3>
+        <div class="t-wrap"><table><thead><tr><th>Example</th><th>Meaning</th></tr></thead><tbody>
+          <tr><td><em>Ich gebe <strong>dem Mann</strong> das Buch.</em></td><td>I give the man the book.</td></tr>
+          <tr><td><em>Sie hilft <strong>der Frau</strong>.</em></td><td>She helps the woman.</td></tr>
+          <tr><td><em>Ich schenke <strong>meiner Mutter</strong> Blumen.</em></td><td>I give my mother flowers.</td></tr>
+        </tbody></table></div>
+
+        <div class="tip"><strong>Quick tip:</strong> Ask <em>Wer?/Was?</em> → Nominativ &nbsp;·&nbsp; <em>Wen?/Was?</em> → Akkusativ &nbsp;·&nbsp; <em>Wem?</em> → Dativ</div>
+      </div></div>
+    </div>
+
+    <!-- Card G6: Articles -->
+    <div class="card g reveal" id="articles">
+      <div class="card-hd" onclick="toggleCard(this)">
+        <div class="card-hd-left">
+          <span class="card-num">06</span>
+          <div>
+            <div class="card-title">Artikel — Articles</div>
+            <div class="card-sub">Definite vs. Indefinite · When to use</div>
+          </div>
+        </div>
+        <svg class="card-chev" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="5 8 10 13 15 8"/></svg>
+      </div>
+      <div class="card-bd"><div class="card-bd-in">
+        <div class="t-wrap"><table><thead><tr><th>Situation</th><th>Article</th><th>Example</th><th>Meaning</th></tr></thead><tbody>
+          <tr><td>Unknown / first mention</td><td><strong>ein/eine</strong></td><td><em>Das ist <strong>eine</strong> Wohnung.</em></td><td>That is a flat.</td></tr>
+          <tr><td>Known / mentioned before</td><td><strong>der/die/das</strong></td><td><em><strong>Die</strong> Wohnung ist groß.</em></td><td>The flat is big.</td></tr>
+          <tr><td>Unique things</td><td><strong>der/die/das</strong></td><td><em><strong>Die</strong> Sonne scheint.</em></td><td>The sun is shining.</td></tr>
+          <tr><td>Professions/nationalities after sein</td><td><strong>no article</strong></td><td><em>Er ist <strong>Arzt</strong>.</em></td><td>He is a doctor.</td></tr>
+        </tbody></table></div>
+        <div class="t-wrap"><table><thead><tr><th>Example</th><th>Meaning</th><th>Note</th></tr></thead><tbody>
+          <tr><td><em>Ich sehe <strong>einen Mann</strong>.</em></td><td>I see a man.</td><td>First mention → ein</td></tr>
+          <tr><td><em><strong>Der Mann</strong> ist groß.</em></td><td>The man is tall.</td><td>Already known → der</td></tr>
+          <tr><td><em>Sie hat <strong>eine Katze</strong>.</em></td><td>She has a cat.</td><td>First mention → eine</td></tr>
+          <tr><td><em>Sie ist <strong>Lehrerin</strong>.</em></td><td>She is a teacher.</td><td>Profession → no article</td></tr>
+        </tbody></table></div>
+      </div></div>
+    </div>
+
+    <!-- Card G7: Separable Verbs -->
+    <div class="card g reveal" id="separable-verbs">
+      <div class="card-hd" onclick="toggleCard(this)">
+        <div class="card-hd-left">
+          <span class="card-num">07</span>
+          <div>
+            <div class="card-title">Trennbare Verben — Separable Verbs</div>
+            <div class="card-sub">Prefix moves to end of sentence</div>
+          </div>
+        </div>
+        <svg class="card-chev" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="5 8 10 13 15 8"/></svg>
+      </div>
+      <div class="card-bd"><div class="card-bd-in">
+        <div class="rule">The prefix separates and moves to the <strong>end</strong> of the sentence.</div>
+        <div class="t-wrap"><table><thead><tr><th>Full verb</th><th>Meaning</th><th>Example</th><th>Translation</th></tr></thead><tbody>
+          <tr><td><strong>auf</strong>stehen</td><td>to get up</td><td><em>Ich <strong>stehe</strong> um 7 Uhr <strong>auf</strong>.</em></td><td>I get up at 7 o'clock.</td></tr>
+          <tr><td><strong>ein</strong>kaufen</td><td>to shop</td><td><em>Sie <strong>kauft</strong> im Supermarkt <strong>ein</strong>.</em></td><td>She shops at the supermarket.</td></tr>
+          <tr><td><strong>fern</strong>sehen</td><td>to watch TV</td><td><em>Er <strong>sieht</strong> abends <strong>fern</strong>.</em></td><td>He watches TV in the evenings.</td></tr>
+          <tr><td><strong>an</strong>rufen</td><td>to call</td><td><em>Ich <strong>rufe</strong> dich <strong>an</strong>.</em></td><td>I'll call you.</td></tr>
+          <tr><td><strong>auf</strong>räumen</td><td>to tidy up</td><td><em>Wir <strong>räumen</strong> das Zimmer <strong>auf</strong>.</em></td><td>We tidy up the room.</td></tr>
+          <tr><td><strong>ab</strong>fahren</td><td>to depart</td><td><em>Der Zug <strong>fährt</strong> um 9 Uhr <strong>ab</strong>.</em></td><td>The train departs at 9.</td></tr>
+          <tr><td><strong>an</strong>kommen</td><td>to arrive</td><td><em>Sie <strong>kommt</strong> morgen <strong>an</strong>.</em></td><td>She arrives tomorrow.</td></tr>
+          <tr><td><strong>aus</strong>gehen</td><td>to go out</td><td><em>Wir <strong>gehen</strong> heute Abend <strong>aus</strong>.</em></td><td>We're going out tonight.</td></tr>
+          <tr><td><strong>ein</strong>laden</td><td>to invite</td><td><em>Ich <strong>lade</strong> dich <strong>ein</strong>.</em></td><td>I invite you.</td></tr>
+          <tr><td><strong>mit</strong>bringen</td><td>to bring along</td><td><em>Er <strong>bringt</strong> Wein <strong>mit</strong>.</em></td><td>He brings wine along.</td></tr>
+        </tbody></table></div>
+        <h3>With Modal Verbs</h3>
+        <div class="note">With modals, the separable verb stays together as an <strong>infinitive at the end</strong>.</div>
+        <div class="t-wrap"><table><thead><tr><th>Example</th><th>Meaning</th></tr></thead><tbody>
+          <tr><td><em>Ich muss das Zimmer <strong>aufräumen</strong>.</em></td><td>I have to tidy up the room.</td></tr>
+          <tr><td><em>Sie will heute <strong>einkaufen</strong>.</em></td><td>She wants to go shopping today.</td></tr>
+          <tr><td><em>Wir möchten heute Abend <strong>ausgehen</strong>.</em></td><td>We'd like to go out tonight.</td></tr>
+        </tbody></table></div>
+      </div></div>
+    </div>
+
+    <!-- Card G8: Modal Verbs -->
+    <div class="card g reveal" id="modal-verbs">
+      <div class="card-hd" onclick="toggleCard(this)">
+        <div class="card-hd-left">
+          <span class="card-num">08</span>
+          <div>
+            <div class="card-title">Modalverben — Modal Verbs</div>
+            <div class="card-sub">können · müssen · möchten · dürfen · wollen · sollen</div>
+          </div>
+        </div>
+        <svg class="card-chev" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="5 8 10 13 15 8"/></svg>
+      </div>
+      <div class="card-bd"><div class="card-bd-in">
+        <div class="rule"><strong>Word order:</strong> Modal verb → Position 2. &nbsp; Infinitive → End.</div>
+        <div class="t-wrap"><table><thead><tr><th>Modal</th><th>Meaning</th><th>Example</th><th>Translation</th></tr></thead><tbody>
+          <tr><td><strong>können</strong></td><td>can / to be able to</td><td><em>Ich <strong>kann</strong> Gitarre <strong>spielen</strong>.</em></td><td>I can play guitar.</td></tr>
+          <tr><td><strong>müssen</strong></td><td>must / have to</td><td><em>Du <strong>musst</strong> jetzt <strong>gehen</strong>.</em></td><td>You must go now.</td></tr>
+          <tr><td><strong>möchten</strong></td><td>would like to</td><td><em>Er <strong>möchte</strong> einen Kaffee <strong>trinken</strong>.</em></td><td>He would like a coffee.</td></tr>
+          <tr><td><strong>dürfen</strong></td><td>may / allowed to</td><td><em>Wir <strong>dürfen</strong> hier nicht <strong>rauchen</strong>.</em></td><td>We may not smoke here.</td></tr>
+          <tr><td><strong>wollen</strong></td><td>to want to</td><td><em>Sie <strong>will</strong> Ärztin <strong>werden</strong>.</em></td><td>She wants to become a doctor.</td></tr>
+          <tr><td><strong>sollen</strong></td><td>should / supposed to</td><td><em>Du <strong>sollst</strong> das <strong>machen</strong>.</em></td><td>You are supposed to do that.</td></tr>
+        </tbody></table></div>
+        <h3>More Examples</h3>
+        <div class="t-wrap"><table><thead><tr><th>Example</th><th>Meaning</th></tr></thead><tbody>
+          <tr><td><em>Ich <strong>kann</strong> nicht <strong>kommen</strong>.</em></td><td>I can't come.</td></tr>
+          <tr><td><em>Er <strong>muss</strong> heute <strong>arbeiten</strong>.</em></td><td>He has to work today.</td></tr>
+          <tr><td><em>Darf ich Sie etwas <strong>fragen</strong>?</em></td><td>May I ask you something?</td></tr>
+          <tr><td><em>Wir <strong>müssen</strong> den Bus <strong>nehmen</strong>.</em></td><td>We have to take the bus.</td></tr>
+        </tbody></table></div>
+        <div class="note"><strong>Negation with modals:</strong> nicht goes before the infinitive at the end.<br><em>Ich kann heute <strong>nicht kommen</strong>.</em> — I can't come today.</div>
+      </div></div>
+    </div>
+
+    <!-- Card G9: Adjectives after sein -->
+    <div class="card g reveal" id="adjectives">
+      <div class="card-hd" onclick="toggleCard(this)">
+        <div class="card-hd-left">
+          <span class="card-num">09</span>
+          <div>
+            <div class="card-title">Adjektiv nach sein — Predicative Adjectives</div>
+            <div class="card-sub">No ending after sein · werden · bleiben</div>
+          </div>
+        </div>
+        <svg class="card-chev" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="5 8 10 13 15 8"/></svg>
+      </div>
+      <div class="card-bd"><div class="card-bd-in">
+        <div class="rule">When an adjective comes <strong>after sein</strong>, it has <strong>no ending</strong>.</div>
+        <div class="t-wrap"><table><thead><tr><th>Example</th><th>Meaning</th></tr></thead><tbody>
+          <tr><td><em>Das Sofa ist <strong>groß</strong>.</em></td><td>The sofa is big.</td></tr>
+          <tr><td><em>Die Wohnung ist <strong>schön</strong>.</em></td><td>The flat is beautiful.</td></tr>
+          <tr><td><em>Das Essen ist <strong>lecker</strong>.</em></td><td>The food is delicious.</td></tr>
+          <tr><td><em>Das Wetter ist <strong>kalt</strong>.</em></td><td>The weather is cold.</td></tr>
+          <tr><td><em>Er ist <strong>müde</strong>.</em></td><td>He is tired.</td></tr>
+          <tr><td><em>Sie ist <strong>krank</strong>.</em></td><td>She is sick.</td></tr>
+          <tr><td><em>Das Hotel ist <strong>teuer</strong>.</em></td><td>The hotel is expensive.</td></tr>
+          <tr><td><em>Der Kaffee ist <strong>heiß</strong>.</em></td><td>The coffee is hot.</td></tr>
+        </tbody></table></div>
+        <div class="note"><strong>No ending after:</strong> sein, werden, bleiben<br><em>Er wird <strong>alt</strong>.</em> — He is getting old. &nbsp;/&nbsp; <em>Sie bleibt <strong>ruhig</strong>.</em> — She stays calm.</div>
+      </div></div>
+    </div>
+
+    <!-- Card G10: Useful Words -->
+    <div class="card g reveal" id="useful-words">
+      <div class="card-hd" onclick="toggleCard(this)">
+        <div class="card-hd-left">
+          <span class="card-num">10</span>
+          <div>
+            <div class="card-title">Nützliche kleine Wörter</div>
+            <div class="card-sub">Conjunctions · Adverbs · Particles</div>
+          </div>
+        </div>
+        <svg class="card-chev" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="5 8 10 13 15 8"/></svg>
+      </div>
+      <div class="card-bd"><div class="card-bd-in">
+        <div class="t-wrap"><table><thead><tr><th>German</th><th>English</th><th>Example</th></tr></thead><tbody>
+          <tr><td><strong>auch</strong></td><td>also / too</td><td><em>Ich komme auch.</em></td></tr>
+          <tr><td><strong>sehr</strong></td><td>very</td><td><em>Das ist sehr gut.</em></td></tr>
+          <tr><td><strong>gern(e)</strong></td><td>gladly / like to</td><td><em>Ich spiele gern Fußball.</em></td></tr>
+          <tr><td><strong>schon</strong></td><td>already</td><td><em>Ich bin schon fertig.</em></td></tr>
+          <tr><td><strong>noch</strong></td><td>still / yet</td><td><em>Ich lerne noch Deutsch.</em></td></tr>
+          <tr><td><strong>noch nicht</strong></td><td>not yet</td><td><em>Er kommt noch nicht.</em></td></tr>
+          <tr><td><strong>nur</strong></td><td>only</td><td><em>Ich habe nur ein Kind.</em></td></tr>
+          <tr><td><strong>aber</strong></td><td>but</td><td><em>Er ist nett, aber laut.</em></td></tr>
+          <tr><td><strong>oder</strong></td><td>or</td><td><em>Kaffee oder Tee?</em></td></tr>
+          <tr><td><strong>und</strong></td><td>and</td><td><em>Ich und du.</em></td></tr>
+          <tr><td><strong>denn</strong></td><td>because (coord.)</td><td><em>Ich lerne Deutsch, denn ich wohne in Deutschland.</em></td></tr>
+          <tr><td><strong>weil</strong></td><td>because (subord.)</td><td><em>Ich lerne Deutsch, weil ich in Deutschland wohne.</em></td></tr>
+          <tr><td><strong>vielleicht</strong></td><td>maybe / perhaps</td><td><em>Ich komme vielleicht morgen.</em></td></tr>
+          <tr><td><strong>immer</strong></td><td>always</td><td><em>Er ist immer pünktlich.</em></td></tr>
+          <tr><td><strong>nie / niemals</strong></td><td>never</td><td><em>Sie trinkt nie Alkohol.</em></td></tr>
+          <tr><td><strong>oft</strong></td><td>often</td><td><em>Wir gehen oft spazieren.</em></td></tr>
+          <tr><td><strong>manchmal</strong></td><td>sometimes</td><td><em>Manchmal esse ich Pizza.</em></td></tr>
+          <tr><td><strong>meistens</strong></td><td>mostly / usually</td><td><em>Ich fahre meistens mit dem Bus.</em></td></tr>
+          <tr><td><strong>leider</strong></td><td>unfortunately</td><td><em>Ich kann leider nicht kommen.</em></td></tr>
+          <tr><td><strong>natürlich</strong></td><td>of course</td><td><em>Natürlich helfe ich dir.</em></td></tr>
+          <tr><td><strong>trotzdem</strong></td><td>nevertheless</td><td><em>Es regnet, trotzdem gehe ich.</em></td></tr>
+          <tr><td><strong>deshalb</strong></td><td>therefore</td><td><em>Er ist krank, deshalb bleibt er zu Hause.</em></td></tr>
+          <tr><td><strong>gerade</strong></td><td>just now / currently</td><td><em>Ich esse gerade.</em></td></tr>
+          <tr><td><strong>zusammen</strong></td><td>together</td><td><em>Wir lernen zusammen.</em></td></tr>
+        </tbody></table></div>
+        <div class="note"><strong>Coordinating conjunctions</strong> (und, aber, oder, denn) → no word order change.<br><strong>Subordinating conjunctions</strong> (weil, dass, wenn, obwohl) → verb goes to the <strong>end</strong> of the clause.</div>
+      </div></div>
+    </div>
+  </section>
+
   <!-- ═══════════════ GLOSSARY ═══════════════ -->
   <section id="glossary" class="scroll-target">
     <div class="sec-head reveal">
@@ -2345,22 +2345,6 @@
   <div class="drawer-title">Alle Themen</div>
 
   <div class="drawer-sec">
-    <span class="drawer-sec-label g">📐 Grammatik</span>
-    <div class="drawer-links">
-      <span class="dl" onclick="navTo('sentence-patterns')">Satzstruktur (11 Muster)</span>
-      <span class="dl" onclick="navTo('word-order')">Wortstellung · V2</span>
-      <span class="dl" onclick="navTo('questions')">Fragen (W &amp; Ja/Nein)</span>
-      <span class="dl" onclick="navTo('negation')">Verneinung</span>
-      <span class="dl" onclick="navTo('cases')">Kasus (Nom·Akk·Dat)</span>
-      <span class="dl" onclick="navTo('articles')">Artikel</span>
-      <span class="dl" onclick="navTo('separable-verbs')">Trennbare Verben</span>
-      <span class="dl" onclick="navTo('modal-verbs')">Modalverben</span>
-      <span class="dl" onclick="navTo('adjectives')">Adjektiv nach sein</span>
-      <span class="dl" onclick="navTo('useful-words')">Nützliche Wörter</span>
-    </div>
-  </div>
-
-  <div class="drawer-sec">
     <span class="drawer-sec-label v">📚 Wortschatz</span>
     <div class="drawer-links">
       <span class="dl" onclick="navTo('lektion-1')">L1 Begrüßungen</span>
@@ -2377,6 +2361,22 @@
       <span class="dl" onclick="navTo('lektion-11')">L11 Verkehr &amp; Reisen</span>
       <span class="dl" onclick="navTo('lektion-12')">L12 Stadt &amp; Richtungen</span>
       <span class="dl" onclick="navTo('core-verbs')">★ Grundverben</span>
+    </div>
+  </div>
+
+  <div class="drawer-sec">
+    <span class="drawer-sec-label g">📐 Grammatik</span>
+    <div class="drawer-links">
+      <span class="dl" onclick="navTo('sentence-patterns')">Satzstruktur (11 Muster)</span>
+      <span class="dl" onclick="navTo('word-order')">Wortstellung · V2</span>
+      <span class="dl" onclick="navTo('questions')">Fragen (W &amp; Ja/Nein)</span>
+      <span class="dl" onclick="navTo('negation')">Verneinung</span>
+      <span class="dl" onclick="navTo('cases')">Kasus (Nom·Akk·Dat)</span>
+      <span class="dl" onclick="navTo('articles')">Artikel</span>
+      <span class="dl" onclick="navTo('separable-verbs')">Trennbare Verben</span>
+      <span class="dl" onclick="navTo('modal-verbs')">Modalverben</span>
+      <span class="dl" onclick="navTo('adjectives')">Adjektiv nach sein</span>
+      <span class="dl" onclick="navTo('useful-words')">Nützliche Wörter</span>
     </div>
   </div>
 
