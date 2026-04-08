@@ -1,0 +1,1399 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <title>Grammatik · A1.1</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:         #F2F2F7;
+      --surface:    #FFFFFF;
+      --surface-2:  #F2F2F7;
+      --primary:    #1C1C1E;
+      --secondary:  #3C3C43;
+      --tertiary:   #8E8E93;
+      --border:     rgba(60,60,67,0.12);
+      --accent:     #007AFF;
+      --code-bg:    #F2F2F7;
+      --shadow:     0 1px 2px rgba(0,0,0,0.06), 0 4px 14px rgba(0,0,0,0.05);
+      --radius:     16px;
+      --radius-sm:  10px;
+      --font:       -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', system-ui, sans-serif;
+      --mono:       'SF Mono', ui-monospace, 'Fira Code', 'Courier New', monospace;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:        #000000;
+        --surface:   #1C1C1E;
+        --surface-2: #2C2C2E;
+        --primary:   #FFFFFF;
+        --secondary: rgba(235,235,245,0.75);
+        --tertiary:  rgba(235,235,245,0.38);
+        --border:    rgba(255,255,255,0.1);
+        --code-bg:   #2C2C2E;
+        --shadow:    0 1px 3px rgba(0,0,0,0.4), 0 4px 16px rgba(0,0,0,0.25);
+      }
+    }
+
+    html {
+      font-size: 16px;
+      -webkit-text-size-adjust: 100%;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--primary);
+      min-height: 100vh;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── TOP BAR ── */
+    .top-bar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(242,242,247,0.9);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
+      backdrop-filter: blur(24px) saturate(180%);
+      border-bottom: 1px solid var(--border);
+      padding-top: env(safe-area-inset-top, 0px);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .top-bar { background: rgba(0,0,0,0.9); }
+    }
+
+    .progress-track {
+      height: 2px;
+      background: transparent;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent) 0%, #5AC8FA 100%);
+      width: 0%;
+      transition: width 0.08s linear;
+    }
+
+    .top-bar-inner {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px 13px;
+    }
+
+    .badge-level {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: var(--accent);
+      background: rgba(0,122,255,0.1);
+      padding: 3px 9px;
+      border-radius: 20px;
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+
+    .header-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--primary);
+      flex: 1;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      transition: opacity 0.2s;
+    }
+
+    .menu-btn {
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      background: var(--surface-2);
+      border: none;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      color: var(--accent);
+      -webkit-tap-highlight-color: transparent;
+      transition: transform 0.15s;
+    }
+
+    .menu-btn:active { transform: scale(0.9); }
+
+    /* ── CONTENT ── */
+    .content {
+      padding-top: calc(env(safe-area-inset-top, 0px) + 60px);
+      padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 96px);
+    }
+
+    .topic-card {
+      scroll-margin-top: 72px;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 24px 16px 8px;
+    }
+
+    .hero-tag {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--tertiary);
+      margin-bottom: 6px;
+    }
+
+    .hero-title {
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: -0.6px;
+      line-height: 1.15;
+      margin-bottom: 8px;
+    }
+
+    .hero-subtitle {
+      font-size: 15px;
+      color: var(--secondary);
+      line-height: 1.6;
+      max-width: 320px;
+    }
+
+    /* ── SECTION PILLS ── */
+    .pills-row {
+      display: flex;
+      gap: 8px;
+      padding: 16px 16px 12px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .pills-row::-webkit-scrollbar { display: none; }
+
+    .pill {
+      flex-shrink: 0;
+      padding: 7px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 500;
+      border: none;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      background: var(--surface);
+      color: var(--secondary);
+      transition: background 0.2s, color 0.2s, transform 0.1s;
+    }
+
+    .pill:active { transform: scale(0.95); }
+
+    /* ── CARDS ── */
+    .topic-card {
+      margin: 0 12px 14px;
+      background: var(--surface);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 16px 16px 0;
+    }
+
+    .sec-num {
+      width: 34px; height: 34px;
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 15px;
+      font-weight: 700;
+      color: white;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .card-titles { flex: 1; }
+
+    .card-de {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      line-height: 1.25;
+    }
+
+    .card-en {
+      font-size: 13px;
+      color: var(--tertiary);
+      margin-top: 2px;
+    }
+
+    .card-body {
+      padding: 14px 16px 18px;
+    }
+
+    /* ── TYPOGRAPHY ── */
+    p {
+      font-size: 15px;
+      line-height: 1.65;
+      color: var(--secondary);
+    }
+
+    p + p { margin-top: 10px; }
+
+    strong { color: var(--primary); font-weight: 600; }
+
+    em { font-style: italic; }
+
+    code {
+      font-family: var(--mono);
+      font-size: 13px;
+      background: var(--code-bg);
+      color: var(--primary);
+      padding: 2px 5px;
+      border-radius: 5px;
+    }
+
+    /* ── CODE BLOCK ── */
+    .code-block {
+      background: var(--code-bg);
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+      font-family: var(--mono);
+      font-size: 12.5px;
+      color: var(--secondary);
+      overflow-x: auto;
+      margin: 10px 0;
+      white-space: pre;
+      line-height: 1.6;
+    }
+
+    /* ── LABEL ── */
+    .label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--tertiary);
+      margin-bottom: 8px;
+    }
+
+    .mt-8  { margin-top: 8px; }
+    .mt-12 { margin-top: 12px; }
+    .mt-14 { margin-top: 14px; }
+    .mt-16 { margin-top: 16px; }
+
+    /* ── EXAMPLES ── */
+    .examples {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .ex {
+      background: var(--code-bg);
+      border-radius: var(--radius-sm);
+      padding: 11px 13px;
+      border-left: 3px solid var(--sec-color, var(--accent));
+    }
+
+    .ex-de {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--primary);
+      font-family: var(--mono);
+      line-height: 1.5;
+    }
+
+    .ex-en {
+      font-size: 13px;
+      color: var(--tertiary);
+      margin-top: 3px;
+      line-height: 1.4;
+    }
+
+    /* ── TABLES ── */
+    .tbl-wrap {
+      overflow-x: auto;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      -webkit-overflow-scrolling: touch;
+      margin: 10px 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13.5px;
+      white-space: nowrap;
+    }
+
+    th {
+      background: var(--code-bg);
+      font-weight: 600;
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--tertiary);
+      padding: 9px 12px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+
+    td {
+      padding: 10px 12px;
+      color: var(--secondary);
+      border-bottom: 1px solid var(--border);
+      vertical-align: middle;
+    }
+
+    tr:last-child td { border-bottom: none; }
+
+    .highlight-cell {
+      font-weight: 700;
+    }
+
+    /* ── BLOCKQUOTE ── */
+    .bq {
+      margin: 10px 0;
+      padding: 12px 13px;
+      background: rgba(0,122,255,0.07);
+      border-radius: var(--radius-sm);
+      border-left: 3px solid var(--accent);
+      font-size: 14px;
+      color: var(--secondary);
+      line-height: 1.6;
+    }
+
+    /* ── RULE BOX ── */
+    .rule-box {
+      margin: 10px 0;
+      padding: 12px 13px;
+      background: rgba(255,159,10,0.08);
+      border-radius: var(--radius-sm);
+      border-left: 3px solid #FF9F0A;
+      font-size: 14px;
+      color: var(--secondary);
+      line-height: 1.6;
+    }
+
+    .rule-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #FF9F0A;
+      margin-bottom: 4px;
+    }
+
+    /* ── SUBSECTION ── */
+    .sub {
+      margin-top: 18px;
+    }
+
+    .sub-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .sub-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ── TEKAMOLO ── */
+    .teka-flow {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      margin: 14px 0;
+    }
+
+    .teka-pill {
+      flex: 1;
+      padding: 10px 4px;
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .teka-letter {
+      font-size: 20px;
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.5px;
+    }
+
+    .teka-word {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      opacity: 0.7;
+      margin-top: 3px;
+    }
+
+    .teka-q {
+      font-size: 10px;
+      opacity: 0.55;
+      margin-top: 2px;
+    }
+
+    .teka-arr {
+      font-size: 16px;
+      color: var(--tertiary);
+      flex-shrink: 0;
+      font-weight: 300;
+    }
+
+    /* ── CHECKLIST ── */
+    .checklist {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .check-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 13px 14px;
+      background: var(--code-bg);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+      transition: opacity 0.25s;
+    }
+
+    .check-item.done { opacity: 0.45; }
+
+    .check-circle {
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      border: 2px solid var(--border);
+      background: var(--surface);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .check-item.done .check-circle {
+      background: #30D158;
+      border-color: #30D158;
+    }
+
+    .check-icon {
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    .check-item.done .check-icon { opacity: 1; }
+
+    .check-text {
+      font-size: 14px;
+      color: var(--secondary);
+      line-height: 1.5;
+      flex: 1;
+      transition: text-decoration 0.2s;
+    }
+
+    .check-item.done .check-text {
+      text-decoration: line-through;
+      color: var(--tertiary);
+    }
+
+    /* ── FAB ── */
+    .fab {
+      position: fixed;
+      bottom: calc(env(safe-area-inset-bottom, 20px) + 20px);
+      right: 16px;
+      z-index: 150;
+      background: var(--accent);
+      color: white;
+      border: none;
+      border-radius: 28px;
+      padding: 13px 18px;
+      font-size: 14px;
+      font-weight: 600;
+      font-family: var(--font);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 20px rgba(0,122,255,0.4);
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+
+    .fab:active {
+      transform: scale(0.94);
+      box-shadow: 0 2px 10px rgba(0,122,255,0.3);
+    }
+
+    /* ── OVERLAY ── */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+      z-index: 200;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.28s;
+    }
+
+    .overlay.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    /* ── BOTTOM SHEET ── */
+    .sheet {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      z-index: 201;
+      background: var(--surface);
+      border-radius: 20px 20px 0 0;
+      padding-bottom: env(safe-area-inset-bottom, 0px);
+      transform: translateY(100%);
+      transition: transform 0.32s cubic-bezier(0.32, 0.72, 0, 1);
+      max-height: 78vh;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .sheet.open { transform: translateY(0); }
+
+    .sheet-handle {
+      width: 38px; height: 4px;
+      background: var(--border);
+      border-radius: 2px;
+      margin: 10px auto 6px;
+    }
+
+    .sheet-head {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--tertiary);
+      padding: 4px 16px 12px;
+    }
+
+    .sheet-item {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      padding: 13px 16px;
+      border-top: 1px solid var(--border);
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      text-decoration: none;
+      color: inherit;
+      transition: background 0.15s;
+    }
+
+    .sheet-item:active { background: var(--code-bg); }
+
+    .sheet-num {
+      width: 32px; height: 32px;
+      border-radius: 9px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px;
+      font-weight: 700;
+      color: white;
+      flex-shrink: 0;
+    }
+
+    .sheet-info { flex: 1; }
+
+    .sheet-de {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--primary);
+    }
+
+    .sheet-en {
+      font-size: 12px;
+      color: var(--tertiary);
+      margin-top: 1px;
+    }
+
+    .sheet-chev {
+      color: var(--tertiary);
+      font-size: 16px;
+      font-weight: 300;
+    }
+
+    /* ── SECTION COLOR TOKENS (set via inline style on card) ── */
+    /* Used by children via var(--sec-color) */
+  </style>
+</head>
+<body>
+
+<!-- ═══ TOP BAR ═══ -->
+<header class="top-bar">
+  <div class="progress-track">
+    <div class="progress-fill" id="pFill"></div>
+  </div>
+  <div class="top-bar-inner">
+    <span class="badge-level">A1.1</span>
+    <h1 class="header-title" id="hTitle">Grammatik</h1>
+    <button class="menu-btn" id="menuBtn" aria-label="Sections">
+      <svg width="17" height="13" viewBox="0 0 17 13" fill="none">
+        <rect width="17" height="2" rx="1" fill="currentColor"/>
+        <rect y="5.5" width="13" height="2" rx="1" fill="currentColor"/>
+        <rect y="11" width="9" height="2" rx="1" fill="currentColor"/>
+      </svg>
+    </button>
+  </div>
+</header>
+
+<!-- ═══ MAIN ═══ -->
+<main class="content">
+
+  <!-- HERO -->
+  <div class="hero" id="hero">
+    <p class="hero-tag">A1.1 · German Grammar</p>
+    <h2 class="hero-title">Grammatik</h2>
+    <p class="hero-subtitle">9 essential rules for building correct German sentences.</p>
+  </div>
+
+  <!-- PILLS -->
+  <div class="pills-row" id="pillsRow">
+    <button class="pill" data-sec="s1" onclick="jumpTo('s1')">Satzbau</button>
+    <button class="pill" data-sec="s2" onclick="jumpTo('s2')">V2-Regel</button>
+    <button class="pill" data-sec="s3" onclick="jumpTo('s3')">Fragesätze</button>
+    <button class="pill" data-sec="s4" onclick="jumpTo('s4')">Verneinung</button>
+    <button class="pill" data-sec="s5" onclick="jumpTo('s5')">TeKaMoLo</button>
+    <button class="pill" data-sec="s6" onclick="jumpTo('s6')">Nebensätze</button>
+    <button class="pill" data-sec="s7" onclick="jumpTo('s7')">Satztypen</button>
+    <button class="pill" data-sec="s8" onclick="jumpTo('s8')">Imperativ</button>
+    <button class="pill" data-sec="s9" onclick="jumpTo('s9')">Checkliste</button>
+  </div>
+
+  <!-- ── 1. Sentence Structure ── -->
+  <section class="topic-card" id="s1" style="--sec-color:#007AFF;">
+    <div class="card-header">
+      <div class="sec-num" style="background:#007AFF;">1</div>
+      <div class="card-titles">
+        <div class="card-de">Satzbau</div>
+        <div class="card-en">Sentence Structure</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <p>German follows a <strong>Subject–Verb–Object (SVO)</strong> pattern in its simplest form.</p>
+
+      <div class="tbl-wrap mt-12">
+        <table>
+          <thead>
+            <tr><th>Position</th><th>1st</th><th>2nd</th><th>3rd+</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Role</td><td>Subject</td><td>Verb</td><td>Object / Rest</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="label mt-14">Examples</div>
+      <div class="examples">
+        <div class="ex">
+          <div class="ex-de">Ich lerne Deutsch.</div>
+          <div class="ex-en">→ I learn German.</div>
+        </div>
+        <div class="ex">
+          <div class="ex-de">Anna kauft ein Buch.</div>
+          <div class="ex-en">→ Anna buys a book.</div>
+        </div>
+        <div class="ex">
+          <div class="ex-de">Wir essen heute Pizza.</div>
+          <div class="ex-en">→ We eat pizza today.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 2. V2 Rule ── -->
+  <section class="topic-card" id="s2" style="--sec-color:#AF52DE;">
+    <div class="card-header">
+      <div class="sec-num" style="background:#AF52DE;">2</div>
+      <div class="card-titles">
+        <div class="card-de">Verb-Zweit-Regel</div>
+        <div class="card-en">The V2 Rule</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="bq" style="border-color:#AF52DE; background:rgba(175,82,222,0.07);">
+        The conjugated verb <strong>always sits in the second position</strong> in a main clause — no matter what comes first.
+      </div>
+
+      <div class="code-block mt-12">[Position 1]  [Verb]  [Subject]  [Rest]</div>
+
+      <div class="tbl-wrap mt-12">
+        <table>
+          <thead>
+            <tr><th>Sentence</th><th>Pos. 1</th><th>Verb ②</th><th>Rest</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>Ich lerne heute Deutsch.</code></td>
+              <td>Ich</td>
+              <td class="highlight-cell" style="color:#AF52DE;">lerne</td>
+              <td>heute Deutsch</td>
+            </tr>
+            <tr>
+              <td><code>Heute lerne ich Deutsch.</code></td>
+              <td>Heute</td>
+              <td class="highlight-cell" style="color:#AF52DE;">lerne</td>
+              <td>ich Deutsch</td>
+            </tr>
+            <tr>
+              <td><code>Deutsch lerne ich heute.</code></td>
+              <td>Deutsch</td>
+              <td class="highlight-cell" style="color:#AF52DE;">lerne</td>
+              <td>ich heute</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="mt-12">All three sentences mean the same thing. <code>lerne</code> always stays <strong>second</strong>.</p>
+
+      <div class="label mt-14">More Examples</div>
+      <div class="examples">
+        <div class="ex">
+          <div class="ex-de">Morgen gehe ich ins Kino.</div>
+          <div class="ex-en">→ Tomorrow I go to the cinema.</div>
+        </div>
+        <div class="ex">
+          <div class="ex-de">Das Buch lese ich gern.</div>
+          <div class="ex-en">→ The book I like to read.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 3. Questions ── -->
+  <section class="topic-card" id="s3" style="--sec-color:#34C759;">
+    <div class="card-header">
+      <div class="sec-num" style="background:#34C759;">3</div>
+      <div class="card-titles">
+        <div class="card-de">Fragesätze</div>
+        <div class="card-en">Question Sentences</div>
+      </div>
+    </div>
+    <div class="card-body">
+
+      <div class="sub">
+        <div class="sub-title">
+          <div class="sub-dot" style="background:#34C759;"></div>
+          Ja/Nein-Fragen · Yes/No Questions
+        </div>
+        <p>The verb moves to <strong>first position</strong>:</p>
+        <div class="code-block">[Verb]  [Subject]  [Rest] ?</div>
+        <div class="examples">
+          <div class="ex">
+            <div class="ex-de">Lernst du Deutsch?</div>
+            <div class="ex-en">→ Do you learn German?</div>
+          </div>
+          <div class="ex">
+            <div class="ex-de">Ist das dein Buch?</div>
+            <div class="ex-en">→ Is that your book?</div>
+          </div>
+          <div class="ex">
+            <div class="ex-de">Hast du Zeit?</div>
+            <div class="ex-en">→ Do you have time?</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sub">
+        <div class="sub-title">
+          <div class="sub-dot" style="background:#34C759;"></div>
+          W-Fragen · W-Questions
+        </div>
+        <p>Question word takes position 1, verb stays 2nd:</p>
+        <div class="code-block">[W-Word]  [Verb]  [Subject]  [Rest] ?</div>
+        <div class="tbl-wrap mt-8">
+          <table>
+            <thead>
+              <tr><th>W-Word</th><th>Meaning</th><th>Example</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Wer</strong></td><td>Who</td><td><code>Wer bist du?</code></td></tr>
+              <tr><td><strong>Was</strong></td><td>What</td><td><code>Was machst du?</code></td></tr>
+              <tr><td><strong>Wo</strong></td><td>Where</td><td><code>Wo wohnst du?</code></td></tr>
+              <tr><td><strong>Woher</strong></td><td>Where from</td><td><code>Woher kommst du?</code></td></tr>
+              <tr><td><strong>Wohin</strong></td><td>Where to</td><td><code>Wohin gehst du?</code></td></tr>
+              <tr><td><strong>Wann</strong></td><td>When</td><td><code>Wann kommst du?</code></td></tr>
+              <tr><td><strong>Wie</strong></td><td>How</td><td><code>Wie heißt du?</code></td></tr>
+              <tr><td><strong>Warum</strong></td><td>Why</td><td><code>Warum lernst du?</code></td></tr>
+              <tr><td><strong>Wie viel</strong></td><td>How much</td><td><code>Wie viel kostet das?</code></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 4. Negation ── -->
+  <section class="topic-card" id="s4" style="--sec-color:#FF9F0A;">
+    <div class="card-header">
+      <div class="sec-num" style="background:#FF9F0A;">4</div>
+      <div class="card-titles">
+        <div class="card-de">Verneinung</div>
+        <div class="card-en">Negation</div>
+      </div>
+    </div>
+    <div class="card-body">
+
+      <div class="sub">
+        <div class="sub-title">
+          <div class="sub-dot" style="background:#FF9F0A;"></div>
+          Using <code>nicht</code> — "not"
+        </div>
+        <p>Negates verbs, adjectives, adverbs, and nouns with a definite article.</p>
+        <div class="examples mt-10">
+          <div class="ex">
+            <div class="ex-de">Ich verstehe das <span style="color:#FF9F0A;font-weight:700;">nicht</span>.</div>
+            <div class="ex-en">→ I don't understand that.</div>
+          </div>
+          <div class="ex">
+            <div class="ex-de">Er ist <span style="color:#FF9F0A;font-weight:700;">nicht</span> müde.</div>
+            <div class="ex-en">→ He is not tired.</div>
+          </div>
+          <div class="ex">
+            <div class="ex-de">Ich schlafe <span style="color:#FF9F0A;font-weight:700;">nicht</span>.</div>
+            <div class="ex-en">→ I don't sleep.</div>
+          </div>
+        </div>
+        <div class="tbl-wrap mt-12">
+          <table>
+            <thead><tr><th>When</th><th>Position of nicht</th></tr></thead>
+            <tbody>
+              <tr><td>Negating the whole verb</td><td>End of sentence</td></tr>
+              <tr><td>Before an adjective/adverb</td><td>Directly before it</td></tr>
+              <tr><td>Specific element</td><td>Before that element</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="sub">
+        <div class="sub-title">
+          <div class="sub-dot" style="background:#FF9F0A;"></div>
+          Using <code>kein/keine</code> — "no / not a"
+        </div>
+        <p>Negates nouns that use <em>ein/eine</em> or have no article:</p>
+        <div class="examples mt-10">
+          <div class="ex">
+            <div class="ex-de">Ich habe <span style="color:#FF9F0A;font-weight:700;">keine</span> Zeit.</div>
+            <div class="ex-en">→ I have no time.</div>
+          </div>
+          <div class="ex">
+            <div class="ex-de">Das ist <span style="color:#FF9F0A;font-weight:700;">kein</span> Problem.</div>
+            <div class="ex-en">→ That is not a problem.</div>
+          </div>
+          <div class="ex">
+            <div class="ex-de">Er hat <span style="color:#FF9F0A;font-weight:700;">kein</span> Auto.</div>
+            <div class="ex-en">→ He has no car.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="rule-box mt-12">
+        <div class="rule-label">Golden Rule</div>
+        Use <strong>kein</strong> where you would use <em>ein/eine</em>.<br>
+        Use <strong>nicht</strong> everywhere else.
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 5. TeKaMoLo ── -->
+  <section class="topic-card" id="s5" style="--sec-color:#FF375F;">
+    <div class="card-header">
+      <div class="sec-num" style="background:#FF375F;">5</div>
+      <div class="card-titles">
+        <div class="card-de">TeKaMoLo</div>
+        <div class="card-en">Adverb Word Order</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <p>A mnemonic for the correct order of adverbial phrases in German sentences.</p>
+
+      <div class="teka-flow">
+        <div class="teka-pill" style="background:rgba(255,55,95,0.1);">
+          <div class="teka-letter" style="color:#FF375F;">Te</div>
+          <div class="teka-word" style="color:#FF375F;">Temporal</div>
+          <div class="teka-q">When?</div>
+        </div>
+        <div class="teka-arr">›</div>
+        <div class="teka-pill" style="background:rgba(255,159,10,0.1);">
+          <div class="teka-letter" style="color:#FF9F0A;">Ka</div>
+          <div class="teka-word" style="color:#FF9F0A;">Kausal</div>
+          <div class="teka-q">Why?</div>
+        </div>
+        <div class="teka-arr">›</div>
+        <div class="teka-pill" style="background:rgba(52,199,89,0.1);">
+          <div class="teka-letter" style="color:#34C759;">Mo</div>
+          <div class="teka-word" style="color:#34C759;">Modal</div>
+          <div class="teka-q">How?</div>
+        </div>
+        <div class="teka-arr">›</div>
+        <div class="teka-pill" style="background:rgba(0,122,255,0.1);">
+          <div class="teka-letter" style="color:#007AFF;">Lo</div>
+          <div class="teka-word" style="color:#007AFF;">Lokal</div>
+          <div class="teka-q">Where?</div>
+        </div>
+      </div>
+
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Letter</th><th>Stands for</th><th>Asks</th><th>Examples</th></tr></thead>
+          <tbody>
+            <tr><td style="color:#FF375F;font-weight:700;">Te</td><td>Temporal</td><td>When?</td><td>morgen, heute, um 8 Uhr</td></tr>
+            <tr><td style="color:#FF9F0A;font-weight:700;">Ka</td><td>Kausal</td><td>Why?</td><td>deshalb, wegen des Wetters</td></tr>
+            <tr><td style="color:#34C759;font-weight:700;">Mo</td><td>Modal</td><td>How?</td><td>mit dem Auto, schnell</td></tr>
+            <tr><td style="color:#007AFF;font-weight:700;">Lo</td><td>Lokal</td><td>Where?</td><td>in Berlin, nach Hause</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="label mt-14">Examples</div>
+      <div class="examples">
+        <div class="ex">
+          <div class="ex-de">Ich fahre <span style="color:#FF375F;">morgen</span> <span style="color:#34C759;">mit dem Bus</span> <span style="color:#007AFF;">in die Stadt</span>.</div>
+          <div class="ex-en">→ I travel tomorrow by bus into the city.</div>
+        </div>
+        <div class="ex">
+          <div class="ex-de">Er arbeitet <span style="color:#FF375F;">täglich</span> <span style="color:#34C759;">fleißig</span> <span style="color:#007AFF;">im Büro</span>.</div>
+          <div class="ex-en">→ He works diligently every day in the office.</div>
+        </div>
+      </div>
+
+      <div class="bq" style="border-color:#FF375F;background:rgba(255,55,95,0.06);margin-top:12px;">
+        <strong>Tip:</strong> You rarely use all four at once — but when you do, follow this order.
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 6. Subordinate Clauses ── -->
+  <section class="topic-card" id="s6" style="--sec-color:#00C7BE;">
+    <div class="card-header">
+      <div class="sec-num" style="background:#00C7BE;">6</div>
+      <div class="card-titles">
+        <div class="card-de">Nebensätze</div>
+        <div class="card-en">Subordinate Clauses</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <p>With a <strong>subordinating conjunction</strong>, the verb moves to the <strong>end</strong> of the clause.</p>
+
+      <div class="code-block mt-10">[Main clause], [conj.] [subject] [rest] [VERB].</div>
+
+      <div class="label mt-14">Common Conjunctions (A1)</div>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Word</th><th>Meaning</th><th>Example</th></tr></thead>
+          <tbody>
+            <tr><td><strong>weil</strong></td><td>because</td><td><code>..., weil ich müde <span style="color:#00C7BE;">bin</span>.</code></td></tr>
+            <tr><td><strong>dass</strong></td><td>that</td><td><code>..., dass du Recht <span style="color:#00C7BE;">hast</span>.</code></td></tr>
+            <tr><td><strong>wenn</strong></td><td>when / if</td><td><code>Wenn ich Zeit <span style="color:#00C7BE;">habe</span>, ...</code></td></tr>
+            <tr><td><strong>obwohl</strong></td><td>although</td><td><code>..., obwohl ich müde <span style="color:#00C7BE;">bin</span>.</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="label mt-14">Examples</div>
+      <div class="examples">
+        <div class="ex">
+          <div class="ex-de">Ich bin müde, weil ich viel gearbeitet <span style="color:#00C7BE;font-weight:700;">habe</span>.</div>
+          <div class="ex-en">→ I am tired because I worked a lot.</div>
+        </div>
+        <div class="ex">
+          <div class="ex-de">Ich weiß, dass sie Lehrerin <span style="color:#00C7BE;font-weight:700;">ist</span>.</div>
+          <div class="ex-en">→ I know that she is a teacher.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 7. Sentence Types ── -->
+  <section class="topic-card" id="s7" style="--sec-color:#5E5CE6;">
+    <div class="card-header">
+      <div class="sec-num" style="background:#5E5CE6;">7</div>
+      <div class="card-titles">
+        <div class="card-de">Satztypen</div>
+        <div class="card-en">Sentence Types Summary</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Type</th><th>Structure</th><th>Example</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>Statement</strong></td>
+              <td>Subj + Verb + …</td>
+              <td><code>Ich trinke Kaffee.</code></td>
+            </tr>
+            <tr>
+              <td><strong>Yes/No Q</strong></td>
+              <td>Verb + Subj + …</td>
+              <td><code>Trinkst du Kaffee?</code></td>
+            </tr>
+            <tr>
+              <td><strong>W-Question</strong></td>
+              <td>W + Verb + Subj + …</td>
+              <td><code>Was trinkst du?</code></td>
+            </tr>
+            <tr>
+              <td><strong>Command</strong></td>
+              <td>Verb stem (+ …)</td>
+              <td><code>Trink Kaffee!</code></td>
+            </tr>
+            <tr>
+              <td><strong>Subclause</strong></td>
+              <td>… weil + … + Verb</td>
+              <td><code>…, weil ich Kaffee trinke.</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 8. Imperative ── -->
+  <section class="topic-card" id="s8" style="--sec-color:#FF6961;">
+    <div class="card-header">
+      <div class="sec-num" style="background:#FF6961;">8</div>
+      <div class="card-titles">
+        <div class="card-de">Imperativ</div>
+        <div class="card-en">Commands</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Form</th><th>Formation</th><th>Example</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>du</strong></td>
+              <td>Verb stem</td>
+              <td><code>Lern Deutsch!</code></td>
+            </tr>
+            <tr>
+              <td><strong>ihr</strong></td>
+              <td>Stem + <em>-t</em></td>
+              <td><code>Lernt Deutsch!</code></td>
+            </tr>
+            <tr>
+              <td><strong>Sie</strong></td>
+              <td>Infinitive + Sie</td>
+              <td><code>Lernen Sie Deutsch!</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="label mt-14">Examples</div>
+      <div class="examples">
+        <div class="ex">
+          <div class="ex-de">Komm her!</div>
+          <div class="ex-en">→ Come here! (du)</div>
+        </div>
+        <div class="ex">
+          <div class="ex-de">Hör zu!</div>
+          <div class="ex-en">→ Listen! (du)</div>
+        </div>
+        <div class="ex">
+          <div class="ex-de">Schreiben Sie bitte Ihren Namen.</div>
+          <div class="ex-en">→ Please write your name. (Sie)</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 9. Checklist ── -->
+  <section class="topic-card" id="s9" style="--sec-color:#30D158;">
+    <div class="card-header">
+      <div class="sec-num" style="background:#30D158;">9</div>
+      <div class="card-titles">
+        <div class="card-de">Schnellcheck</div>
+        <div class="card-en">Quick Reference Checklist</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <p style="margin-bottom:14px;font-size:14px;">Tap each rule to mark it as understood.</p>
+      <div class="checklist">
+
+        <div class="check-item" onclick="toggleCheck(this)">
+          <div class="check-circle">
+            <svg class="check-icon" width="12" height="10" viewBox="0 0 12 10" fill="none">
+              <path d="M1.5 5L4.5 8L10.5 1.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="check-text">Conjugated verb sits in <strong>position 2</strong> in main clauses.</div>
+        </div>
+
+        <div class="check-item" onclick="toggleCheck(this)">
+          <div class="check-circle">
+            <svg class="check-icon" width="12" height="10" viewBox="0 0 12 10" fill="none">
+              <path d="M1.5 5L4.5 8L10.5 1.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="check-text">In yes/no questions, the verb comes <strong>first</strong>.</div>
+        </div>
+
+        <div class="check-item" onclick="toggleCheck(this)">
+          <div class="check-circle">
+            <svg class="check-icon" width="12" height="10" viewBox="0 0 12 10" fill="none">
+              <path d="M1.5 5L4.5 8L10.5 1.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="check-text">After subordinating conjunctions, the verb goes <strong>last</strong>.</div>
+        </div>
+
+        <div class="check-item" onclick="toggleCheck(this)">
+          <div class="check-circle">
+            <svg class="check-icon" width="12" height="10" viewBox="0 0 12 10" fill="none">
+              <path d="M1.5 5L4.5 8L10.5 1.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="check-text">Adverbials follow <strong>Te → Ka → Mo → Lo</strong> order.</div>
+        </div>
+
+        <div class="check-item" onclick="toggleCheck(this)">
+          <div class="check-circle">
+            <svg class="check-icon" width="12" height="10" viewBox="0 0 12 10" fill="none">
+              <path d="M1.5 5L4.5 8L10.5 1.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="check-text">Use <strong>kein</strong> for nouns, <strong>nicht</strong> for everything else.</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FAB -->
+<button class="fab" id="fabBtn" aria-label="Jump to section">
+  <svg width="16" height="14" viewBox="0 0 16 14" fill="none">
+    <rect width="16" height="2" rx="1" fill="white"/>
+    <rect y="6" width="12" height="2" rx="1" fill="white"/>
+    <rect y="12" width="8" height="2" rx="1" fill="white"/>
+  </svg>
+  Sections
+</button>
+
+<!-- OVERLAY -->
+<div class="overlay" id="overlay"></div>
+
+<!-- BOTTOM SHEET -->
+<div class="sheet" id="sheet">
+  <div class="sheet-handle"></div>
+  <div class="sheet-head">Jump to Section</div>
+
+  <a class="sheet-item" href="#s1" onclick="closeSheet()">
+    <div class="sheet-num" style="background:#007AFF;">1</div>
+    <div class="sheet-info">
+      <div class="sheet-de">Satzbau</div>
+      <div class="sheet-en">Sentence Structure</div>
+    </div>
+    <span class="sheet-chev">›</span>
+  </a>
+  <a class="sheet-item" href="#s2" onclick="closeSheet()">
+    <div class="sheet-num" style="background:#AF52DE;">2</div>
+    <div class="sheet-info">
+      <div class="sheet-de">Verb-Zweit-Regel</div>
+      <div class="sheet-en">The V2 Rule</div>
+    </div>
+    <span class="sheet-chev">›</span>
+  </a>
+  <a class="sheet-item" href="#s3" onclick="closeSheet()">
+    <div class="sheet-num" style="background:#34C759;">3</div>
+    <div class="sheet-info">
+      <div class="sheet-de">Fragesätze</div>
+      <div class="sheet-en">Question Sentences</div>
+    </div>
+    <span class="sheet-chev">›</span>
+  </a>
+  <a class="sheet-item" href="#s4" onclick="closeSheet()">
+    <div class="sheet-num" style="background:#FF9F0A;">4</div>
+    <div class="sheet-info">
+      <div class="sheet-de">Verneinung</div>
+      <div class="sheet-en">Negation</div>
+    </div>
+    <span class="sheet-chev">›</span>
+  </a>
+  <a class="sheet-item" href="#s5" onclick="closeSheet()">
+    <div class="sheet-num" style="background:#FF375F;">5</div>
+    <div class="sheet-info">
+      <div class="sheet-de">TeKaMoLo</div>
+      <div class="sheet-en">Adverb Word Order</div>
+    </div>
+    <span class="sheet-chev">›</span>
+  </a>
+  <a class="sheet-item" href="#s6" onclick="closeSheet()">
+    <div class="sheet-num" style="background:#00C7BE;">6</div>
+    <div class="sheet-info">
+      <div class="sheet-de">Nebensätze</div>
+      <div class="sheet-en">Subordinate Clauses</div>
+    </div>
+    <span class="sheet-chev">›</span>
+  </a>
+  <a class="sheet-item" href="#s7" onclick="closeSheet()">
+    <div class="sheet-num" style="background:#5E5CE6;">7</div>
+    <div class="sheet-info">
+      <div class="sheet-de">Satztypen</div>
+      <div class="sheet-en">Sentence Types</div>
+    </div>
+    <span class="sheet-chev">›</span>
+  </a>
+  <a class="sheet-item" href="#s8" onclick="closeSheet()">
+    <div class="sheet-num" style="background:#FF6961;">8</div>
+    <div class="sheet-info">
+      <div class="sheet-de">Imperativ</div>
+      <div class="sheet-en">Commands</div>
+    </div>
+    <span class="sheet-chev">›</span>
+  </a>
+  <a class="sheet-item" href="#s9" onclick="closeSheet()">
+    <div class="sheet-num" style="background:#30D158;">9</div>
+    <div class="sheet-info">
+      <div class="sheet-de">Schnellcheck</div>
+      <div class="sheet-en">Quick Reference</div>
+    </div>
+    <span class="sheet-chev">›</span>
+  </a>
+</div>
+
+<script>
+  /* ── Reading progress bar ── */
+  window.addEventListener('scroll', () => {
+    const scrolled = window.scrollY;
+    const total = document.documentElement.scrollHeight - window.innerHeight;
+    document.getElementById('pFill').style.width = ((scrolled / total) * 100) + '%';
+  }, { passive: true });
+
+  /* ── Section data ── */
+  const SECTIONS = [
+    { id: 's1', de: 'Satzbau',         color: '#007AFF' },
+    { id: 's2', de: 'V2-Regel',        color: '#AF52DE' },
+    { id: 's3', de: 'Fragesätze',      color: '#34C759' },
+    { id: 's4', de: 'Verneinung',      color: '#FF9F0A' },
+    { id: 's5', de: 'TeKaMoLo',        color: '#FF375F' },
+    { id: 's6', de: 'Nebensätze',      color: '#00C7BE' },
+    { id: 's7', de: 'Satztypen',       color: '#5E5CE6' },
+    { id: 's8', de: 'Imperativ',       color: '#FF6961' },
+    { id: 's9', de: 'Schnellcheck',    color: '#30D158' },
+  ];
+
+  /* ── IntersectionObserver: update header + active pill ── */
+  const hTitle = document.getElementById('hTitle');
+  const allPills = document.querySelectorAll('.pill');
+
+  function setActive(secId) {
+    const data = SECTIONS.find(s => s.id === secId);
+    if (!data) { hTitle.textContent = 'Grammatik'; return; }
+    hTitle.textContent = data.de;
+
+    allPills.forEach(p => {
+      if (p.dataset.sec === secId) {
+        p.style.background = data.color;
+        p.style.color = '#fff';
+        // Scroll only the pills container horizontally — never touch page scroll
+        const row = document.getElementById('pillsRow');
+        const target = p.offsetLeft - (row.offsetWidth / 2) + (p.offsetWidth / 2);
+        row.scrollTo({ left: Math.max(0, target), behavior: 'smooth' });
+      } else {
+        p.style.background = '';
+        p.style.color = '';
+      }
+    });
+  }
+
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) setActive(e.target.id); });
+  }, { threshold: 0.35 });
+
+  SECTIONS.forEach(s => {
+    const el = document.getElementById(s.id);
+    if (el) io.observe(el);
+  });
+
+  // Reset when hero is visible
+  const heroIO = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting) {
+      hTitle.textContent = 'Grammatik';
+      allPills.forEach(p => { p.style.background = ''; p.style.color = ''; });
+    }
+  }, { threshold: 0.5 });
+  heroIO.observe(document.getElementById('hero'));
+
+  /* ── Jump to section (with header offset) ── */
+  function jumpTo(id) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const offset = document.querySelector('.top-bar').offsetHeight + 10;
+    const top = el.getBoundingClientRect().top + window.scrollY - offset;
+    window.scrollTo({ top, behavior: 'smooth' });
+  }
+
+  /* ── Bottom sheet ── */
+  const fab     = document.getElementById('fabBtn');
+  const sheet   = document.getElementById('sheet');
+  const overlay = document.getElementById('overlay');
+
+  function openSheet() {
+    sheet.classList.add('open');
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeSheet() {
+    sheet.classList.remove('open');
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  fab.addEventListener('click', openSheet);
+  overlay.addEventListener('click', closeSheet);
+
+  // Also wire the menu button
+  document.getElementById('menuBtn').addEventListener('click', openSheet);
+
+  /* ── Checklist toggle ── */
+  function toggleCheck(el) {
+    el.classList.toggle('done');
+  }
+
+  /* ── Sheet: close + smooth scroll for anchor links ── */
+  document.querySelectorAll('.sheet-item').forEach(item => {
+    item.addEventListener('click', e => {
+      e.preventDefault();
+      const target = item.getAttribute('href').replace('#', '');
+      closeSheet();
+      setTimeout(() => jumpTo(target), 320); // wait for sheet to close
+    });
+  });
+</script>
+</body>
+</html>
