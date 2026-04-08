@@ -733,6 +733,67 @@
     }
     .reveal.vis { opacity: 1; transform: translateY(0); }
 
+    /* ─── FEATURE: Mark as learned ─── */
+    tbody tr { cursor: default; }
+    tbody tr.learned { opacity: 0.35; }
+    tbody tr.learned td:first-child::after {
+      content: ' ✓';
+      color: var(--v);
+      font-size: 0.68rem;
+      font-weight: 700;
+      margin-left: 5px;
+    }
+
+    /* ─── FEATURE: Read aloud ─── */
+    .speak-btn {
+      border: none; background: none; cursor: pointer;
+      padding: 0; margin-left: 7px;
+      color: var(--text-3);
+      opacity: 0.4;
+      transition: opacity 0.15s, color 0.15s;
+      vertical-align: middle;
+      line-height: 1;
+      display: inline-flex; align-items: center;
+      flex-shrink: 0;
+    }
+    tr:hover .speak-btn { opacity: 1; }
+    .speak-btn:hover { color: var(--v); }
+    .speak-btn.active { color: var(--g); opacity: 1 !important; }
+
+    /* ─── FEATURE: Hide English ─── */
+    .vsearch-row { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
+    .vsearch-row .vsearch-wrap { flex: 1; margin-bottom: 0; }
+
+    .hide-toggle {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--rs);
+      padding: 8px 13px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--text-2);
+      cursor: pointer;
+      white-space: nowrap;
+      flex-shrink: 0;
+      transition: all 0.15s;
+    }
+    .hide-toggle:hover { border-color: var(--v); color: var(--v); }
+    .hide-toggle.active { background: var(--v); color: #fff; border-color: var(--v); }
+
+    #vocabulary.hide-en tbody td:nth-child(2) {
+      color: transparent;
+      background: var(--border-lt);
+      border-radius: 4px;
+      cursor: pointer;
+      user-select: none;
+      transition: color 0.2s, background 0.2s;
+    }
+    #vocabulary.hide-en tbody tr.peeked td:nth-child(2) {
+      color: var(--text) !important;
+      background: var(--v-bg);
+    }
+
     /* ─── RESPONSIVE ─── */
     @media (max-width: 480px) {
       .card-hd { padding: 12px 14px; }
@@ -1366,10 +1427,13 @@
       <div class="sec-line"></div>
     </div>
 
-    <!-- Vocab Search -->
-    <div class="vsearch-wrap reveal">
-      <span class="vsearch-icon">🔍</span>
-      <input id="vsearch" type="text" placeholder="Vokabeln filtern — z.B. Haus, drink, fahren …" autocomplete="off">
+    <!-- Vocab Search + Controls -->
+    <div class="vsearch-row reveal">
+      <div class="vsearch-wrap">
+        <span class="vsearch-icon">🔍</span>
+        <input id="vsearch" type="text" placeholder="Vokabeln filtern — z.B. Haus, drink, fahren …" autocomplete="off">
+      </div>
+      <button id="hide-toggle" class="hide-toggle" title="Tap a row to reveal">Hide English</button>
     </div>
     <div class="search-count" id="vsearch-count"></div>
 
@@ -2544,6 +2608,72 @@ const revealObserver = new IntersectionObserver((entries) => {
 }, { rootMargin: '0px 0px -60px 0px' });
 
 revealEls.forEach(el => revealObserver.observe(el));
+
+// ── Feature 1: Mark as learned (vocabulary rows) ──
+const learnedSet = new Set(JSON.parse(localStorage.getItem('de-a1-learned') || '[]'));
+
+document.querySelectorAll('#vocabulary tbody tr').forEach(row => {
+  const key = row.querySelector('td')?.textContent.trim().slice(0, 60);
+  if (!key) return;
+  if (learnedSet.has(key)) row.classList.add('learned');
+
+  row.addEventListener('click', e => {
+    if (window.getSelection().toString()) return;        // allow text selection
+    if (e.target.closest('.speak-btn')) return;         // don't clash with speak btn
+    if (document.getElementById('vocabulary').classList.contains('hide-en')) return; // hide-en mode handles click
+    row.classList.toggle('learned');
+    learnedSet[row.classList.contains('learned') ? 'add' : 'delete'](key);
+    localStorage.setItem('de-a1-learned', JSON.stringify([...learnedSet]));
+  });
+});
+
+// ── Feature 2: Read aloud (all rows, browser speechSynthesis) ──
+if (window.speechSynthesis) {
+  const speakSVG = `<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>`;
+
+  document.querySelectorAll('tbody tr').forEach(row => {
+    const firstTd = row.querySelector('td');
+    if (!firstTd) return;
+    const rawText = firstTd.textContent.trim();
+    if (!rawText || rawText.length < 2) return;
+
+    const btn = document.createElement('button');
+    btn.className = 'speak-btn';
+    btn.innerHTML = speakSVG;
+    btn.title = 'Vorlesen (de-DE)';
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      speechSynthesis.cancel();
+      const utt = new SpeechSynthesisUtterance(rawText);
+      utt.lang = 'de-DE';
+      utt.rate = 0.88;
+      speechSynthesis.speak(utt);
+      btn.classList.add('active');
+      utt.onend = () => btn.classList.remove('active');
+      setTimeout(() => btn.classList.remove('active'), 4000); // fallback
+    });
+    firstTd.appendChild(btn);
+  });
+}
+
+// ── Feature 3: Hide English translations (vocabulary) ──
+const hideToggle = document.getElementById('hide-toggle');
+const vocabEl = document.getElementById('vocabulary');
+
+hideToggle.addEventListener('click', () => {
+  const on = vocabEl.classList.toggle('hide-en');
+  hideToggle.textContent = on ? 'Show English' : 'Hide English';
+  hideToggle.classList.toggle('active', on);
+  if (!on) vocabEl.querySelectorAll('tr.peeked').forEach(r => r.classList.remove('peeked'));
+});
+
+document.querySelectorAll('#vocabulary tbody tr').forEach(row => {
+  row.addEventListener('click', e => {
+    if (!vocabEl.classList.contains('hide-en')) return;
+    if (e.target.closest('.speak-btn')) return;
+    row.classList.toggle('peeked');
+  });
+});
 
 // ── Hero cards smooth scroll ──
 document.querySelectorAll('.hero-card').forEach(card => {
