@@ -2695,9 +2695,6 @@ const searchData = [];
 document.querySelectorAll('#grammar tbody tr, #vocabulary tbody tr, #glossary tbody tr, #verbs tbody tr').forEach(row => {
   const cells = row.querySelectorAll('td');
   if (cells.length < 2) return;
-  const de = cells[0].textContent.trim();
-  const en = cells[1].textContent.trim();
-  if (!de) return;
   const sectionEl = row.closest('section');
   const section = sectionEl ? sectionEl.id : '';
   const cardEl = row.closest('.card');
@@ -2707,7 +2704,24 @@ document.querySelectorAll('#grammar tbody tr, #vocabulary tbody tr, #glossary tb
   if (subCardEl && cardEl) {
     subCardIdx = Array.from(cardEl.querySelectorAll('.sub-card')).indexOf(subCardEl);
   }
-  searchData.push({ de, en, section, cardId, subCardIdx });
+
+  let de, en, extra = '';
+  if (section === 'verbs') {
+    // col0=Infinitiv (may contain modal-badge span), col1=Präteritum, col2=Perfekt, col3=Meaning
+    const col0Clone = cells[0].cloneNode(true);
+    col0Clone.querySelectorAll('.modal-badge').forEach(b => b.remove());
+    de = col0Clone.textContent.trim();
+    en = cells[3] ? cells[3].textContent.trim() : '';
+    // also index Präteritum & Perfekt so users can search by any form
+    extra = (cells[1] ? cells[1].textContent.trim() : '') + ' ' +
+            (cells[2] ? cells[2].textContent.trim() : '');
+  } else {
+    de = cells[0].textContent.trim();
+    en = cells[1].textContent.trim();
+  }
+
+  if (!de) return;
+  searchData.push({ de, en, extra, section, cardId, subCardIdx });
 });
 
 function openSearch() {
@@ -2732,7 +2746,9 @@ document.getElementById('gsearch').addEventListener('input', function() {
     return;
   }
   const matches = searchData.filter(d =>
-    d.de.toLowerCase().includes(q) || d.en.toLowerCase().includes(q)
+    d.de.toLowerCase().includes(q) ||
+    d.en.toLowerCase().includes(q) ||
+    (d.extra && d.extra.toLowerCase().includes(q))
   ).slice(0, 30);
 
   if (!matches.length) {
