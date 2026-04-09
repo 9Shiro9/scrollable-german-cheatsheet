@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Deutsch A1.1 — Interactive learning guide covering Grammar, Vocabulary, and Glossary for beginner German learners.">
+  <meta name="description" content="Deutsch A1.1 — Interactive learning guide covering Grammar, Vocabulary, Glossary, and Strong Irregular Verbs for beginner German learners.">
   <title>Deutsch A1.1 — Lernhilfe</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,6 +31,10 @@
       --gl:          #1A3C8A;
       --gl-bg:       #EBF0FC;
       --gl-bd:       #A8BCEE;
+
+      --vb:          #8A1A38;
+      --vb-bg:       #FBF0F3;
+      --vb-bd:       #E8A8B8;
 
       --note:        #7040B0;
       --note-bg:     #F4EDFF;
@@ -151,9 +155,11 @@
     .chip.g  { color: var(--g);  border-color: var(--g-bd);  background: var(--g-bg); }
     .chip.v  { color: var(--v);  border-color: var(--v-bd);  background: var(--v-bg); }
     .chip.gl { color: var(--gl); border-color: var(--gl-bd); background: var(--gl-bg);}
+    .chip.vb { color: var(--vb); border-color: var(--vb-bd); background: var(--vb-bg);}
     .chip.g:hover,  .chip.g.active  { background: var(--g);  color: #fff; border-color: var(--g); }
     .chip.v:hover,  .chip.v.active  { background: var(--v);  color: #fff; border-color: var(--v); }
     .chip.gl:hover, .chip.gl.active { background: var(--gl); color: #fff; border-color: var(--gl);}
+    .chip.vb:hover, .chip.vb.active { background: var(--vb); color: #fff; border-color: var(--vb);}
 
     /* ─── MAIN ─── */
     .main-wrap {
@@ -196,7 +202,7 @@
     }
     .hero-cards {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
       gap: 10px;
     }
     .hero-card {
@@ -213,6 +219,7 @@
     .hero-card.g  { border-top: 3px solid var(--g); }
     .hero-card.v  { border-top: 3px solid var(--v); }
     .hero-card.gl { border-top: 3px solid var(--gl);}
+    .hero-card.vb { border-top: 3px solid var(--vb);}
     .hc-icon { font-size: 1.4rem; margin-bottom: 5px; }
     .hc-label {
       font-size: 0.72rem;
@@ -223,6 +230,7 @@
     .hero-card.g  .hc-label { color: var(--g); }
     .hero-card.v  .hc-label { color: var(--v); }
     .hero-card.gl .hc-label { color: var(--gl);}
+    .hero-card.vb .hc-label { color: var(--vb);}
     .hc-sub { font-size: 0.68rem; color: var(--text-3); margin-top: 2px; }
 
     /* ─── SECTION HEADER ─── */
@@ -244,6 +252,7 @@
     .sec-eyebrow.g  { color: var(--g); }
     .sec-eyebrow.v  { color: var(--v); }
     .sec-eyebrow.gl { color: var(--gl);}
+    .sec-eyebrow.vb { color: var(--vb);}
     .sec-title {
       font-family: 'Fraunces', serif;
       font-size: 1.75rem;
@@ -262,6 +271,7 @@
     .card.g  { border-left: 3px solid var(--g); }
     .card.v  { border-left: 3px solid var(--v); }
     .card.gl { border-left: 3px solid var(--gl);}
+    .card.vb { border-left: 3px solid var(--vb);}
 
     .card-hd {
       display: flex;
@@ -586,6 +596,7 @@
     .sm-tag.g  { color: var(--g);  background: var(--g-bg); }
     .sm-tag.v  { color: var(--v);  background: var(--v-bg); }
     .sm-tag.gl { color: var(--gl); background: var(--gl-bg);}
+    .sm-tag.vb { color: var(--vb); background: var(--vb-bg);}
     .sm-empty {
       padding: 32px;
       text-align: center;
@@ -673,6 +684,7 @@
     .drawer-sec-label.g  { color: var(--g); }
     .drawer-sec-label.v  { color: var(--v); }
     .drawer-sec-label.gl { color: var(--gl);}
+    .drawer-sec-label.vb { color: var(--vb);}
     .drawer-links {
       display: flex;
       flex-wrap: wrap;
@@ -794,6 +806,58 @@
       background: var(--v-bg);
     }
 
+    /* ─── VERBS TABLE ─── */
+    .verbs-table { min-width: 640px; }
+    .verbs-table td:nth-child(1) { min-width: 175px; }
+    .verbs-table td:nth-child(2) { min-width: 185px; color: var(--text-2); }
+    .verbs-table td:nth-child(3) { min-width: 160px; color: var(--text-2); }
+    .verbs-table td:nth-child(4) { min-width: 130px; font-style: italic; color: var(--text-3); }
+    .modal-badge {
+      display: inline-block;
+      font-size: 0.55rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 1px 5px;
+      border-radius: 3px;
+      background: var(--vb-bg);
+      color: var(--vb);
+      border: 1px solid var(--vb-bd);
+      margin-right: 4px;
+      vertical-align: middle;
+    }
+    .vb-scroll-hint {
+      display: none;
+      font-size: 0.7rem;
+      color: var(--text-3);
+      text-align: center;
+      padding: 4px 0 6px;
+      letter-spacing: 0.05em;
+    }
+    @media (max-width: 680px) { .vb-scroll-hint { display: block; } }
+
+    /* ─── FEATURE: Hide English (verbs section) ─── */
+    .vb-controls {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    .vb-controls .note { flex: 1; margin: 0; }
+    #verbs.hide-en .verbs-table tbody td:nth-child(4) {
+      color: transparent;
+      background: var(--border-lt);
+      border-radius: 4px;
+      cursor: pointer;
+      user-select: none;
+      transition: color 0.2s, background 0.2s;
+    }
+    #verbs.hide-en .verbs-table tbody tr.peeked td:nth-child(4) {
+      color: var(--text) !important;
+      background: var(--vb-bg);
+      font-style: italic;
+    }
+
     /* ─── RESPONSIVE ─── */
     @media (max-width: 480px) {
       .card-hd { padding: 12px 14px; }
@@ -824,6 +888,7 @@
     <a href="#vocabulary" class="chip v"  data-sec="vocabulary">📚 Wortschatz</a>
     <a href="#grammar"    class="chip g"  data-sec="grammar">📖 Grammatik</a>
     <a href="#glossary"   class="chip gl" data-sec="glossary">🔤 Glossar</a>
+    <a href="#verbs"      class="chip vb" data-sec="verbs">⚡ Starke Verben</a>
   </div>
 </nav>
 
@@ -834,7 +899,7 @@
   <section id="overview" class="hero scroll-target">
     <p class="hero-eyebrow">Deutsch lernen · Niveau A1.1</p>
     <h1 class="hero-title">Dein <em>Lernguide</em><br>für A1.1</h1>
-    <p class="hero-sub">Interaktiver Leitfaden für Grammatik, Wortschatz und Glossar — für jedes Lerntempo.</p>
+    <p class="hero-sub">Interaktiver Leitfaden für Grammatik, Wortschatz, Glossar &amp; Starke Verben — für jedes Lerntempo.</p>
     <div class="hero-cards">
       <a href="#vocabulary" class="hero-card v reveal">
         <div class="hc-icon">🗣️</div>
@@ -850,6 +915,11 @@
         <div class="hc-icon">📝</div>
         <div class="hc-label">Glossar</div>
         <div class="hc-sub">Grammatische Begriffe</div>
+      </a>
+      <a href="#verbs" class="hero-card vb reveal" style="transition-delay:0.24s">
+        <div class="hc-icon">⚡</div>
+        <div class="hc-label">Starke Verben</div>
+        <div class="hc-sub">121 Verben · A–Z</div>
       </a>
     </div>
   </section>
@@ -2320,6 +2390,177 @@
     </div>
   </section>
 
+  <!-- ═══════════════ STRONG & IRREGULAR VERBS ═══════════════ -->
+  <section id="verbs" class="scroll-target">
+    <div class="sec-head reveal">
+      <div class="sec-line"></div>
+      <div class="sec-head-c">
+        <div class="sec-eyebrow vb">Starke Verben</div>
+        <div class="sec-title">Strong &amp; Irregular Verbs</div>
+      </div>
+      <div class="sec-line"></div>
+    </div>
+
+    <!-- Controls: info + hide english -->
+    <div class="vb-controls reveal">
+      <div class="note">
+        <strong>Key forms:</strong> Infinitiv (Präsens 3rd) → Präteritum (Konj. II) → Perfekt &nbsp;·&nbsp; <em><span class="modal-badge">modal</span> = Modalverb</em>
+      </div>
+      <button id="verbs-hide-toggle" class="hide-toggle" title="Tap a cell to reveal">Hide English</button>
+    </div>
+
+    <!-- Verb reference card -->
+    <div class="card vb reveal" id="strong-verbs">
+      <div class="card-hd" onclick="toggleCard(this)">
+        <div class="card-hd-left">
+          <span class="card-num">★</span>
+          <div>
+            <div class="card-title">Starke &amp; Unregelmäßige Verben</div>
+            <div class="card-sub">121 Verben · alphabetisch · Präteritum &amp; Perfekt</div>
+          </div>
+        </div>
+        <svg class="card-chev" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="5 8 10 13 15 8"/></svg>
+      </div>
+      <div class="card-bd"><div class="card-bd-in">
+        <p class="vb-scroll-hint">← scroll horizontally to see all columns →</p>
+        <div class="t-wrap">
+          <table class="verbs-table">
+            <thead><tr>
+              <th>Infinitiv (Präsens)</th>
+              <th>Präteritum (Konj. II)</th>
+              <th>Perfekt</th>
+              <th>Meaning</th>
+            </tr></thead>
+            <tbody>
+              <tr><td>befehlen (befiehlt)</td><td>befahl (befähle)</td><td>befohlen</td><td>to command</td></tr>
+              <tr><td>beginnen</td><td>begann (begänne)</td><td>begonnen</td><td>to begin</td></tr>
+              <tr><td>bewegen</td><td>bewog (bewöge)</td><td>bewogen</td><td>to move</td></tr>
+              <tr><td>biegen</td><td>bog (böge)</td><td>gebogen</td><td>to bend</td></tr>
+              <tr><td>bieten</td><td>bot (böte)</td><td>geboten</td><td>to offer</td></tr>
+              <tr><td>binden</td><td>band (bände)</td><td>gebunden</td><td>to tie / bind</td></tr>
+              <tr><td>bitten</td><td>bat (bäte)</td><td>gebeten</td><td>to ask / request</td></tr>
+              <tr><td>blasen (bläst)</td><td>blies</td><td>geblasen</td><td>to blow</td></tr>
+              <tr><td>bleiben</td><td>blieb</td><td>ist geblieben</td><td>to stay / remain</td></tr>
+              <tr><td>braten (brät, bratet)</td><td>briet</td><td>gebraten</td><td>to fry / roast</td></tr>
+              <tr><td>brechen (bricht)</td><td>brach (bräche)</td><td>gebrochen</td><td>to break</td></tr>
+              <tr><td>brennen</td><td>brannte (brennte)</td><td>gebrannt</td><td>to burn</td></tr>
+              <tr><td>bringen</td><td>brachte (brächte)</td><td>gebracht</td><td>to bring</td></tr>
+              <tr><td>denken</td><td>dachte (dächte)</td><td>gedacht</td><td>to think</td></tr>
+              <tr><td>dringen</td><td>drang (dränge)</td><td>hat, ist gedrungen</td><td>to penetrate / press</td></tr>
+              <tr><td><span class="modal-badge">modal</span>dürfen (darf)</td><td>durfte (dürfte)</td><td>gedurft</td><td>may</td></tr>
+              <tr><td>empfehlen (empfiehlt)</td><td>empfahl (empfähle)</td><td>empfohlen</td><td>to recommend</td></tr>
+              <tr><td>essen (isst)</td><td>aß (äße)</td><td>gegessen</td><td>to eat</td></tr>
+              <tr><td>fahren (fährt)</td><td>fuhr (führe)</td><td>ist, hat gefahren</td><td>to drive / travel</td></tr>
+              <tr><td>fallen (fällt)</td><td>fiel</td><td>ist gefallen</td><td>to fall</td></tr>
+              <tr><td>fangen (fängt)</td><td>fing</td><td>gefangen</td><td>to catch</td></tr>
+              <tr><td>finden</td><td>fand (fände)</td><td>gefunden</td><td>to find</td></tr>
+              <tr><td>fliegen</td><td>flog (flöge)</td><td>ist, hat geflogen</td><td>to fly</td></tr>
+              <tr><td>fliehen</td><td>floh (flöhe)</td><td>ist geflohen</td><td>to flee</td></tr>
+              <tr><td>fließen</td><td>floss (flösse)</td><td>ist geflossen</td><td>to flow</td></tr>
+              <tr><td>frieren</td><td>fror (fröre)</td><td>hat, ist gefroren</td><td>to freeze</td></tr>
+              <tr><td>geben (gibt)</td><td>gab (gäbe)</td><td>gegeben</td><td>to give</td></tr>
+              <tr><td>gehen</td><td>ging</td><td>ist gegangen</td><td>to go</td></tr>
+              <tr><td>gelingen</td><td>gelang (gelänge)</td><td>ist gelungen</td><td>to succeed</td></tr>
+              <tr><td>gelten (gilt)</td><td>galt (gälte)</td><td>gegolten</td><td>to be valid</td></tr>
+              <tr><td>genießen</td><td>genoß (genösse)</td><td>genossen</td><td>to enjoy</td></tr>
+              <tr><td>geschehen (geschieht)</td><td>geschah (geschähe)</td><td>ist geschehen</td><td>to happen</td></tr>
+              <tr><td>gewinnen</td><td>gewann (gewönne)</td><td>gewonnen</td><td>to win</td></tr>
+              <tr><td>gießen</td><td>goss (gösse)</td><td>gegossen</td><td>to pour</td></tr>
+              <tr><td>gleichen</td><td>glich</td><td>geglichen</td><td>to resemble</td></tr>
+              <tr><td>graben (gräbt)</td><td>grub (grübe)</td><td>gegraben</td><td>to dig</td></tr>
+              <tr><td>greifen</td><td>griff</td><td>gegriffen</td><td>to grasp / reach</td></tr>
+              <tr><td>haben (du hast, er hat)</td><td>hatte (hätte)</td><td>gehabt</td><td>to have</td></tr>
+              <tr><td>halten (hält)</td><td>hielt</td><td>gehalten</td><td>to hold / stop</td></tr>
+              <tr><td>hängen</td><td>hing</td><td>gehangen</td><td>to hang</td></tr>
+              <tr><td>heben</td><td>hob (höbe)</td><td>gehoben</td><td>to lift</td></tr>
+              <tr><td>heißen</td><td>hieß</td><td>geheißen</td><td>to be called</td></tr>
+              <tr><td>helfen (hilft)</td><td>half (hülfe)</td><td>geholfen</td><td>to help</td></tr>
+              <tr><td>kennen</td><td>kannte (kennte)</td><td>gekannt</td><td>to know (person/thing)</td></tr>
+              <tr><td>klingen</td><td>klang (klänge)</td><td>geklungen</td><td>to sound</td></tr>
+              <tr><td>kommen</td><td>kam (käme)</td><td>ist gekommen</td><td>to come</td></tr>
+              <tr><td><span class="modal-badge">modal</span>können (kann)</td><td>konnte (könnte)</td><td>gekonnt</td><td>can</td></tr>
+              <tr><td>laden (lädt)</td><td>lud (lüde)</td><td>geladen</td><td>to load / invite</td></tr>
+              <tr><td>lassen (lässt)</td><td>ließ</td><td>gelassen</td><td>to let / leave</td></tr>
+              <tr><td>laufen (läuft)</td><td>lief</td><td>ist gelaufen</td><td>to run / walk</td></tr>
+              <tr><td>leiden</td><td>litt</td><td>gelitten</td><td>to suffer</td></tr>
+              <tr><td>leihen</td><td>lieh</td><td>geliehen</td><td>to lend / borrow</td></tr>
+              <tr><td>lesen (liest)</td><td>las (läse)</td><td>gelesen</td><td>to read</td></tr>
+              <tr><td>liegen</td><td>lag (läge)</td><td>gelegen</td><td>to lie / be located</td></tr>
+              <tr><td>lügen</td><td>log (löge)</td><td>gelogen</td><td>to lie (untruth)</td></tr>
+              <tr><td>meiden</td><td>mied</td><td>gemieden</td><td>to avoid</td></tr>
+              <tr><td>messen (misst)</td><td>maß (mäße)</td><td>gemessen</td><td>to measure</td></tr>
+              <tr><td><span class="modal-badge">modal</span>mögen (mag)</td><td>mochte (möchte)</td><td>gemocht</td><td>to like</td></tr>
+              <tr><td><span class="modal-badge">modal</span>müssen (muss)</td><td>musste (müsste)</td><td>gemusst</td><td>must</td></tr>
+              <tr><td>nehmen (nimmt)</td><td>nahm (nähme)</td><td>genommen</td><td>to take</td></tr>
+              <tr><td>nennen</td><td>nannte (nennte)</td><td>genannt</td><td>to name / call</td></tr>
+              <tr><td>raten (rät)</td><td>riet</td><td>geraten</td><td>to advise / guess</td></tr>
+              <tr><td>reiben</td><td>rieb</td><td>gerieben</td><td>to rub</td></tr>
+              <tr><td>reißen</td><td>riss</td><td>ist, hat gerissen</td><td>to tear</td></tr>
+              <tr><td>reiten</td><td>ritt</td><td>ist, hat geritten</td><td>to ride (horse)</td></tr>
+              <tr><td>rennen</td><td>rannte (rennte)</td><td>ist gerannt</td><td>to run</td></tr>
+              <tr><td>riechen</td><td>roch (röche)</td><td>gerochen</td><td>to smell</td></tr>
+              <tr><td>ringen</td><td>rang (ränge)</td><td>gerungen</td><td>to wrestle / struggle</td></tr>
+              <tr><td>rufen</td><td>rief</td><td>gerufen</td><td>to call / shout</td></tr>
+              <tr><td>salzen</td><td>salzte</td><td>gesalzen</td><td>to salt</td></tr>
+              <tr><td>scheinen</td><td>schien</td><td>geschienen</td><td>to shine / seem</td></tr>
+              <tr><td>schieben</td><td>schob (schöbe)</td><td>geschoben</td><td>to push</td></tr>
+              <tr><td>schlafen (schläft)</td><td>schlief</td><td>geschlafen</td><td>to sleep</td></tr>
+              <tr><td>schlagen (schlägt)</td><td>schlug (schlüge)</td><td>geschlagen</td><td>to hit / beat</td></tr>
+              <tr><td>schließen</td><td>schloss (schlösse)</td><td>geschlossen</td><td>to close</td></tr>
+              <tr><td>schneiden</td><td>schnitt</td><td>geschnitten</td><td>to cut</td></tr>
+              <tr><td>(er)schrecken</td><td>erschrak (erschräke)</td><td>ist erschrocken</td><td>to frighten / be startled</td></tr>
+              <tr><td>schreiben</td><td>schrieb</td><td>geschrieben</td><td>to write</td></tr>
+              <tr><td>schreien</td><td>schrie</td><td>geschrieen</td><td>to scream / shout</td></tr>
+              <tr><td>schreiten</td><td>schritt</td><td>geschritten</td><td>to stride</td></tr>
+              <tr><td>schweigen</td><td>schwieg</td><td>geschwiegen</td><td>to be silent</td></tr>
+              <tr><td>schwimmen</td><td>schwamm (schwämme)</td><td>ist, hat geschwommen</td><td>to swim</td></tr>
+              <tr><td>schwinden</td><td>schwand (schwände)</td><td>ist geschwunden</td><td>to dwindle / vanish</td></tr>
+              <tr><td>schwingen</td><td>schwang (schwänge)</td><td>hat, ist geschwungen</td><td>to swing</td></tr>
+              <tr><td>schwören</td><td>schwur, schwor (schwüre)</td><td>geschworen</td><td>to swear (oath)</td></tr>
+              <tr><td>sehen (sieht)</td><td>sah (sähe)</td><td>gesehen</td><td>to see</td></tr>
+              <tr><td>sein (ist)</td><td>war (wäre)</td><td>ist gewesen</td><td>to be</td></tr>
+              <tr><td>singen</td><td>sang (sänge)</td><td>gesungen</td><td>to sing</td></tr>
+              <tr><td>sinken</td><td>sank (sänke)</td><td>ist gesunken</td><td>to sink</td></tr>
+              <tr><td>sitzen</td><td>saß (säße)</td><td>gesessen</td><td>to sit</td></tr>
+              <tr><td><span class="modal-badge">modal</span>sollen (soll)</td><td>sollte</td><td>gesollt</td><td>should</td></tr>
+              <tr><td>sprechen (spricht)</td><td>sprach (spräche)</td><td>gesprochen</td><td>to speak</td></tr>
+              <tr><td>springen</td><td>sprang (spränge)</td><td>ist gesprungen</td><td>to jump</td></tr>
+              <tr><td>stechen (sticht)</td><td>stach (stäche)</td><td>gestochen</td><td>to sting / stab</td></tr>
+              <tr><td>stehen</td><td>stand (stände od. stünde)</td><td>gestanden</td><td>to stand</td></tr>
+              <tr><td>stehlen (stiehlt)</td><td>stahl (stähle)</td><td>gestohlen</td><td>to steal</td></tr>
+              <tr><td>steigen</td><td>stieg</td><td>ist gestiegen</td><td>to climb / rise</td></tr>
+              <tr><td>sterben (stirbt)</td><td>starb (stürbe)</td><td>ist gestorben</td><td>to die</td></tr>
+              <tr><td>stoßen (stößt)</td><td>stieß</td><td>gestoßen</td><td>to push / bump</td></tr>
+              <tr><td>streichen</td><td>strich</td><td>ist, hat gestrichen</td><td>to stroke / cross out</td></tr>
+              <tr><td>streiten</td><td>stritt</td><td>gestritten</td><td>to argue / quarrel</td></tr>
+              <tr><td>tragen (trägt)</td><td>trug (trüge)</td><td>getragen</td><td>to carry / wear</td></tr>
+              <tr><td>treffen (trifft)</td><td>traf (träfe)</td><td>getroffen</td><td>to meet / hit</td></tr>
+              <tr><td>treten (tritt)</td><td>trat (träte)</td><td>hat, ist getreten</td><td>to step / kick</td></tr>
+              <tr><td>trinken</td><td>trank (tränke)</td><td>getrunken</td><td>to drink</td></tr>
+              <tr><td>trügen</td><td>trog (tröge)</td><td>getrogen</td><td>to deceive</td></tr>
+              <tr><td>tun (tut)</td><td>tat (täte)</td><td>getan</td><td>to do</td></tr>
+              <tr><td>verderben (verdirbt)</td><td>verdarb (verdürbe)</td><td>verdorben</td><td>to spoil / ruin</td></tr>
+              <tr><td>vergessen (vergisst)</td><td>vergaß (vergäße)</td><td>vergessen</td><td>to forget</td></tr>
+              <tr><td>verlieren</td><td>verlor (verlöre)</td><td>verloren</td><td>to lose</td></tr>
+              <tr><td>wachsen (wächst)</td><td>wuchs (wüchse)</td><td>ist gewachsen</td><td>to grow</td></tr>
+              <tr><td>waschen (wäscht)</td><td>wusch (wüsche)</td><td>gewaschen</td><td>to wash</td></tr>
+              <tr><td>werben (wirbt)</td><td>warb (würbe)</td><td>geworben</td><td>to advertise / recruit</td></tr>
+              <tr><td>werden (wird)</td><td>wurde, ward (würde)</td><td>ist geworden</td><td>to become</td></tr>
+              <tr><td>werfen (wirft)</td><td>warf (würfe)</td><td>geworfen</td><td>to throw</td></tr>
+              <tr><td>wiegen</td><td>wog (wöge)</td><td>gewogen</td><td>to weigh</td></tr>
+              <tr><td>wissen (weiß)</td><td>wusste (wüsste)</td><td>gewusst</td><td>to know (fact)</td></tr>
+              <tr><td><span class="modal-badge">modal</span>wollen (will)</td><td>wollte</td><td>gewollt</td><td>want to</td></tr>
+              <tr><td>(ver)zeihen</td><td>verzieh</td><td>verziehen</td><td>to forgive</td></tr>
+              <tr><td>ziehen</td><td>zog (zöge)</td><td>hat, ist gezogen</td><td>to pull / move</td></tr>
+              <tr><td>zwingen</td><td>zwang (zwänge)</td><td>gezwungen</td><td>to force / compel</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="font-size:0.72rem;color:var(--text-3);margin-top:10px;">Source: Wichtige starke und unregelmäßige Verben — Der Die Das Language School</p>
+      </div></div>
+    </div>
+  </section>
+
 </div><!-- /main-wrap -->
 
 <!-- Footer -->
@@ -2388,6 +2629,13 @@
       <span class="dl" onclick="navTo('glos-terms')">Schlüsselbegriffe</span>
     </div>
   </div>
+
+  <div class="drawer-sec">
+    <span class="drawer-sec-label vb">⚡ Starke Verben</span>
+    <div class="drawer-links">
+      <span class="dl" onclick="navTo('strong-verbs')">121 Verben A–Z</span>
+    </div>
+  </div>
 </div>
 
 <!-- Search Overlay Background -->
@@ -2444,7 +2692,7 @@ function navTo(id) {
 
 // ── Global Search ──
 const searchData = [];
-document.querySelectorAll('#grammar tbody tr, #vocabulary tbody tr, #glossary tbody tr').forEach(row => {
+document.querySelectorAll('#grammar tbody tr, #vocabulary tbody tr, #glossary tbody tr, #verbs tbody tr').forEach(row => {
   const cells = row.querySelectorAll('td');
   if (cells.length < 2) return;
   const de = cells[0].textContent.trim();
@@ -2493,8 +2741,8 @@ document.getElementById('gsearch').addEventListener('input', function() {
   }
   resultsEl.innerHTML = matches.map(m => {
     const idx = searchData.indexOf(m);
-    const sType = m.section === 'vocabulary' ? 'v' : m.section === 'grammar' ? 'g' : 'gl';
-    const sLabel = m.section === 'vocabulary' ? 'Wortschatz' : m.section === 'grammar' ? 'Grammatik' : 'Glossar';
+    const sType = m.section === 'vocabulary' ? 'v' : m.section === 'grammar' ? 'g' : m.section === 'verbs' ? 'vb' : 'gl';
+    const sLabel = m.section === 'vocabulary' ? 'Wortschatz' : m.section === 'grammar' ? 'Grammatik' : m.section === 'verbs' ? 'Verben' : 'Glossar';
     return `<div class="sm-item" onclick="goToResult(${idx})">
       <div class="sm-item-text">
         <div class="sm-de">${m.de}</div>
@@ -2576,7 +2824,8 @@ window.addEventListener('scroll', () => {
 const sections = [
   { id: 'grammar',    chip: 'grammar' },
   { id: 'vocabulary', chip: 'vocabulary' },
-  { id: 'glossary',   chip: 'glossary' }
+  { id: 'glossary',   chip: 'glossary' },
+  { id: 'verbs',      chip: 'verbs' }
 ];
 
 const chips = document.querySelectorAll('.section-nav .chip');
@@ -2654,6 +2903,37 @@ if (window.speechSynthesis) {
     });
     firstTd.appendChild(btn);
   });
+
+  // ── Extra: speak buttons for verbs table columns 2 & 3 (Präteritum, Perfekt) ──
+  function makeSpeakBtn(text) {
+    const b = document.createElement('button');
+    b.className = 'speak-btn';
+    b.innerHTML = speakSVG;
+    b.title = 'Vorlesen (de-DE)';
+    b.addEventListener('click', e => {
+      e.stopPropagation();
+      speechSynthesis.cancel();
+      const utt = new SpeechSynthesisUtterance(text);
+      utt.lang = 'de-DE';
+      utt.rate = 0.88;
+      speechSynthesis.speak(utt);
+      b.classList.add('active');
+      utt.onend = () => b.classList.remove('active');
+      setTimeout(() => b.classList.remove('active'), 4000);
+    });
+    return b;
+  }
+
+  document.querySelectorAll('.verbs-table tbody tr').forEach(row => {
+    const cells = row.querySelectorAll('td');
+    [1, 2].forEach(idx => {
+      const cell = cells[idx];
+      if (!cell) return;
+      const rawText = cell.textContent.trim();
+      if (!rawText || rawText.length < 2) return;
+      cell.appendChild(makeSpeakBtn(rawText));
+    });
+  });
 }
 
 // Mark only tables whose 2nd header is actually "English"
@@ -2678,6 +2958,30 @@ hideToggle.addEventListener('click', () => {
 document.querySelectorAll('#vocabulary tbody tr').forEach(row => {
   row.addEventListener('click', e => {
     if (!vocabEl.classList.contains('hide-en')) return;
+    if (e.target.closest('.speak-btn')) return;
+    row.classList.toggle('peeked');
+  });
+});
+
+// ── Feature 4: Hide English (verbs section) ──
+const verbsHideToggle = document.getElementById('verbs-hide-toggle');
+const verbsEl = document.getElementById('verbs');
+
+verbsHideToggle.addEventListener('click', () => {
+  const on = verbsEl.classList.toggle('hide-en');
+  verbsHideToggle.textContent = on ? 'Show English' : 'Hide English';
+  verbsHideToggle.classList.toggle('active', on);
+  if (!on) verbsEl.querySelectorAll('tr.peeked').forEach(r => r.classList.remove('peeked'));
+  // Auto-open the card when hiding starts
+  if (on) {
+    const card = document.getElementById('strong-verbs');
+    if (card && !card.classList.contains('open')) card.classList.add('open');
+  }
+});
+
+document.querySelectorAll('#verbs tbody tr').forEach(row => {
+  row.addEventListener('click', e => {
+    if (!verbsEl.classList.contains('hide-en')) return;
     if (e.target.closest('.speak-btn')) return;
     row.classList.toggle('peeked');
   });
