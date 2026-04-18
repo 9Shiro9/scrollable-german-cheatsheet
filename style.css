@@ -399,7 +399,28 @@ thead th {
   color: var(--text-2);
   border-bottom: 2px solid var(--border);
   white-space: nowrap;
+  position: relative;
 }
+thead th:has(.th-eye-btn) { padding-right: 30px; }
+
+/* ── Column eye-toggle buttons ── */
+.th-eye-btn {
+  position: absolute;
+  right: 7px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 3px;
+  line-height: 0;
+  color: var(--text-2);
+  opacity: 0.38;
+  border-radius: 4px;
+  transition: opacity 0.14s, color 0.14s, background 0.14s;
+}
+.th-eye-btn:hover { opacity: 0.85; background: var(--border-lt); }
+.th-eye-btn.is-off { opacity: 1; color: var(--v, #7c5cbf); }
 tbody tr {
   border-bottom: 1px solid var(--border-lt);
   transition: background 0.1s;
@@ -792,6 +813,8 @@ tr:hover .speak-btn { opacity: 1; }
 .lang-mode[data-active="hide-en"] button[data-mode="hide-en"] { background: var(--v); color: #fff; }
 
 /* vocab hide-de: col 1 = German word */
+#vocabulary.hide-de .en-table tbody td:nth-child(1) .speak-btn { visibility: hidden; }
+#vocabulary.hide-de .en-table tbody tr.peeked td:nth-child(1) .speak-btn { visibility: visible; }
 #vocabulary.hide-de .en-table tbody td:nth-child(1) {
   color: transparent;
   background: var(--border-lt);
@@ -859,6 +882,12 @@ tr:hover .speak-btn { opacity: 1; }
 .vb-controls .note { flex: 1; margin: 0; }
 
 /* verbs hide-de: cols 1–3 = German forms */
+#verbs.hide-de .verbs-table tbody td:nth-child(1) .speak-btn,
+#verbs.hide-de .verbs-table tbody td:nth-child(2) .speak-btn,
+#verbs.hide-de .verbs-table tbody td:nth-child(3) .speak-btn { visibility: hidden; }
+#verbs.hide-de .verbs-table tbody tr.peeked td:nth-child(1) .speak-btn,
+#verbs.hide-de .verbs-table tbody tr.peeked td:nth-child(2) .speak-btn,
+#verbs.hide-de .verbs-table tbody tr.peeked td:nth-child(3) .speak-btn { visibility: visible; }
 #verbs.hide-de .verbs-table tbody td:nth-child(1),
 #verbs.hide-de .verbs-table tbody td:nth-child(2),
 #verbs.hide-de .verbs-table tbody td:nth-child(3) {

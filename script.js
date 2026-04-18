@@ -336,6 +336,52 @@ setupLangMode(document.getElementById('verbs-lang-mode'), verbsEl, (mode) => {
   }
 });
 
+// ── Eye-toggle icons in column headers ──
+(function () {
+  const EYE = `<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>`;
+  const EYE_OFF = `<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19m-6.72-1.07a3 3 0 11-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>`;
+
+  function setupThEyes(sectionEl, modeEl) {
+    sectionEl.querySelectorAll('thead th').forEach(th => {
+      const text = th.textContent.trim().toLowerCase();
+      let mode;
+      if (text.includes('german') || text.startsWith('infinitiv')) mode = 'hide-de';
+      else if (text.includes('english') || text === 'meaning') mode = 'hide-en';
+      else return;
+
+      const btn = document.createElement('button');
+      btn.className = 'th-eye-btn';
+      btn.dataset.thMode = mode;
+      btn.innerHTML = EYE;
+      btn.setAttribute('aria-label', mode === 'hide-de' ? 'Toggle German visibility' : 'Toggle English visibility');
+      btn.addEventListener('click', e => {
+        e.stopPropagation();
+        const next = modeEl.dataset.active === mode ? '' : mode;
+        modeEl.querySelector(`[data-mode="${next}"]`).click();
+      });
+      th.appendChild(btn);
+    });
+
+    function syncIcons() {
+      const active = modeEl.dataset.active;
+      sectionEl.querySelectorAll('.th-eye-btn').forEach(btn => {
+        const hidden = active === btn.dataset.thMode;
+        btn.innerHTML = hidden ? EYE_OFF : EYE;
+        btn.classList.toggle('is-off', hidden);
+        btn.setAttribute('title', hidden
+          ? (btn.dataset.thMode === 'hide-de' ? 'Show German' : 'Show English')
+          : (btn.dataset.thMode === 'hide-de' ? 'Hide German' : 'Hide English'));
+      });
+    }
+
+    new MutationObserver(syncIcons).observe(modeEl, { attributes: true, attributeFilter: ['data-active'] });
+    syncIcons();
+  }
+
+  setupThEyes(vocabEl, document.getElementById('vocab-lang-mode'));
+  setupThEyes(verbsEl, document.getElementById('verbs-lang-mode'));
+})();
+
 // ── Hero cards smooth scroll ──
 document.querySelectorAll('.hero-card').forEach(card => {
   card.addEventListener('click', () => {
